@@ -9,8 +9,13 @@
     <link rel="stylesheet" href='{% static "css/homepage.css" %}'>
     <title>Document</title>
 </head>
-<body>
-    <header>
+<body class="body">
+    <header class="nav__bar">
+        <div class="nav__bar--title">
+            <img src="{% static 'img/logo.png' %}">
+            <h1 class="homepage_name">이음</h1>
+            <h2 class="homepage_name_en">EEEM</h2>
+        </div>
         <nav role="navigation" class="primary-navigation">
         <ul>
             <li><a href="#">Home</a></li>
@@ -29,4 +34,3 @@
     </header>
 </body>
 </html>
-
