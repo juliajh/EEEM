@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+<!-- 로드 템플릿? -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,11 +12,13 @@
 </head>
 <body class="body">
     <header class="nav__bar">
+        <!-- <a href="{% static 'homepage.html' %}"> -->
         <div class="nav__bar--title">
             <img src="{% static 'img/logo.png' %}">
             <h1 class="homepage_name">이음</h1>
             <h2 class="homepage_name_en">EEEM</h2>
         </div>
+        <!-- </a> -->
         <nav role="navigation" class="primary-navigation">
         <ul>
             <li><a href="#">Home</a></li>

@@ -1,5 +1,5 @@
 .body {
-  background-color: whitesmoke;
+  background-color: rgb(241, 231, 231);
 }
 .nav__bar {
   background-color: beige;
@@ -97,5 +97,5 @@ ul li ul li a {
 }
 
 .primary-navigation ul {
-  padding-right: 80px;
+  padding-right: 180px;
 }
