@@ -26,12 +26,10 @@
       a:hover { color: black; text-decoration: none;}
      </style>
      
-
-    <!-- </a> -->
     <nav role="navigation" class="primary-navigation">
-    <ul>
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="#">Go to &dtrif;</a>
+    <ul class="nav__list">
+        <li class="nav__list--home"><a href="{% url 'home' %}">Home</a></li>
+        <li class="nav__list--goto"><a href="#">Go to &dtrif;</a>
         <ul class="dropdown">
             <li><a href="#">community</a></li>
             <li><a href="#">manner</a></li>
@@ -39,14 +37,14 @@
             <li><a href="#">game</a></li>
         </ul>
         </li>
-        <li><a href="#">About &dtrif;</a>
+        <li class="nav__list--about"><a href="#">About &dtrif;</a>
             <ul class="dropdown">
                 <li><a href="#">introduction</a></li>
                 <li><a href="#">Q & A</a></li>
                 <!-- <li><a href="#">trend</a></li>
                 <li><a href="#">game</a></li> -->
             </ul></li>
-        <li><a href="#">Contact</a></li>
+        <li class="nav__list--contact"><a href="#">Contact</a></li>
     </ul>
     </nav>
 </header>

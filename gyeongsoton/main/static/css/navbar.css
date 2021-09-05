@@ -90,7 +90,7 @@ nav.primary-navigation ul li ul li a:hover {
   border-left: 2px solid #3ca0e7;
   transition: all 0.3s ease;
 }
-nav.primary-navigation ul li:last-child {
+.nav__list--contact {
   border-right: 2px solid #3ca0e7;
 }
 a {
