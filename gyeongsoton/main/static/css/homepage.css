@@ -1,7 +1,10 @@
 .body {
   background-color: rgb(241, 231, 231);
+  height: 500vh;
 }
 .nav__bar {
+  position: fixed;
+  width: 100%;
   background-color: beige;
   display: flex;
   justify-content: center;
