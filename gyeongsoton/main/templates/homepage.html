@@ -1,48 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-{% load static %}
+{% extends 'base.html' %}{% load static %}{% block extrahead %}
+<link rel="stylesheet" href='{% static "css/homepage.css" %}'>
+<link rel="stylesheet" href='{% static "css/reset.css" %}'>
+{% endblock %}{% block content %}
 <!-- 로드 템플릿? -->
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=1, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href='{% static "css/homepage.css" %}'>
-    <link rel="stylesheet" href='{% static "css/reset.css" %}'>
-    <link rel="stylesheet" href='{% static "css/navbar.css" %}'>
     <title>Document</title>
 </head>
+
 <body class="body">
-    <header class="nav__bar">
-        <!-- <a href="{% static 'homepage.html' %}"> -->
-        <div class="nav__bar--title">
-            <img src="{% static 'img/logo.png' %}">
-            <h1 class="homepage_name">이음</h1>
-            <h2 class="homepage_name_en">EEEM</h2>
-        </div>
-        <!-- </a> -->
-        <nav role="navigation" class="primary-navigation">
-        <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="#">Go to &dtrif;</a>
-            <ul class="dropdown">
-                <li><a href="#">community</a></li>
-                <li><a href="#">manner</a></li>
-                <li><a href="#">trend</a></li>
-                <li><a href="#">game</a></li>
-            </ul>
-            </li>
-            <li><a href="#">About &dtrif;</a>
-                <ul class="dropdown">
-                    <li><a href="#">introduction</a></li>
-                    <li><a href="#">Q & A</a></li>
-                    <!-- <li><a href="#">trend</a></li>
-                    <li><a href="#">game</a></li> -->
-                </ul></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        </nav>
-    </header>
     <main class="main__content">
         <div class="community">
             <div class="community__title">community</div>
@@ -52,4 +17,4 @@
         <div class="game">game</div>
     </main>
 </body>
-</html>
+{% endblock %}
