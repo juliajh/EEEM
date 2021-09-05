@@ -13,11 +13,20 @@
 <body>
   <header class="nav__bar">
     <!-- <a href="{% static 'homepage.html' %}"> -->
-    <div class="nav__bar--title">
-        <img src="{% static 'img/logo.png' %}">
-        <h1 class="homepage_name">이음</h1>
-        <h2 class="homepage_name_en">EEEM</h2>
-    </div>
+    <a href="{% url 'home' %}">
+      <div class="nav__bar--title">
+          <img src="{% static 'img/logo.png' %}">
+          <h1 class="homepage_name">이음</h1>
+          <h2 class="homepage_name_en">EEEM</h2>
+      </div>
+    </a>
+    <style type="text/css">
+      a:link { color: black; text-decoration: none;}
+      a:visited { color: black; text-decoration: none;}
+      a:hover { color: black; text-decoration: none;}
+     </style>
+     
+
     <!-- </a> -->
     <nav role="navigation" class="primary-navigation">
     <ul>
