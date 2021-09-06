@@ -5,9 +5,9 @@ from django.conf import settings
 
 
 class newterm(models.Model):
-    question = models.CharField()
-    answer = models.CharField()
-    non_answer = models.CharField()
+    question = models.CharField(max_length=100)
+    answer = models.CharField(max_length=100)
+    non_answer = models.CharField(max_length=100)
 
 
 class communityText(models.Model):
@@ -33,9 +33,6 @@ class manner(models.Model):
     text = models.CharField(max_length=500)
     like = models.IntegerField()
     dis_like = models.IntegerField()
-    hashtag_me = models.CharField()
-    hashtag_you = models.CharField()
-    hashtag_situation = models.CharField()
-
-
-# 회원 클래스 생성 필요
+    hashtag_me = models.CharField(max_length=20)
+    hashtag_you = models.CharField(max_length=20)
+    hashtag_situation = models.CharField(max_length=50)
