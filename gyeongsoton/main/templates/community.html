@@ -3,18 +3,28 @@
 {% block content %}
 
 {% endblock %}
-<body>
-    <ol class="list-group list-group-numbered">
-        {% for community in communities.all %}
-        <a href="{%url 'communityDetail' community.id %}"><li class="list-group-item d-flex justify-content-between align-items-start" style="margin-top:100px;" >
-          <div class="ms-2 me-auto" >
-            <div class="fw-bold">{{community.text}}</div>
-          </div>
-          <span class="badge bg-primary rounded-pill">{{community.like}}</span>
-        </li>
-        </a>
-        {% endfor %}
-      </ol>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+  <title>Document</title>
+</head>
+<body class="body">
+  <ol class="list-group list-group-numbered">
+    {% for community in communities.all %}
+    <a href="{%url 'communityDetail' community.id %}"><li class="list-group-item d-flex justify-content-between align-items-start" style="margin-top:100px;" >
+      <div class="ms-2 me-auto" >
+        <div class="fw-bold">{{community.text}}</div>
+      </div>
+      <span class="badge bg-primary rounded-pill">{{community.like}}</span>
+    </li>
+    </a>
+    {% endfor %}
+  </ol>
 </body>
+</html>
 
 {% endblock %}
