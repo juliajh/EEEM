@@ -9,7 +9,14 @@
   <title>Document</title>
 </head>
 <body class="body">
-  
+  {% for manner in manner.all %}
+    <div style="margin-top: 150px;">제목 : {{manner.text}}</div>
+    <div>좋아요 : {{manner.like}}</div>
+    <div>싫어요 : {{manner.dis_like}}</div>
+    <div>누가 : {{manner.hashtag_me}}</div>
+    <div>누구에게 : {{manner.hashtag_you}}</div>
+    <div>내용 : {{manner.hashtag_situation}}</div>
+  {% endfor %}
 </body>
 </html>
 {% endblock %}

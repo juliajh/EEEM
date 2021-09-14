@@ -19,10 +19,12 @@ from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home,name="home"),
-    path('community/',views.community,name="community"),
-    path('trend/',views.trend,name="trend"),
-    path('game/',views.game,name = "game"),
-    path('manner/',views.manner,name="manner"),
-    path('community/detail/<str:id>',views.communityDetail,name="communityDetail"),
+    path('', views.home, name="home"),
+    path('community/', views.community, name="community"),
+    path('community/detail/<str:id>',
+         views.communityDetail, name="communityDetail"),
+    path('trend/', views.trend, name="trend"),
+    path('game/', views.game, name="game"),
+    path('manner/', views.manners, name="manner"),
+
 ]
