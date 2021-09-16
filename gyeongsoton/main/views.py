@@ -32,11 +32,17 @@ def manners(request):
     manner_alltext = manner.objects.all()
     return render(request, "manner.html", {'manner': manner_alltext})
 
+
+def mannersDetail(request, id):
+    manner_detail = get_object_or_404(manner, pk=id)
+    return render(request, "mannerDetail.html", {'mannerdetail': manner_detail})
+
+
 def newterms(request):
     newterm_quiz = newterm.objects.all()
-    return render(request,"newterms.html",{'new_term':newterm_quiz})
+    return render(request, "newterms.html", {'new_term': newterm_quiz})
+
 
 def newtermQuiz(request, id):
     term = get_object_or_404(newterm, pk=id)
-    return render(request,"newtermQuiz.html",{'term':term})
-
+    return render(request, "newtermQuiz.html", {'term': term})
