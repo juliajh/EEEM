@@ -13,7 +13,16 @@
   <title>Document</title>
 </head>
 <body style="margin-top: 90px; margin-left: 20px;">
-  <div>hello</div>
+  <div style="display: flex;
+  flex-direction: column;
+  align-items: center;
+  ">
+    <span>좋아요 : {{mannersdetail.like}}</span>
+    <span>싫어요 : {{mannersdetail.dis_like}}</span>
+    <span>누가 : {{mannersdetail.hashtag_me}}</span>
+    <span>누구에게 : {{mannersdetail.hashtag_you}}</span>
+    <span>어떻게 : {{mannersdetail.hashtag_situation}}</span>
+  </div>
 </body>
 </html>
 
