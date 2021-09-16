@@ -21,13 +21,17 @@
             <br>
             <h2>{{term.question}}</h2>
             <br>
-            <div style = "width:300px; height:120px; background: #fc7d7d; margin: 20px; color: #000000; padding: 20px 20px 20px 20px;">
-                <a href="{%url 'newterms' %}">{{term.answer}}</a>
-            </div>
+            <a href="{%url 'newterms' %}">
+                <div style = "width:300px; height:120px; background: #fc7d7d; margin: 20px; color: #000000; padding: 20px 20px 20px 20px;">
+                    <span>{{term.answer}}</span>
+                </div>
+            </a>
             <br>
-            <div style = "width:300px; height:120px; background: #5893eb; margin: 20px; color: #000000; padding: 20px 20px 20px 20px;">
-                <a href="{%url 'newterms' %}">{{term.non_answer}}</a>
-            </div>
+            <a href="{%url 'newterms' %}">
+                <div style = "width:300px; height:120px; background: #6d9bff; margin: 20px; color: #000000; padding: 20px 20px 20px 20px;">
+                    <span>{{term.non_answer}}</span>
+                </div>
+            </a>
         </span>
         </div>
     </div>
