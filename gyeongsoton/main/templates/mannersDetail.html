@@ -10,13 +10,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}">
   <title>Document</title>
 </head>
-<body style="margin-top: 90px; margin-left: 20px;">
-  <div style="display: flex;
-  flex-direction: column;
-  align-items: center;
-  ">
+<body style="margin-top: 90px;">
+  <div>
     <span>좋아요 : {{mannersdetail.like}}</span>
     <span>싫어요 : {{mannersdetail.dis_like}}</span>
     <span>누가 : {{mannersdetail.hashtag_me}}</span>
