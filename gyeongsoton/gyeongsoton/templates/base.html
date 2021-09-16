@@ -15,8 +15,8 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="{% static 'img/logo.png' %}">
+      <a class="navbar-brand" href="{%url 'home' %}">
+        <img src="{% static 'img/logo.png' %}" style="height: 40px; width: 40px;">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,11 +24,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="{%url 'newterms' %}">신조어게임</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="{%url 'community' %}">꼰대 커뮤니티</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'trend' %}">신문물 소개</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'manner' %}">예의의 틀</a>
+          </li>
+          <!--
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
@@ -40,9 +47,7 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
+          -->
         </ul>
       </div>
     </div>
