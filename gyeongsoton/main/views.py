@@ -32,9 +32,11 @@ def manners(request):
     manner_alltext = manner.objects.all()
     return render(request, "manner.html", {'manner': manner_alltext})
 
-def newterm(request):
-    return render(request,"newterm.html")
+def newterms(request):
+    newterm_quiz = newterm.objects.all()
+    return render(request,"newterms.html",{'new_term':newterm_quiz})
 
-def newtermAdd(request):
-    return render(request,"newtermAdd.html")
+def newtermQuiz(request, id):
+    term = get_object_or_404(newterm, pk=id)
+    return render(request,"newtermQuiz.html",{'term':term})
 

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}{% load static %}{% block extrahead %}
+
+{% block content %}
+
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body  style="margin-top: 80px;">
+    <div>
+        <div style = "text-align: left; margin-left: 30px;">
+        <span style="font-size:1.0em; color:black">
+            <h1>다음 신조어를 맞추어 보세요</h1>
+            <br>
+            <h2>{{term.question}}</h2>
+            <br>
+            <div style = "width:300px; height:120px; background: #fc7d7d; margin: 20px; color: #000000; padding: 20px 20px 20px 20px;">
+                <a href="{%url 'newterms' %}">{{term.answer}}</a>
+            </div>
+            <br>
+            <div style = "width:300px; height:120px; background: #5893eb; margin: 20px; color: #000000; padding: 20px 20px 20px 20px;">
+                <a href="{%url 'newterms' %}">{{term.non_answer}}</a>
+            </div>
+        </span>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}
