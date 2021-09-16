@@ -26,5 +26,7 @@ urlpatterns = [
     path('trend/', views.trend, name="trend"),
     path('game/', views.game, name="game"),
     path('manner/', views.manners, name="manner"),
+    path('newterm/',views.newterm,name="newterm"),
+    path('newtermAdd/',views.newtermAdd,name="newtermAdd"),
 
 ]

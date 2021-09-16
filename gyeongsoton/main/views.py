@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from .models import communityText
 from .models import manner
+from .models import newterm
 
 # Create your views here.
 
@@ -30,3 +31,10 @@ def game(request):
 def manners(request):
     manner_alltext = manner.objects.all()
     return render(request, "manner.html", {'manner': manner_alltext})
+
+def newterm(request):
+    return render(request,"newterm.html")
+
+def newtermAdd(request):
+    return render(request,"newtermAdd.html")
+
