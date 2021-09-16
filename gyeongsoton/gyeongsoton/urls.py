@@ -25,7 +25,6 @@ urlpatterns = [
     path('community/detail/<str:id>',
          views.communityDetail, name="communityDetail"),
     path('trend/', views.trend, name="trend"),
-    path('game/', views.game, name="game"),
     path('manner/', views.manners, name="manner"),
     path('manner/detail/<str:id>', views.mannersDetail, name='mannersDetail'),
     path('newterms/', views.newterms, name="newterms"),

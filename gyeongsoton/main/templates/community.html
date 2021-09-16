@@ -1,8 +1,7 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %}
 
-{% block content %}
+{% endblock %} {% block content %}
 
-{% endblock %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@
 <body class="body">
   <ol class="list-group list-group-numbered">
     {% for community in communities.all %}
-    <a href="{%url 'communityDetail' community.id %}"><li class="list-group-item d-flex justify-content-between align-items-start" style="margin-top:100px;" >
+    <a href="{%url 'communityDetail' community.id %}"><li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto" >
         <div class="fw-bold">{{community.text}}</div>
       </div>

@@ -10,9 +10,16 @@
   margin: 10px 0px;
 }*/
 
+body {
+  width: 100%;
+  height: 100%;
+}
+.main__content {
+  width: 100%;
+  height: 100%;
+}
+
 .section {
-  position: absolute;
-  z-index: 0;
   width: 50%;
   height: 50%;
   overflow: hidden;

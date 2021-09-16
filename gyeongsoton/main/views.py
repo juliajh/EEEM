@@ -23,11 +23,6 @@ def communityDetail(request, id):
 def trend(request):
     return render(request, "trend.html")
 
-
-def game(request):
-    return render(request, "game.html")
-
-
 def manners(request):
     manner_alltext = manner.objects.all()
     return render(request, "manner.html", {'manner': manner_alltext})
