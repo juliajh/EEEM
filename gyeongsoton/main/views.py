@@ -35,7 +35,7 @@ def manners(request):
 
 def mannersDetail(request, id):
     manner_detail = get_object_or_404(manner, pk=id)
-    return render(request, "mannerDetail.html", {'mannerdetail': manner_detail})
+    return render(request, "mannersDetail.html", {'mannersdetail': manner_detail})
 
 
 def newterms(request):
