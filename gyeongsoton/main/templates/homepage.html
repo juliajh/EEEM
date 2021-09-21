@@ -1,23 +1,18 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %}
-<link rel="stylesheet" href='{% static "css/homepage.css" %}'>
-<link rel="stylesheet" href='{% static "css/reset.css" %}'>
 {% endblock %} {% block content %}
 
-
-
 <head>
-    <title>Document</title>
+    <link rel="stylesheet" href='{% static "css/homepage.css" %}'>
+    <link rel="stylesheet" href='{% static "css/reset.css" %}'>
+    <title>homepage</title>
 </head>
-<body class="body">
-    <main class="main__content">
-        <div class="community">
-            <div class="community__title">community</div>
-        </div>
-        <div class="manner">manner</div>
-        <div class="trend">trend</div>
-        <div class="game">game</div>
-    </main>
-
+<body>
+    <div class="main__content">
+        <div class="main__content--box"></div>
+        <div class="main__content--box"></div>
+        <div class="main__content--box"></div>
+        <div class="main__content--box"></div>
+    </div>
 </body>
 </html>
 
