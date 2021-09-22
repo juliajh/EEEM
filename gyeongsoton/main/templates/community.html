@@ -2,6 +2,7 @@
 
 {% endblock %} {% block content %}
 
+<!--
 <body class="body">
   <ol class="list-group list-group-numbered">
     {% for community in communities.all %}
@@ -15,6 +16,42 @@
     {% endfor %}
   </ol>
 </body>
-</html>
+</html>-->
+<head>
+  <link rel="stylesheet" href='{% static "css/community.css" %}'>
+  <title></title>
+</head>
+
+<body>
+  <div class="row d-flex justify-content-center mt-100 mb-100">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="comment-widgets">
+              {% for community in communities.all %}
+              <a href="{%url 'communityDetail' community.id %}">
+                <div class="d-flex flex-row comment-row m-t-0">
+                  <div class="userimg">
+                    <img src="https://i.imgur.com/Ur43esv.jpg" style="border-radius: 70%" alt="user" width="50px" class="rounded-circle">
+                  </div>
+                  <div class="comment-text w-100">
+                      <h6 class="font-medium">{{community.user}}
+                      {%if community.user.sex == 0%}
+                      <span class="sex">남</span>
+                      {%else%}
+                      <span class="sex">여</span>
+                      {%endif%}
+                      {{community.user.age}}살
+                      </h6><br>
+                      <span class="m-b-15 d-block">{{community.text}}</span>
+                      <div class="comment-footer"> <span class="text-muted float-right">{{community.date|date:'Y-m-d fa' }}</span></div>
+                  </div>
+                </div>
+              </a>
+              {% endfor %}
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
 
 {% endblock %}

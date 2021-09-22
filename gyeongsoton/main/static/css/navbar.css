@@ -1,9 +1,9 @@
 .navbar {
-  background-color: rgb(209, 205, 205);
+  background-color: #FFFFF3;
   display: flex;
   align-items: center;
   padding: 10px 0px;
-  border-bottom: 2px solid gray;
+  /*border-bottom: 2px solid #ddddcd;*/
 }
 
 .navbar__buttons {

@@ -8,6 +8,9 @@
   <link rel="stylesheet" href='{% static "css/navbar.css" %}'>
   <link rel="stylesheet" href='{% static "css/reset.css" %}'>
   <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
   <style type="text/css">
     a:link { color: black; text-decoration: none;}
     a:visited { color: black; text-decoration: none;}
@@ -21,7 +24,7 @@
   <nav class="navbar">
     <a class="navbar-brand" href="{%url 'home' %}">
       <img src="{% static 'img/logo.png' %}" style="height: 50px; width: 50px; margin-left: 10px;">
-      <span style="font-size: 30px;">이음</span>
+      <span style="font-size: 30px;"><strong>이음</strong></span>
     </a>
     <ul class="navbar__buttons">
       <li class="nav-item">
