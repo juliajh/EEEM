@@ -25,8 +25,8 @@
 
 <head>
     <link rel="stylesheet" href='{% static "css/newtermQuiz.css" %}'>
-    <title>Document</title>
-    <script>
+    <title>newtermQuiz</title>
+    <!--<script>
         var animateButton = function(e) {
 
         e.preventDefault;
@@ -45,27 +45,30 @@
         bubblyButtons[i].addEventListener('click', animateButton, false);
         }
     </script>
+    -->
 </head>
 
-<div class="book">
-    <div class="back"></div>
-    <div class="page6">
-        <span>{{term.question}}</span>
+<body>
+    <div class="book">
+        <div class="back"></div>
+        <div class="page6">
+            <span>{{term.question}}</span>
+        </div>
+        <div class="page5"></div>
+        <div class="page4"></div>
+        <div class="page3"></div>
+        <div class="page2"></div>
+        <div class="page1"></div>
+        <div class="front"></div>
     </div>
-    <div class="page5"></div>
-    <div class="page4"></div>
-    <div class="page3"></div>
-    <div class="page2"></div>
-    <div class="page1"></div>
-    <div class="front"></div>
-  </div>
-<div style="float:right;margin-right:1000px;margin-top:200px;">
-    <a href="{%url 'newtermQuiz' term.id+1 %}">
-        <div class="bubbly-button" style="background-color: cornflowerblue;  box-shadow: 0 2px 25px rgba(0, 76, 255, 0.5);">{{term.answer}}</div>
-    </a>
-    <br>
-    <a href="{%url 'newtermQuiz' term.id+1 %}">
-        <div class="bubbly-button" style="background-color: coral;  box-shadow: 0 2px 25px rgba(255, 72, 0, 0.5);">{{term.non_answer}}</div>
-    </a>
-</div>
+    <div style="margin-top:200px; margin-left: 800px;">
+        <a href="{%url 'newtermNext' term.id %}">
+            <div class="bubbly-button" style="background-color: cornflowerblue;  box-shadow: 0 2px 25px rgba(0, 76, 255, 0.5);">{{term.answer}}</div>
+        </a>
+        <br>
+        <a href="{%url 'newtermNext' term.id %}">
+            <div class="bubbly-button" style="background-color: coral;  box-shadow: 0 2px 25px rgba(255, 72, 0, 0.5);">{{term.non_answer}}</div>
+        </a>
+    </div>
+</body>
 {% endblock %}

@@ -2,20 +2,23 @@
   background-color: #FFFFF3;
   display: flex;
   align-items: center;
-  padding: 10px 0px;
+  height: 8vh;
+  /* padding: 10px 0px; */
   /*border-bottom: 2px solid #ddddcd;*/
 }
 
 .navbar__buttons {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
+
 .nav-item {
-  width: 200px;
+  width: auto;
   height: 20px;
-  border-left: 2px solid black;
+  margin-left: 30px;
+  /* border-left: 2px solid black; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,6 +31,30 @@
   margin-right: 100px;
 }
 
+.navbar-brand span:last-child {
+  font-size: 5px;
+}
+
 .nav-link {
   color: white;
+}
+
+.nav-link:hover{
+  color: grey;
+}
+
+.navbar-brand div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.login__btn {
+  position: absolute;
+  right: 20px;
+  height: auto;
+  width: auto;
+  border-radius: 10px;
+  padding: 13px;
+  background-color: rgb(126, 241, 203)
 }

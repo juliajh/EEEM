@@ -4,6 +4,7 @@
 
 <head>
   <link rel="stylesheet" href='{% static "css/communityDetail.css" %}'>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
     <div class="row d-flex justify-content-center mt-100 mb-100">
@@ -27,6 +28,21 @@
                 </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="comment">
+        <form action="{%url 'addComment' community.id %}" method="POST">
+            {% csrf_token %}
+            <div class="addcomment">
+                <textarea name="commenttext"></textarea>
+                <button>추가</button>
+            </div>
+        </form>
+        <div class="allComments">
+            {% for comment in comments.all %}
+            {{comment.text}}
+            {% endfor %}
         </div>
     </div>
 </body>

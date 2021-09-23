@@ -1,7 +1,9 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import communityText
 from .models import manner
 from .models import newterm
+from .models import communityComment
+from django.utils import timezone
 
 # Create your views here.
 
@@ -17,7 +19,8 @@ def community(request):
 
 def communityDetail(request, id):
     community = get_object_or_404(communityText, pk=id)
-    return render(request, 'communityDetail.html', {'community': community})
+    allComments=communityComment.objects.filter(communitytext=community)
+    return render(request, 'communityDetail.html', {'community': community,'comments':allComments})
 
 
 def trend(request):
@@ -37,7 +40,21 @@ def newterms(request):
     newterm_quiz = newterm.objects.all()
     return render(request, "newterms.html", {'new_term': newterm_quiz})
 
-
 def newtermQuiz(request, id):
     term = get_object_or_404(newterm, pk=id)
-    return render(request, "newtermQuiz.html", {'term': term})
+    return render(request, "newtermQuiz.html",{'term':term})
+
+def newtermNext(request, id):
+    termId = int(id)+1
+    return redirect("newtermQuiz",termId)
+
+def addComment(request,id):
+    comment=communityComment()
+    comment.date=timezone.datetime.now()
+    comment.like=0
+    comment.dis_like=0
+    comment.text=request.POST.get('commenttext')
+    if comment.text:
+        comment.communitytext=get_object_or_404(communityText, pk=id)
+        comment.save()
+    return redirect("communityDetail",id)

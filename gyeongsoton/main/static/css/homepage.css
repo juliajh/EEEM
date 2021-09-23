@@ -1,6 +1,6 @@
 .main__content {
   width: 100%;
-  height: 92.5vh;
+  height: 92vh;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -46,12 +46,61 @@
     transform-origin: 0% 0%;
   }
   to {
-    transform: scale(1.5);
+    transform: scale(2);
     transform-origin: 0% 0%;
   }
 }
 
 .main__content--box:first-child:hover {
-  z-index: 999;
-  animation: scale-up-tl 1s ease-in-out;
+  animation: scale-up-tl 0.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+
+@keyframes scale-in-tr {
+  0% {
+    transform: scale(1);
+    transform-origin: 100% 0%;
+  }
+  100% {
+    transform: scale(2);
+    transform-origin: 100% 0%;
+  }
+}
+
+.main__content--box:nth-child(2):hover {
+  animation: scale-in-tr 0.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes scale-in-bl {
+  0% {
+    transform: scale(1);
+    transform-origin: 0% 100%;
+  }
+  100% {
+    transform: scale(2);
+    transform-origin: 0% 100%;
+  }
+}
+
+.main__content--box:nth-child(3):hover {
+  animation: scale-in-bl 0.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes scale-in-br {
+  0% {
+    transform: scale(1);
+    transform-origin: 100% 100%;
+  }
+  100% {
+    transform: scale(2);
+    transform-origin: 100% 100%;
+  }
+}
+
+.main__content--box:nth-child(4):hover {
+  animation: scale-in-br 0.5s ease-in-out forwards;
+  animation-delay: 0.5s;
 }
