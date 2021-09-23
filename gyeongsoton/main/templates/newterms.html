@@ -1,6 +1,7 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %}
 {% endblock %} {% block content %}
 
+<!--
 <body>
     <div>
         <div>
@@ -15,6 +16,30 @@
     </div>
     
 </body>
+-->
+<head>
+    <link rel="stylesheet" href='{% static "css/newterm.css" %}'>
+    <title></title>
+</head>
+
+<body>
+    <br>
+    <div style = "font-size: 25px; margin-top:70px;">
+        <h1>신조어를 맞춰보자!</h1>
+        <div class="button">
+            <div class="qube">
+                <a href="{%url 'newtermQuiz' 4 %}">
+                    <div class="front">click to be young !</div>
+                    <div class="back">mouse over me !</div>
+                </a>
+            </div>
+        </div>
+    </div>
+ </body>
+ 
+ 
+ 
+ 
 </html>
 
 {% endblock %}

@@ -1,19 +1,15 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %}
 {% endblock %} {% block content %}
 
-<body>
+<!--<body>
     <div>
         <div>
-        <span style="font-size:1.0em; color:black">
+        <span style="margin-left:30px; font-size:1.0em; color:black;">
             <h1>다음 신조어를 맞추어 보세요</h1>
             <br>
             <h2>{{term.question}}</h2>
             <br>
-            <a href="{%url 'newterms' %}">
-                <div style = "width:300px; height:120px; background: #fc7d7d; margin: 20px; color: #000000; padding: 20px 20px 20px 20px;">
-                    <span>{{term.answer}}</span>
-                </div>
-            </a>
+            
             <br>
             <a href="{%url 'newterms' %}">
                 <div style = "width:300px; height:120px; background: #6d9bff; margin: 20px; color: #000000; padding: 20px 20px 20px 20px;">
@@ -25,5 +21,51 @@
     </div>
 </body>
 </html>
+-->
 
+<head>
+    <link rel="stylesheet" href='{% static "css/newtermQuiz.css" %}'>
+    <title>Document</title>
+    <script>
+        var animateButton = function(e) {
+
+        e.preventDefault;
+        //reset animation
+        e.target.classList.remove('animate');
+
+        e.target.classList.add('animate');
+        setTimeout(function(){
+        e.target.classList.remove('animate');
+        },700);
+        };
+
+        var bubblyButtons = document.getElementsByClassName("bubbly-button");
+
+        for (var i = 0; i < bubblyButtons.length; i++) {
+        bubblyButtons[i].addEventListener('click', animateButton, false);
+        }
+    </script>
+</head>
+
+<div class="book">
+    <div class="back"></div>
+    <div class="page6">
+        <span>{{term.question}}</span>
+    </div>
+    <div class="page5"></div>
+    <div class="page4"></div>
+    <div class="page3"></div>
+    <div class="page2"></div>
+    <div class="page1"></div>
+    <div class="front"></div>
+  </div>
+<div style="float:right;margin-right:1000px;margin-top:200px;">
+    <a href="{%url 'newtermQuiz' term.id+1 %}">
+        <div class="bubbly-button" style="background-color: cornflowerblue;  box-shadow: 0 2px 25px rgba(0, 76, 255, 0.5);">{{term.answer}}</div>
+    </a>
+    <br>
+    <a href="{%url 'newtermQuiz' term.id+1 %}">
+        <div class="bubbly-button" style="background-color: coral;  box-shadow: 0 2px 25px rgba(255, 72, 0, 0.5);">{{term.non_answer}}</div>
+    </a>
+</div>
 {% endblock %}

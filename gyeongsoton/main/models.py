@@ -9,14 +9,12 @@ class newterm(models.Model):
     answer = models.CharField(max_length=100)
     non_answer = models.CharField(max_length=100)
 
-
 class communityText(models.Model):
     date = models.DateTimeField()
     text = models.CharField(max_length=500)
     like = models.IntegerField()
     dis_like = models.IntegerField()
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE, default='')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='')
 
 
 class communityComment(models.Model):
