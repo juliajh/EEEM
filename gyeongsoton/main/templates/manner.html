@@ -1,9 +1,9 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %}
 {% endblock %} {% block content %}
-
+<link rel="stylesheet" href='{% static "css/manner.css" %}'>
 <body class="body">
   {% for m in manner.all %}
-    <div style="margin-top: 150px; margin-left:20px;">
+    <div class="manner__box">
       <a href="{%url 'mannersDetail' m.id %}">제목 : {{m.text}}</a>
     </div>
 

@@ -1,109 +1,45 @@
-.book {
-  transform-style: preserve-3d;
+
+.container {
   position: absolute;
-  height: 370px;
-  cursor: pointer;
-  left: 20%;
-  top: 50%;
+  top: 16%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  backface-visibility: visible;
 }
-
-.front, .back, .page1, .page2, .page3, .page4, .page5, .page6 {
-  transform-style: preserve-3d;
-  position: absolute;
-  width: 250px;
-  height: 100%;
-  top: 0; left: 0;
-  font-size: 50px;
-  text-align: center;
-  transform-origin: left center;
-  transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
-}
-
-.front, .back {
-  background: navy;
-}
-
-.front, .page1, .page3, .page5 {
-  border-bottom-right-radius: .5em;
-  border-top-right-radius: .5em;
-}
-
-.back, .page2, .page4, .page6 {
-  border-bottom-right-radius: .5em;
-  border-top-right-radius: .5em;
-}
-
-.page1 { 
-  background: #f8ecd2;
-}
-
-.page2 {
-  background: #f8ecd2;
-}
-
-.page3 {
-  background: #f8ecd2;
-}
-
-.page4 {
-  background: #f8ecd2;
-}
-
-.page5 {
-  background: #f8ecd2;
-}
-
-.page6 {
-  background: #f8ecd2;
+.steps {
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: left;
+  justify-content: space-between;
+  width: 200px;
 }
-
-.page6 span {
-  display: block;
-  right: 10px;
+.step {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 2px solid #ACACA6;
+  border-radius: 50%;
+  transition: background 1s;
 }
-
-.book:hover .front {
-  transform: rotateY(-160deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+.step.selected {
+  border: 2px solid #4B81BD;   
 }
-
-.book:hover .page1 {
-  transform: rotateY(-150deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+.step.completed {
+  border: 2px solid #4B81BD;
+  background: #4B81BD; 
 }
-
-.book:hover .page2 {
-  transform: rotateY(-2deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+.progress {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  border-bottom: 2px solid #ACACA6;
+  z-index: -1;
 }
-
-.book:hover .page3 {
-  transform: rotateY(-140deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
-}
-
-.book:hover .page4 {
-  transform: rotateY(-3deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
-}
-
-.book:hover .page5 {
-  transform: rotateY(-130deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
-}
-
-.book:hover .page6 {
-  transform: rotateY(-4deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
-}
-
-.book:hover .back {
-  transform: rotateY(-1deg) scale(1.1);
+.percent {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  border-bottom: 2px solid #4B81BD;
+  z-index: 1;
+  transition: width 1s;
 }
 
 .bubbly-button {

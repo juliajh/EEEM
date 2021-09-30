@@ -7,30 +7,34 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
-    <div class="row d-flex justify-content-center mt-100 mb-100">
-        <div class="card">
-            <div class="comment-widgets">
-                <div class="d-flex flex-row comment-row m-t-0">
-                <div class="userimg">
-                    <img src="https://i.imgur.com/Ur43esv.jpg" style="border-radius: 70%" alt="user" width="50px" class="rounded-circle">
-                </div>
-                <div class="comment-text w-100">
-                    <h6 class="font-medium">{{community.user}}
+    <div class="main-container">
+         <div class="communityDetail">
+            <div class="date">
+                {{community.date|date:'Y-m-d fa' }}
+            </div>
+             <div class="userimg">
+                <img src="https://i.imgur.com/Ur43esv.jpg" style="border-radius: 70%" alt="user" width="50px" class="rounded-circle">
+             </div>
+             <div class="userinfo">
+                <h6 class="font-medium" style="margin-bottom: 9px;">{{community.user}}
                     {%if community.user.sex == 0%}
                     <span class="sex">남</span>
                     {%else%}
                     <span class="sex">여</span>
                     {%endif%}
                     {{community.user.age}}살
-                    </h6><br>
-                    <span class="m-b-15 d-block">{{community.text}}</span>
-                    <div class="comment-footer"> <span class="text-muted float-right">{{community.date|date:'Y-m-d fa' }}</span></div>
-                </div>
-                </div>
+                </h6>
+             </div>
+             <div class="title">
+                {{community.title}}
             </div>
-        </div>
+             <div class="text">
+                 {{community.text}}
+             </div>
+         </div>
     </div>
 
+    <!--
     <div class="comment">
         <form action="{%url 'addComment' community.id %}" method="POST">
             {% csrf_token %}
@@ -41,10 +45,36 @@
         </form>
         <div class="allComments">
             {% for comment in comments.all %}
-            {{comment.text}}
+            {{comment.text}}<br>
             {% endfor %}
         </div>
     </div>
+-->
+<div class="comment">
+    <div class="row">
+        <div class="col-8">
+            <div class="card card-white post">
+                <div class="post-heading">
+                    <div class="float-left image">
+                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="float-left meta">
+                        <div class="title h5">
+                            <a href="#"><b>Ryan Haywood</b></a>
+                            made a post.
+                        </div>
+                        <h6 class="text-muted time">1 minute ago</h6>
+                    </div>
+                </div> 
+                <div class="post-description"> 
+                    <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
 </body>
 </html>
 

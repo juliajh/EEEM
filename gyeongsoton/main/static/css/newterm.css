@@ -61,7 +61,7 @@ h1 {
     z-index: 1;
 }
 .button .qube .back {
-    background-color: #d6d35d;
+    background-color: #61d65d;
     color: #191919;
     transform: rotateX(0deg) translateZ(60px);
 }
@@ -77,10 +77,10 @@ h1 {
     color: #191919;
 }
 .button:active .front::before {
-    background-color: #d6d35d;
-    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    background-color: #61d65d;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .button:active .front::after {
     left: 120%;
-    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }

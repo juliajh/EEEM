@@ -49,7 +49,7 @@
 </head>
 
 <body>
-    <div class="book">
+    <!--<div class="book">
         <div class="back"></div>
         <div class="page6">
             <span>{{term.question}}</span>
@@ -60,6 +60,29 @@
         <div class="page2"></div>
         <div class="page1"></div>
         <div class="front"></div>
+    </div>
+--> <div class="container">
+        <div class="progress">
+          <div class="percent"></div>
+        </div>
+        <div class="steps">
+            {% for i in range(0,3) %}
+                {% if (i < term.id) %}
+                    <div class="step.completed"></div>
+                {% elif (i==term.id) %}
+                    <div class="step.selected"></div>
+                {% else %}
+                    <div></div>
+            <div class="step" id="0"></div>
+            <div class="step" id="1"></div>
+            <div class="step" id="2"></div>
+            <div class="step" id="3"></div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div>
+        {{term.question}}
     </div>
     <div style="margin-top:200px; margin-left: 800px;">
         <a href="{%url 'newtermNext' term.id %}">

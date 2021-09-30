@@ -1,14 +1,23 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %}
 {% endblock %} {% block content %}
-
+<link rel="stylesheet" href='{% static "css/mannersDetail.css" %}'>
 <body>
-  <div>
-    <span>좋아요 : {{mannersdetail.like}}</span>
-    <span>싫어요 : {{mannersdetail.dis_like}}</span>
-    <span>누가 : {{mannersdetail.hashtag_me}}</span>
-    <span>누구에게 : {{mannersdetail.hashtag_you}}</span>
-    <span>어떻게 : {{mannersdetail.hashtag_situation}}</span>
+  <div class="mannersDetail__box">
+    <h3>제목 : {{mannersdetail.text}}</h3>
+    <div class="mannersDetail__box--situation">
+      <span>{{mannersdetail.hashtag_situation}}</span>
+    </div>
+    <div class="mannersDetail__box--tag">
+      <span><i class="fas fa-thumbs-up"></i> : {{mannersdetail.like}}</span>
+      <span><i class="fas fa-thumbs-down"></i> : {{mannersdetail.dis_like}}</span>
+      <span>누가 : {{mannersdetail.hashtag_me}}</span>
+      <span>누구에게 : {{mannersdetail.hashtag_you}}</span>
+      <button><i class="fas fa-thumbs-up"></i></button>
+      <button><i class="fas fa-thumbs-down"></i></button>
+    </div>
   </div>
+  <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>
+</main>
 </body>
 </html>
 
