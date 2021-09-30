@@ -11,17 +11,24 @@
 }
 
 .mannersDetail__box--situation {
+  padding: 10px;
+  width: 500px;
+  height: auto;
+  min-height: 30px;
+  border: 3px solid white;
   margin-bottom: 60px;
 }
 
 .mannersDetail__box--tag span {
-  /* display: block; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: auto;
   height: auto;
   border: 1px solid white;
   border-radius: 5px;
   background-color: white;
-  padding: 3px;
+  padding: 10px;
   margin: 0px 5px;
 }
 
@@ -35,9 +42,10 @@
   justify-content: center;
   width: auto;
   height: auto;
-  background-color: white;
-  border: 1px solid white;
+  background-color: rgb(168, 168, 238);
+  border: 1px solid rgb(168, 168, 238);
   border-radius: 50%;
   padding: 10px;
   margin: 0px 10px;
+  cursor: pointer;
 }
