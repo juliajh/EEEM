@@ -15,7 +15,7 @@
   display: block;
   background-color: #f17a7e;
   color: white;
-  transition: transform 1s ease-in-out;
+  transition: transform 0.3s ease-out;
   transform-origin: 0% 0%;
   transition-delay: 0.5s;
 }
@@ -28,7 +28,7 @@
 .main__content--box:nth-child(2) {
   background-color: #c5c6b6;
   color: white;
-  transition: transform 1s ease-in-out;
+  transition: transform 0.3s ease-out;
   transform-origin: 100% 0%;
   transition-delay: 0.5s;
 }
@@ -41,7 +41,7 @@
 .main__content--box:nth-child(3) {
   background-color: #95d3c1;
   color: white;
-  transition: transform 1s ease-in-out;
+  transition: transform 0.3s ease-out;
   transform-origin: 0% 100%;
   transition-delay: 0.5s;
 }
@@ -54,7 +54,7 @@
 .main__content--box:last-child {
   background-color: #4e453e;
   color: white;
-  transition: transform 1s ease-in-out;
+  transition: transform 0.3s ease-out;
   transform-origin: 100% 100%;
   transition-delay: 0.5s;
 }
