@@ -2,21 +2,6 @@
 
 {% endblock %} {% block content %}
 
-<!--
-<body class="body">
-  <ol class="list-group list-group-numbered">
-    {% for community in communities.all %}
-    <a href="{%url 'communityDetail' community.id %}"><li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto" >
-        <div class="fw-bold">{{community.text}}</div>
-      </div>
-      <span class="badge bg-primary rounded-pill">{{community.like}}</span>
-    </li>
-    </a>
-    {% endfor %}
-  </ol>
-</body>
-</html>-->
 <head>
   <link rel="stylesheet" href='{% static "css/community.css" %}'>
   <title></title>
@@ -44,7 +29,7 @@
                       </h6>
                       <span class="m-b-10 d-block">{{community.title}}</span><br>
                       <span style="color:gray; font-size: 14px;">{{community.text}}</span>
-                      <div class="comment-footer"> <span class="text-muted float-right">{{community.date|date:'Y-m-d fa' }}</span></div>
+                      <div class="comment-footer"> <span class="text-muted float-right" style="color:gray;font-size:14px;">{{community.date|date:'Y-m-d fa' }}</span></div>
                   </div>
                 </div>
               </a>

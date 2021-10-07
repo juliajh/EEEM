@@ -32,9 +32,9 @@ class communityComment(models.Model):
 
 
 class manner(models.Model):
-    text = models.CharField(max_length=500)
+    text = models.CharField(max_length=20)
     like = models.IntegerField()
     dis_like = models.IntegerField()
     hashtag_me = models.CharField(max_length=20)
     hashtag_you = models.CharField(max_length=20)
-    hashtag_situation = models.CharField(max_length=50)
+    hashtag_situation = models.CharField(max_length=500)

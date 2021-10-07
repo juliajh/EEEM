@@ -1,96 +1,42 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %}
 {% endblock %} {% block content %}
-
-<!--<body>
-    <div>
-        <div>
-        <span style="margin-left:30px; font-size:1.0em; color:black;">
-            <h1>다음 신조어를 맞추어 보세요</h1>
-            <br>
-            <h2>{{term.question}}</h2>
-            <br>
-            
-            <br>
-            <a href="{%url 'newterms' %}">
-                <div style = "width:300px; height:120px; background: #6d9bff; margin: 20px; color: #000000; padding: 20px 20px 20px 20px;">
-                    <span>{{term.non_answer}}</span>
-                </div>
-            </a>
-        </span>
-        </div>
-    </div>
-</body>
-</html>
--->
-
 <head>
     <link rel="stylesheet" href='{% static "css/newtermQuiz.css" %}'>
     <title>newtermQuiz</title>
-    <!--<script>
-        var animateButton = function(e) {
-
-        e.preventDefault;
-        //reset animation
-        e.target.classList.remove('animate');
-
-        e.target.classList.add('animate');
-        setTimeout(function(){
-        e.target.classList.remove('animate');
-        },700);
-        };
-
-        var bubblyButtons = document.getElementsByClassName("bubbly-button");
-
-        for (var i = 0; i < bubblyButtons.length; i++) {
-        bubblyButtons[i].addEventListener('click', animateButton, false);
-        }
-    </script>
-    -->
 </head>
 
 <body>
-    <!--<div class="book">
-        <div class="back"></div>
-        <div class="page6">
-            <span>{{term.question}}</span>
-        </div>
-        <div class="page5"></div>
-        <div class="page4"></div>
-        <div class="page3"></div>
-        <div class="page2"></div>
-        <div class="page1"></div>
-        <div class="front"></div>
-    </div>
---> <div class="container">
-        <div class="progress">
-          <div class="percent"></div>
-        </div>
-        <div class="steps">
-            {% for i in range(0,3) %}
-                {% if (i < term.id) %}
-                    <div class="step.completed"></div>
-                {% elif (i==term.id) %}
-                    <div class="step.selected"></div>
-                {% else %}
-                    <div></div>
-            <div class="step" id="0"></div>
-            <div class="step" id="1"></div>
-            <div class="step" id="2"></div>
-            <div class="step" id="3"></div>
-            {% endfor %}
-        </div>
-    </div>
-
     <div>
         {{term.question}}
     </div>
+    <div class="container">
+        {% if term.id == 1 %}
+            <input type="radio" class="radio" name="progress" value="five" id="five" checked>
+            <label for="five" class="label">5%</label>
+        {% elif term.id == 2 %}
+            <input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive" checked>
+            <label for="twentyfive" class="label">25%</label>
+        {% elif term.id == 3 %}
+            <input type="radio" class="radio" name="progress" value="fifty" id="fifty" checked>
+            <label for="fifty" class="label">50%</label>
+        {% elif term.id == 4 %}
+            <input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive" checked>
+            <label for="seventyfive" class="label">75%</label>
+        {% else %}    
+            <input type="radio" class="radio" name="progress" value="onehundred" id="onehundred" checked>
+            <label for="onehundred" class="label">100%</label>
+        {% endif %}
+        <div class="progress">
+        <div class="progress-bar"></div>
+        </div>
+    </div>      
     <div style="margin-top:200px; margin-left: 800px;">
-        <a href="{%url 'newtermNext' term.id %}">
-            <div class="bubbly-button" style="background-color: cornflowerblue;  box-shadow: 0 2px 25px rgba(0, 76, 255, 0.5);">{{term.answer}}</div>
+        <a href="{%url 'newtermQuiz' term.id %}">
+            <div class="bubbly-button" style="background-color: cornflowerblue;  box-shadow: 0 2px 25px rgba(0, 76, 255, 0.5);">{{choice_1}}</div>
         </a>
         <br>
-        <a href="{%url 'newtermNext' term.id %}">
-            <div class="bubbly-button" style="background-color: coral;  box-shadow: 0 2px 25px rgba(255, 72, 0, 0.5);">{{term.non_answer}}</div>
+        <a href="{%url 'newtermQuiz' term.id %}">
+            <div class="bubbly-button" style="background-color: coral;  box-shadow: 0 2px 25px rgba(255, 72, 0, 0.5);">{{choice_2}}</div>
         </a>
     </div>
 </body>

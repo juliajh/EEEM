@@ -1,3 +1,41 @@
 .manner__box {
-  padding: 20px 0px;
+  padding: 20px 10px;
+  width: 500px;
+  height: auto;
+  border: 3px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1px;
+}
+
+.main__screen {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mannerthumbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    border: 1px solid rgb(240, 212, 245);
+    border-radius: 5px;
+    background-color: rgb(240, 212, 245);
+    padding: 10px;
+    margin: 0px 5px;
+    cursor: pointer;
+    margin-left: 30px;
+    color: black;
+}
+
+.mannerthumbs i {
+  margin-right: 6px;
+}
+
+.mannerthumbs i:last-child {
+  margin-left: 10px;
 }

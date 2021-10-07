@@ -5,13 +5,14 @@
 <head>
   <link rel="stylesheet" href='{% static "css/communityDetail.css" %}'>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/9452825322.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="main-container">
-         <div class="communityDetail">
-            <div class="date">
+        <div class="communityDetail">
+            <h6 class="date">
                 {{community.date|date:'Y-m-d fa' }}
-            </div>
+            </h6>
              <div class="userimg">
                 <img src="https://i.imgur.com/Ur43esv.jpg" style="border-radius: 70%" alt="user" width="50px" class="rounded-circle">
              </div>
@@ -31,51 +32,58 @@
              <div class="text">
                  {{community.text}}
              </div>
-         </div>
-    </div>
-
-    <!--
-    <div class="comment">
-        <form action="{%url 'addComment' community.id %}" method="POST">
-            {% csrf_token %}
-            <div class="addcomment">
-                <textarea name="commenttext"></textarea>
-                <button>추가</button>
-            </div>
-        </form>
-        <div class="allComments">
-            {% for comment in comments.all %}
-            {{comment.text}}<br>
-            {% endfor %}
         </div>
-    </div>
--->
-<div class="comment">
-    <div class="row">
-        <div class="col-8">
-            <div class="card card-white post">
-                <div class="post-heading">
-                    <div class="float-left image">
-                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
-                    </div>
-                    <div class="float-left meta">
-                        <div class="title h5">
-                            <a href="#"><b>Ryan Haywood</b></a>
-                            made a post.
+
+        <div class="chat-box">
+            <form action="{% url 'addComment' community.id %}" method="POST">
+                {% csrf_token %}
+                <input id="inputText" name="commenttext" type="text" placeholder="댓글을 달아 의견을 공유해주세요!"/>
+                <input id="inputSubmit" type="submit" value="댓글 달기"/>
+                
+            </form>
+        </div> 
+
+        <div class="comment">            
+            <div class="row">
+                {% for comment in comments.all %}
+                <div class="col-8" style="width: 750px;">
+                    <div class="card card-white post">
+                        <div class="post-heading">
+                            <h6 class="commentdate">{{comment.date|date:'Y-m-d fa' }}</h6>
+                            <div class="commentUserImage">
+                                <img src="https://i.imgur.com/Ur43esv.jpg" style="border-radius: 70%" alt="user" width="38px" class="rounded-circle">
+                            </div>
+                            <div class="float-left meta">
+                                <div class="title h5">
+                                    <b>{{comment.user}}
+                                    {{comment.user.sex}}
+                                    {{comment.user.age}}살</b>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="post-description"> 
+                            <p>{{comment.text}}</p>
                         </div>
-                        <h6 class="text-muted time">1 minute ago</h6>
+                        
+                        <div class="like-dislike">
+                            <div class="like">
+                            <a href="{% url 'communityCommentLikeUp' community.id  comment.id%}" class="like">
+                                <img src="{%static 'img/thumbs-up.png'%}" width="20px" height="20px"/>
+                                <span>&nbsp{{comment.like}}&nbsp&nbsp&nbsp&nbsp</span>
+                            </a>
+                            <a href="{% url 'communityCommentDisLikeUp' community.id comment.id %}" class="dislike">
+                                <img src="{%static 'img/thumb-down.png'%}" width="20px" height="20px"/>
+                                <span>&nbsp{{comment.dis_like}}</span>
+                            </a>
+                        </div>
                     </div>
-                </div> 
-                <div class="post-description"> 
-                    <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
-
                 </div>
+                {% endfor %}
+                
             </div>
         </div>
-        
     </div>
-</div>
+    
 </body>
 </html>
-
 {% endblock %}

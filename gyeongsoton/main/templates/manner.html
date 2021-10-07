@@ -1,13 +1,21 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %}
 {% endblock %} {% block content %}
 <link rel="stylesheet" href='{% static "css/manner.css" %}'>
-<body class="body">
+<body>
+  <main class="main__screen">
   {% for m in manner.all %}
-    <div class="manner__box">
-      <a href="{%url 'mannersDetail' m.id %}">제목 : {{m.text}}</a>
-    </div>
-
+    <a class="manner__box" href="{%url 'mannersDetail' m.id %}">
+      <div class="manner__text">
+        제목 : {{m.text}}
+      </div>
+      <div class="mannerthumbs">
+        <i class="fas fa-thumbs-up"></i>: {{m.like}}
+        <i class="fas fa-thumbs-down"></i>: {{m.dis_like}}
+      </div>
+    </a>
   {% endfor %}
+  </main>
+  <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>
 </body>
 </html>
 {% endblock %}
