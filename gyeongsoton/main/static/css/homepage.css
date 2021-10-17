@@ -15,51 +15,51 @@
   display: block;
   background-color: #f17a7e;
   color: white;
-  transition: transform 0.3s ease-out;
+  /* transition: transform 0.3s ease-out;
   transform-origin: 0% 0%;
-  transition-delay: 0.5s;
+  transition-delay: 0.5s; */
 }
 
-.main__content--box:first-child:hover {
+/* .main__content--box:first-child:hover {
   transform: scale(2);
   transform-origin: 0% 0%;
-}
+} */
 
 .main__content--box:nth-child(2) {
   background-color: #c5c6b6;
   color: white;
-  transition: transform 0.3s ease-out;
+  /* transition: transform 0.3s ease-out;
   transform-origin: 100% 0%;
-  transition-delay: 0.5s;
+  transition-delay: 0.5s; */
 }
 
-.main__content--box:nth-child(2):hover {
+/* .main__content--box:nth-child(2):hover {
   transform: scale(2);
   transform-origin: 100% 0%;
-}
+} */
 
 .main__content--box:nth-child(3) {
   background-color: #95d3c1;
   color: white;
-  transition: transform 0.3s ease-out;
+  /* transition: transform 0.3s ease-out;
   transform-origin: 0% 100%;
-  transition-delay: 0.5s;
+  transition-delay: 0.5s; */
 }
 
-.main__content--box:nth-child(3):hover {
+/* .main__content--box:nth-child(3):hover {
   transform: scale(2);
   transform-origin: 0% 100%;
-}
+} */
 
 .main__content--box:last-child {
   background-color: #4e453e;
   color: white;
-  transition: transform 0.3s ease-out;
+  /* transition: transform 0.3s ease-out;
   transform-origin: 100% 100%;
-  transition-delay: 0.5s;
+  transition-delay: 0.5s; */
 }
 
-.main__content--box:last-child:hover {
+/* .main__content--box:last-child:hover {
   transform: scale(2);
   transform-origin: 100% 100%;
-}
+} */

@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #FFFFF3;
+  background-color: #fffff3;
   display: flex;
   align-items: center;
   height: 8vh;
@@ -12,7 +12,6 @@
   align-items: center;
   justify-content: space-around;
 }
-
 
 .nav-item {
   width: auto;
@@ -39,7 +38,7 @@
   color: white;
 }
 
-.nav-link:hover{
+.nav-link:hover {
   color: grey;
 }
 
@@ -56,5 +55,5 @@
   width: auto;
   border-radius: 10px;
   padding: 13px;
-  background-color: rgb(126, 241, 203)
+  background-color: rgb(126, 241, 203);
 }
