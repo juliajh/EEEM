@@ -87,9 +87,15 @@
 
   .navbar__buttons {
     flex-direction: column;
-    width: 100%;
     align-items: center;
+    width: 100%;
     display: none;
+  }
+
+  .navbar__buttons li {
+    margin: 0;
+    width: 100%;
+    text-align: center;
   }
 
   .navbar__toggleBtn {

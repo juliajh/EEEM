@@ -1,3 +1,10 @@
+.main__screen {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .manner__box {
   padding: 20px 10px;
   width: 500px;
@@ -9,27 +16,20 @@
   margin-bottom: 1px;
 }
 
-.main__screen {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .mannerthumbs {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    height: auto;
-    border: 1px solid rgb(240, 212, 245);
-    border-radius: 5px;
-    background-color: rgb(240, 212, 245);
-    padding: 10px;
-    margin: 0px 5px;
-    cursor: pointer;
-    margin-left: 30px;
-    color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: auto;
+  border: 1px solid rgb(240, 212, 245);
+  border-radius: 5px;
+  background-color: rgb(240, 212, 245);
+  padding: 10px 0px;
+  margin: 0px 5px;
+  cursor: pointer;
+  margin-left: 30px;
+  color: black;
 }
 
 .mannerthumbs i {
@@ -38,4 +38,14 @@
 
 .mannerthumbs i:last-child {
   margin-left: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .manner__box {
+    width: 300px;
+  }
+  .mannerthumbs {
+    width: 180px;
+    font-size: 13px;
+  }
 }
