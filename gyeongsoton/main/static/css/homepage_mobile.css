@@ -1,10 +1,10 @@
-@media screen and (min-width: 645px) {
+@media screen and (min-width: 790px) {
   .mobile__main__content .mobile__main__content--box {
     display: none;
   }
 }
 
-@media screen and (max-width: 645px) {
+@media screen and (max-width: 790px) {
   .main__content {
     display: none;
   }

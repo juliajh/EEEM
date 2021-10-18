@@ -10,7 +10,9 @@
   <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <script src='{% static "js/navbar.js" %}' defer></script>
 <style type="text/css">
     a:link { color: black; text-decoration: none;}
     a:visited { color: black; text-decoration: none;}
@@ -22,12 +24,15 @@
 {% block extrahead %}{% endblock %}
 <body>
   <nav class="navbar">
-    <a class="navbar-brand" href="{%url 'home' %}">
-      <img src="{% static 'img/logo.png' %}" style="height: 40px; width: 40px; margin-left: 10px;">
-      <div style="font-size: 30px;"><strong>이음</strong>
-        <span>EEEM</span>
-      </div>
-    </a>
+    <div class="navbar__brand">
+      <a href="{%url 'home' %}">
+        <div>
+          <img src="{% static 'img/logo.png' %}">
+          <strong>이음</strong>
+          <span>EEEM</span>
+        </div>
+      </a>
+    </div>
     <ul class="navbar__buttons">
       <li class="nav-item">
         <a class="nav-link" href="{%url 'newterms' %}">신조어게임</a>
@@ -41,24 +46,14 @@
       <li class="nav-item">
         <a class="nav-link" href="{%url 'manner' %}">매너를 지켜쥬</a>
       </li>
-      
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </li> -->
-      </ul>
+    </ul>
     <a class="login__btn" href="#">
       <span>로그인</span>
     </a>
   </nav>
-
+  <a href="#" class="navbar__toggleBtn">
+    <i class="fas fa-bars"></i>
+  </a>
 
 {% block content %} {% endblock %}
 </body>
