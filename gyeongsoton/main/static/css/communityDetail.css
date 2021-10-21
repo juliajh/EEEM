@@ -1,18 +1,18 @@
-.mt-100 {
+/* .mt-100 {
     margin-top: 60px
-}
+} */
 
 .mb-100 {
-    margin-bottom: 60px
+  margin-bottom: 60px;
 }
 
-.main-container{
-    width: 800px;
-    margin: 0 auto;
-    margin-top: 30px;
+.main-container {
+  width: 800px;
+  margin: 0 auto;
+  padding-top: 60px;
 }
 
-.communityDetail{
+.communityDetail {
   background-color: white;
   padding: 30px 30px 30px 30px;
   overflow-y: auto;
@@ -20,44 +20,43 @@
   height: 400px;
 }
 
-
-.userinfo{
-    position: relative;
-    left:70px;
-    top:-45px;
+.userinfo {
+  position: relative;
+  left: 70px;
+  top: -45px;
 }
 
-.title{
-    position: relative;
-    font-size: 16px;
-    left:70px;
-    top:-45px;
+.title {
+  position: relative;
+  font-size: 16px;
+  left: 70px;
+  top: -45px;
 }
 
-.date{
-    float:right;
-    font-size: 14px;
-    color: #999;
+.date {
+  float: right;
+  font-size: 14px;
+  color: #999;
 }
 
-.text{
+.text {
   font-size: 16px;
 }
 
-.commentdate{
-  float:right;
+.commentdate {
+  float: right;
   font-size: 12px;
   color: #999;
 }
 
-.chat-box{
+.chat-box {
   padding-top: 80px;
   padding-bottom: 80px;
 }
 
-#inputText{
-  background-color: #F0E5DE;
-  width:690px;
+#inputText {
+  background-color: #f0e5de;
+  width: 690px;
   height: 50px;
   border-top: none;
   border-left: none;
@@ -67,8 +66,8 @@
   font-size: 16px;
 }
 
-#inputSubmit{
-  background-color: #F0E5DE;
+#inputSubmit {
+  background-color: #f0e5de;
   width: 90px;
   height: 56px;
   border-top: none;
@@ -78,14 +77,14 @@
 }
 
 .card-white .h5 {
-    font-size:14px;
-    position: relative;
-    top:-30px;
-    left: 50px;
+  font-size: 14px;
+  position: relative;
+  top: -30px;
+  left: 50px;
 }
 .card-white .time {
-    font-size:12px;
-    float: right;
+  font-size: 12px;
+  float: right;
 }
 
 .post .post-heading .meta .title {
@@ -94,14 +93,14 @@
 
 .post .post-description {
   word-break: break-all;
-  line-height:25px;
+  line-height: 25px;
   padding-bottom: 10px;
 }
 .post .post-description p {
   font-size: 16px;
 }
 
-.comment{
+.comment {
   margin-top: 10px;
   display: flex;
   justify-content: center;
@@ -109,8 +108,6 @@
   margin-bottom: 100px;
 }
 
-.like-dislike{
+.like-dislike {
   padding-bottom: 40px;
 }
-
-
