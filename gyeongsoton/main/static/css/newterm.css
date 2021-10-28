@@ -1,86 +1,92 @@
 h1 {
-    text-align: center;
+  text-align: center;
 }
-.centered, .button, .button .qube .front::before {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+.centered,
+.button,
+.button .qube .front::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
-.full, .button .qube .front, .button .qube .back, .button .qube .front::before {
-    width: 100%;
-    height: 100%;
+.full,
+.button .qube .front,
+.button .qube .back,
+.button .qube .front::before {
+  width: 100%;
+  height: 100%;
 }
 .button {
-    width: 1000px;
-    height: 500px;
-    margin-top: 50px;
-    perspective: 1800px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 1000px;
+  height: 500px;
+  margin-top: 50px;
+  perspective: 1800px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .button .qube {
-    position: relative;
-    height: 100px;
-    width: 270px;
-    perspective: 1800px;
+  position: relative;
+  height: 100px;
+  width: 270px;
+  perspective: 1800px;
 }
-.button .qube .front, .button .qube .back {
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transform: rotateX(-90deg);
-    transition: transform 0.3s ease;
-    position: absolute;
-    color: #fff;
-    line-height: 60px;
-    text-align: center;
+.button .qube .front,
+.button .qube .back {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform: rotateX(-90deg);
+  transition: transform 0.3s ease;
+  position: absolute;
+  color: #fff;
+  line-height: 60px;
+  text-align: center;
 }
 .button .qube .front {
-    background-color: #191919;
+  background-color: #191919;
 }
 .button .qube .front::before {
-    content: '';
-    display: block;
-    z-index: -1;
+  content: "";
+  display: block;
+  z-index: -1;
 }
 .button .qube .front::after {
-    background: #fff;
-    content: '';
-    height: 155px;
-    left: -75px;
-    opacity: 0.4;
-    position: absolute;
-    top: -50px;
-    transform: rotate(35deg);
-    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-    width: 50px;
-    z-index: 1;
+  background: #fff;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: 0.4;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  width: 50px;
+  z-index: 1;
 }
 .button .qube .back {
-    background-color: #61d65d;
-    color: #191919;
-    transform: rotateX(0deg) translateZ(60px);
+  background-color: #61d65d;
+  color: #191919;
+  transform: rotateX(0deg) translateZ(60px);
 }
 .button .qube:hover .front {
-    transform: rotateX(0deg) translateZ(30px);
+  transform: rotateX(0deg) translateZ(0px);
 }
 .button .qube:hover .back {
-    transform: rotateX(90deg) translateZ(30px);
+  transform: rotateX(90deg) translateZ(30px);
 }
 .button:active .front {
-    border-radius: 0;
-    background-color: transparent;
-    color: #191919;
+  border-radius: 0;
+  background-color: transparent;
+  color: #191919;
 }
 .button:active .front::before {
-    background-color: #61d65d;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  background-color: #61d65d;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .button:active .front::after {
-    left: 120%;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  left: 120%;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
