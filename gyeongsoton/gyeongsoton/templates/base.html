@@ -47,9 +47,16 @@
         <a class="nav-link" href="{%url 'manner' %}">매너를 지켜쥬</a>
       </li>
     </ul>
-    <a class="login__btn" href="#">
+    {% if not user.is_authenticated %}
+    <a class="login__btn" href="{%url 'login' %}">
       <span>로그인</span>
     </a>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <a class="logout__btn" href="{%url 'logout' %}">
+      <span>로그아웃</span>
+    </a>
+    {% endif %}
     <a href="#" class="navbar__toggleBtn">
       <i class="fas fa-bars"></i>
     </a>

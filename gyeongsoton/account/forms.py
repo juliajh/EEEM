@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.forms import widgets
 from .models import CustomUser
@@ -17,19 +17,19 @@ class RegisterForm(UserCreationForm):
     password1 = forms.CharField(widget=forms.TextInput(attrs={
         "class": "input",
         "type": "password",
-        "placeholder": "enter password",
+        "placeholder": "비밀번호",
     }), label="password")
 
     password2 = forms.CharField(widget=forms.TextInput(attrs={
         "class": "input",
         "type": "password",
-        "placeholder": "confirm password",
+        "placeholder": "비밀번호 확인",
     }), label="password")
 
     nickname = forms.CharField(widget=forms.TextInput(attrs={
         "class": "input",
         "type": "nickname",
-        "placeholder": "nickname",
+        "placeholder": "닉네임",
     }), label="enter nickname", error_messages={'unique': '입력하신 닉네임을 사용하는 유저가 이미 존재합니다'})
 
     error_messages = {
@@ -43,7 +43,7 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'password1', 'password2', 'nickname']
+        fields = ['username', 'password1', 'password2', 'nickname','age','sex']
 
     # def clean_password2(self):
     #     password = self.cleaned_data.get('password2')
@@ -51,35 +51,3 @@ class RegisterForm(UserCreationForm):
     #         raise ValidationError("비밀번호는 최소 8글자 이상이어야 합니다")
     #     return password
 
-
-class CustomPasswordChangeForm(PasswordChangeForm):
-    def __init__(self, *args, **kwargs):
-        super(CustomPasswordChangeForm, self).__init__(*args, **kwargs)
-        self.fields['old_password'].label = '기존 비밀번호'
-        self.fields['old_password'].widget.attrs.update({
-            'class': 'form-control',
-            'autofocus': False,
-            'placeholder': "old password"
-        })
-        self.fields['new_password1'].label = '새 비밀번호'
-        self.fields['new_password1'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': "new password"
-        })
-        self.fields['new_password2'].label = '새 비밀번호 확인'
-        self.fields['new_password2'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': "confirm new password"
-        })
-
-    class Meta:
-        model = CustomUser
-        fields = ['old_password', 'new_password1', 'new_password2']
-
-
-class CustomUserChangeForm(UserChangeForm):
-    password = None
-
-    class Meta:
-        model = get_user_model()
-        fields = ['nickname']

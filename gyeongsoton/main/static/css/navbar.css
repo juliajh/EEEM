@@ -66,6 +66,14 @@
   background-color: rgb(126, 241, 203);
 }
 
+.logout__btn {
+  position: absolute;
+  right: 20px;
+  border-radius: 10px;
+  padding: 13px;
+  background-color: rgb(126, 241, 203);
+}
+
 .navbar__toggleBtn {
   position: absolute;
   display: none;
@@ -80,6 +88,10 @@
   }
 
   .login__btn {
+    display: none;
+  }
+
+  .logout__btn {
     display: none;
   }
 

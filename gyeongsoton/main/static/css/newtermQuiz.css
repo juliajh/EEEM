@@ -1,5 +1,15 @@
+.gameCard {
+  margin: 0 auto;
+  padding-top: 30px;
+  height: 550px;
+  width: 50%;
+  background-size: cover !important;
+  background-color: #ecbdd5;
+  border-radius: 30px 30px 30px 30px;
+}
+
 .container {
-  margin: 60px auto;
+  margin: 0 auto; 
   width: 400px;
   text-align: center;
 }
@@ -85,9 +95,8 @@
   font-family: 'Helvetica', 'Arial', sans-serif;
   display: inline-block;
   font-size: 1em;
-  padding: 1em 2em;
-  margin-top: 100px;
-  margin-bottom: 60px;
+  padding: 2em 2em;
+  margin: 30px 30px 0px 0px;
   -webkit-appearance: none;
   appearance: none;
   color: #fff;
@@ -159,4 +168,15 @@
     background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
     background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
  }
+}
+
+main {
+  padding-top: 120px;
+}
+
+.newtermFont{
+  font-family:fantasy;
+  font-weight: bold;
+  font-size: 100px;
+  margin: 0 auto;
 }

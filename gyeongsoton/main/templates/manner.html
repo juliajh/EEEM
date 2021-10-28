@@ -3,18 +3,30 @@
 <link rel="stylesheet" href='{% static "css/manner.css" %}'>
 <body>
   <main class="main__screen">
-  {% for m in manner.all %}
+    {% for m in manner.all %}
     <a class="manner__box" href="{%url 'mannersDetail' m.id %}">
-      <div class="manner__text">
-        제목 : {{m.text}}
+      <div class="manner__main">
+        <div class="manner__text">
+          제목 : {{m.text}}
+        </div>
+        <div class="manner__hashtag">
+          <div class="manner__hashtag--detail">{{m.hashtag_me}}</div>
+          <div class="manner__hashtag--detail">{{m.hashtag_you}}</div>
+        </div>
       </div>
       <div class="mannerthumbs">
         <i class="fas fa-thumbs-up"></i>: {{m.like}}
         <i class="fas fa-thumbs-down"></i>: {{m.dis_like}}
       </div>
     </a>
-  {% endfor %}
+    {% endfor %}
+    <div class="side__bar">
+      <input class="search__box" placeholder="#누가"></input>
+      <input class="search__box" placeholder="#누구에게"></input>
+    </div>
+    <button class="find__btn">검색</button>
   </main>
+  <script src="{% static 'js/mannerSearch.js' %}" defer></script>
   <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>
 </body>
 </html>
