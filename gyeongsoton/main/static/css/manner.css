@@ -55,15 +55,10 @@
   margin-left: 10px;
 }
 
-.side__bar {
+.search {
   position: absolute;
   top: 90px;
   right: 20px;
-  display: none;
-}
-
-.side__bar.active {
-  display: block;
 }
 
 .search__box {
@@ -74,17 +69,24 @@
   margin-right: 5px;
 }
 
-.search__box.active {
-  display: flex;
-}
-
 .find__btn {
   width: 70px;
   height: 35px;
   border: none;
   cursor: pointer;
   color: black;
-  background-color: #F0D4F5;
+  background-color: #f0d4f5;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.writeText {
+  width: 70px;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  color: black;
+  background-color: #f0d4f5;
   font-weight: bold;
   border-radius: 10px;
 }
