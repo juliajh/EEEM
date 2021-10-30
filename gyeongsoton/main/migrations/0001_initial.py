@@ -35,7 +35,9 @@ class Migration(migrations.Migration):
                 ('question', models.CharField(max_length=100)),
                 ('answer', models.CharField(max_length=100)),
                 ('non_answer', models.CharField(max_length=100)),
-                ('correct', models.IntegerField()),
+                ('score', models.IntegerField(default=0)),
+                ('correct', models.BooleanField(default=False)),
+                ('randanswer', models.IntegerField(default=0)),
             ],
         ),
         migrations.CreateModel(

@@ -45,5 +45,6 @@ urlpatterns = [
          views.newtermButton1, name="newtermButton1"),
     path('newtermQuiz/<str:id>/button2',
          views.newtermButton2, name="newtermButton2"),
+    path('newterms/<int:score>/result', views.newtermEnd, name="newtermEnd"),
     path('manner/search/', views.search, name="search"),
 ]

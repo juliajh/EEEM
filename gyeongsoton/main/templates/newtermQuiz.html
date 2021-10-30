@@ -11,16 +11,16 @@
     <main>
         <div class="gameCard">
             <div class="container">
-                {% if term.id == 1 %}
+                {% if term.id == 2 %}
                     <input type="radio" class="radio" name="progress" value="five" id="five" checked>
                     <label for="five" class="label">5%</label>
-                {% elif term.id == 2 %}
+                {% elif term.id == 3 %}
                     <input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive" checked>
                     <label for="twentyfive" class="label">25%</label>
-                {% elif term.id == 3 %}
+                {% elif term.id == 4 %}
                     <input type="radio" class="radio" name="progress" value="fifty" id="fifty" checked>
                     <label for="fifty" class="label">50%</label>
-                {% elif term.id == 4 %}
+                {% elif term.id == 5 %}
                     <input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive" checked>
                     <label for="seventyfive" class="label">75%</label>
                 {% else %}    
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="newtermFont">
-                {{term.question}} {{term.score}}
+                {{term.question}}
             </div>
             <div style="margin-left: 35%;">
                 <a href="{%url 'newtermButton1' term.id %}">

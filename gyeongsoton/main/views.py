@@ -73,7 +73,7 @@ def newterms(request):
 
 
 def newtermQuiz(request, id):
-    if(id == 0):
+    if id == 0:
         term = get_object_or_404(newterm, pk=id)
     else:
         previousTerm = get_object_or_404(newterm, pk=id)
@@ -81,10 +81,15 @@ def newtermQuiz(request, id):
         term = get_object_or_404(newterm, pk=termId)
         term.score = previousTerm.score
     term.radanswer = random.randint(0, 1)
+    term.save()
     if term.randanswer == 0:
         return render(request, "newtermQuiz.html", {'term': term, 'choice_1': term.answer, 'choice_2': term.non_answer})
     else:
         return render(request, "newtermQuiz.html", {'term': term, 'choice_1': term.non_answer, 'choice_2': term.answer})
+
+
+def newtermEnd(request, score):
+    return render(request, "newtermEnd.html", {'score': score})
 
 
 def newtermButton1(request, id):
@@ -92,9 +97,14 @@ def newtermButton1(request, id):
     if term.randanswer == 0:
         term.correct = True
         term.score += 1
+        term.save()
     else:
         term.correct = False
-    return redirect("newtermQuiz", id)
+        term.save()
+    if int(id) < 5:
+        return redirect("newtermQuiz", id)
+    else:
+        return redirect("newtermEnd", term.score)
 
 
 def newtermButton2(request, id):
@@ -102,9 +112,14 @@ def newtermButton2(request, id):
     if term.randanswer == 1:
         term.correct = True
         term.score += 1
+        term.save()
     else:
         term.correct = False
-    return redirect("newtermQuiz", id)
+        term.save()
+    if int(id) < 5:
+        return redirect("newtermQuiz", id)
+    else:
+        return redirect("newtermEnd", term.score)
 
 
 def addComment(request, id):
@@ -121,7 +136,7 @@ def addComment(request, id):
 
 def search(request):
     context = dict()
-    # free_post = Post.objects.order_by('-id')
+    free_post = Post.objects.order_by('-id')
     post = request.POST.get('post', "")
     if post:
         free_post = free_post.filter(title__icontains=post)

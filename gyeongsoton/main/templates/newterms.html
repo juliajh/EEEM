@@ -1,22 +1,6 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %}
 {% endblock %} {% block content %}
 
-<!--
-<body>
-    <div>
-        <div>
-            {% for newterm in new_term.all %}
-            <span style="font-size:2.5em; color:black">
-            <a href = "{%url 'newtermQuiz' newterm.id %}">{{newterm.question}}</a>
-            </span>
-            <br>
-            <br>
-            {% endfor %}
-        </div>
-    </div>
-    
-</body>
--->
 <head>
     <link rel="stylesheet" href='{% static "css/newterm.css" %}'>
     <title></title>
@@ -28,7 +12,7 @@
         <h1>신조어를 맞춰보자!</h1>
         <div class="button">
             <div class="qube">
-                <a href="{%url 'newtermQuiz' 0 %}">
+                <a href="{%url 'newtermQuiz' 1 %}">
                     <div class="front">click to be young !</div>
                     <div class="back">mouse over me !</div>
                 </a>
