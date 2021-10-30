@@ -1,67 +1,83 @@
 <!DOCTYPE html>
 <html lang="ko">
-{% load static %}
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href='{% static "css/navbar.css" %}'>
-  <link rel="stylesheet" href='{% static "css/reset.css" %}'>
-  <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-  <script src='{% static "js/navbar.js" %}' defer></script>
-<style type="text/css">
-    a:link { color: black; text-decoration: none;}
-    a:visited { color: black; text-decoration: none;}
-    a:hover { color: black; text-decoration: none;}
-  </style>
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
-  
-</head>
-{% block extrahead %}{% endblock %}
-<body>
-  <nav class="navbar">
-    <div class="navbar__brand">
-      <a href="{%url 'home' %}">
-        <div>
-          <img src="{% static 'img/logo.png' %}">
-          <strong>이음</strong>
-          <span>EEEM</span>
-        </div>
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href='{% static "css/navbar.css" %}' />
+    <link rel="stylesheet" href='{% static "css/reset.css" %}' />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arvo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      src="https://kit.fontawesome.com/740a1d0d1d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <script src='{% static "js/navbar.js" %}' defer></script>
+    <style type="text/css">
+      a:link {
+        color: black;
+        text-decoration: none;
+      }
+      a:visited {
+        color: black;
+        text-decoration: none;
+      }
+      a:hover {
+        color: black;
+        text-decoration: none;
+      }
+    </style>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
+  </head>
+  {% block extrahead %}{% endblock %}
+  <body>
+    <nav class="navbar">
+      <div class="navbar__brand">
+        <a href="{%url 'home' %}">
+          <div>
+            <img src="{% static 'img/logo.png' %}" />
+            <strong>이음</strong>
+            <span>EEEM</span>
+          </div>
+        </a>
+      </div>
+      <ul class="navbar__buttons">
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'newterms' %}">신조어게임</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'community' %}">꼰대 커뮤니티</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'trend' %}">신문물 소개</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'manner' %}">매너를 지켜쥬</a>
+        </li>
+      </ul>
+      {% if not user.is_authenticated %}
+      <a class="login__btn" href="{%url 'login' %}">
+        <span>로그인</span>
       </a>
-    </div>
-    <ul class="navbar__buttons">
-      <li class="nav-item">
-        <a class="nav-link" href="{%url 'newterms' %}">신조어게임</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{%url 'community' %}">꼰대 커뮤니티</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{%url 'trend' %}">신문물 소개</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{%url 'manner' %}">매너를 지켜쥬</a>
-      </li>
-    </ul>
-    {% if not user.is_authenticated %}
-    <a class="login__btn" href="{%url 'login' %}">
-      <span>로그인</span>
-    </a>
-    {% endif %}
-    {% if user.is_authenticated %}
-    <a class="logout__btn" href="{%url 'logout' %}">
-      <span>로그아웃</span>
-    </a>
-    {% endif %}
-    <a href="#" class="navbar__toggleBtn">
-      <i class="fas fa-bars"></i>
-    </a>
-  </nav>
+      {% endif %} {% if user.is_authenticated %}
+      <a class="logout__btn" href="{%url 'logout' %}">
+        <span>로그아웃</span>
+      </a>
+      {% endif %}
+      <a href="#" class="navbar__toggleBtn">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
 
-{% block content %} {% endblock %}
-</body>
+    {% block content %} {% endblock %}
+  </body>
 </html>

@@ -1,70 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-{% load static %}
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href='{% static "css/signUp.css" %}'>
-  <title>Document</title>
-</head>
-<body>
-  <div class="main-container">
-    <div class="main-section">
-        <div class="top-section">
-            <img src="{% static 'img/logo.png' %}">
+{% extends 'base.html' %}{% load static %}{% block extrahead %} {% endblock %}
+{% block content %} {% load static %}
+<html>
+  <head>
+    <link rel="stylesheet" href='{% static "css/signUp.css" %}' />
+    <title>SignUp</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="container" id="container">
+        <div class="form-container sign-up-container">
+          <form
+            action="{% url 'signup' %}"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            {%csrf_token%}
+            <h1>Sign UP</h1>
+            <br /><br />
+            <div class="form-element">{{form.username}}</div>
+            <div class="error-field">
+              {% if form.username.errors %} {% for error in
+              form.username.errors%} {{error}}<br />
+              {% endfor %}{% endif %}
+            </div>
+            <div class="form-element">{{form.nickname}}</div>
+            <div class="error-field">
+              {% if form.nickname.errors %} {% for error in
+              form.nickname.errors%} {{error}}<br />
+              {% endfor %} {% endif %}
+            </div>
+            <div class="form-element">{{form.email}}</div>
+            <div class="error-field"></div>
+            <div class="form-element">{{form.password1}}</div>
+            <div class="error-field"></div>
+            <div class="form-element">{{form.password2}}</div>
+            <div class="error-field" id="password2-error-field">
+              {% if form.password2.errors %} {% for error in
+              form.password2.errors %} {{error}}<br />
+              {% endfor %} {% endif %}
+            </div>
+            <div class="error-field"></div>
+            <input type="hidden" name="next" value="{{ request.GET.next }}" />
+            <button type="submit" class="btn-signup">회원가입</button>
+          </form>
         </div>
-        <div class="mid-section">
-            <form action="{% url 'signUp' %}" method="POST" enctype="multipart/form-data">{%csrf_token%}
-                <div class="form-element">
-                    {{form.username}}
-                </div>
-                <div class="error-field">
-                    {% if form.username.errors %}
-                        {% for error in form.username.errors %}
-                            {{error}}<br>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-                <div class="form-element">
-                    {{form.nickname}}
-                </div>
-                <div class="error-field">
-                    {% if form.nickname.errors %}
-                        {% for error in form.nickname.errors %}
-                            {{error}}<br>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-                <div class="error-field"></div>
-                <div class="form-element">
-                    {{form.password1}}
-                </div>
-                <div class="error-field"></div>
-                <div class="form-element">
-                  {{form.password2}}
-                </div>
-                <div class="error-field" id="password2-error-field">
-                    {% if form.password2.errors %}
-                        {% for error in form.password2.errors %}
-                            {{error}}<br>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-                <div class="form-element">
-                  {{form.age}}
-                </div>
-                <div class="form-element">
-                  {{form.sex}}
-                </div>
-                <input type="hidden" name="next" value="{{ request.GET.next }}"/>
-                <button type="submit" class="btn-signup">회원가입</button>
-            </form>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1>Welcome, Friend!</h1>
+              <p>계정이 이미 있으시면 로그인을 해보세요😀</p>
+              <button
+                class="ghost"
+                id="login"
+                onclick="location.href='{% url 'login' %}'"
+              >
+                로그인
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="bot-section">
-            <span>Copyright 2021. EEEM all rights reserved.</span>
-        </div>
+      </div>
     </div>
-</div>  
-</body>
+  </body>
 </html>
+
+{% endblock %}

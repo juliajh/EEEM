@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
 
 .mt-100 {
-  padding-top: 90px;
+  padding-top: 100px;
 }
 
 .mb-100 {
@@ -19,7 +19,7 @@
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #f0e5de;
+  background-color: #f3ebe6;
   background-clip: border-box;
   border: 0px solid transparent;
   border-radius: 0px;
