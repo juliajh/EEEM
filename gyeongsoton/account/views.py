@@ -20,15 +20,13 @@ def login_view(request):
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
-            user = authenticate(
-                request=request, username=username, password=password)
+            user = authenticate(request=request, username=username, password=password)
             if user is not None:
                 login(request, user)
             return redirect("home")
         else:
-            messages.add_message(request, messages.ERROR,
-                                 ' 가입하지 않은 계정이거나, 잘못된 비밀번호입니다')
-            return redirect('login')
+            messages.add_message(request, messages.ERROR, " 가입하지 않은 계정이거나, 잘못된 비밀번호입니다")
+            return redirect("login")
     else:
         form = AuthenticationForm()
     return render(request, "login.html", {"form": form})
@@ -37,6 +35,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect("home")
+
 
 def signUp_view(request):
     if request.method == "POST":
@@ -47,5 +46,4 @@ def signUp_view(request):
             return redirect("login")
     else:
         form = RegisterForm()
-    return render(request, 'signUp.html', {'form': form})
-
+    return render(request, "signUp.html", {"form": form})

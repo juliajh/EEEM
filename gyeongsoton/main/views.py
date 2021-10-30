@@ -5,7 +5,6 @@ from .models import newterm
 from .models import communityComment
 from django.utils import timezone
 import random
-import requests
 
 # Create your views here.
 
@@ -16,13 +15,17 @@ def home(request):
 
 def community(request):
     community_alltext = communityText.objects.all()
-    return render(request, "community.html", {'communities': community_alltext})
+    return render(request, "community.html", {"communities": community_alltext})
 
 
 def communityDetail(request, id):
     community = get_object_or_404(communityText, pk=id)
     allComments = communityComment.objects.filter(communitytext=community)
-    return render(request, 'communityDetail.html', {'community': community, 'comments': allComments})
+    return render(
+        request,
+        "communityDetail.html",
+        {"community": community, "comments": allComments},
+    )
 
 
 def communityCommentLikeUp(request, community_id, comment_id):
@@ -45,12 +48,12 @@ def trend(request):
 
 def manners(request):
     manner_alltext = manner.objects.all()
-    return render(request, "manner.html", {'manner': manner_alltext})
+    return render(request, "manner.html", {"manner": manner_alltext})
 
 
 def mannersDetail(request, id):
     manner_detail = get_object_or_404(manner, pk=id)
-    return render(request, "mannersDetail.html", {'mannersdetail': manner_detail})
+    return render(request, "mannersDetail.html", {"mannersdetail": manner_detail})
 
 
 def mannerLikeUp(request, id):
@@ -69,7 +72,7 @@ def mannerDisLikeUp(request, id):
 
 def newterms(request):
     newterm_quiz = newterm.objects.all()
-    return render(request, "newterms.html", {'new_term': newterm_quiz})
+    return render(request, "newterms.html", {"new_term": newterm_quiz})
 
 
 def newtermQuiz(request, id):
@@ -77,19 +80,27 @@ def newtermQuiz(request, id):
         term = get_object_or_404(newterm, pk=id)
     else:
         previousTerm = get_object_or_404(newterm, pk=id)
-        termId = int(id)+1
+        termId = int(id) + 1
         term = get_object_or_404(newterm, pk=termId)
         term.score = previousTerm.score
     term.radanswer = random.randint(0, 1)
     term.save()
     if term.randanswer == 0:
-        return render(request, "newtermQuiz.html", {'term': term, 'choice_1': term.answer, 'choice_2': term.non_answer})
+        return render(
+            request,
+            "newtermQuiz.html",
+            {"term": term, "choice_1": term.answer, "choice_2": term.non_answer},
+        )
     else:
-        return render(request, "newtermQuiz.html", {'term': term, 'choice_1': term.non_answer, 'choice_2': term.answer})
+        return render(
+            request,
+            "newtermQuiz.html",
+            {"term": term, "choice_1": term.non_answer, "choice_2": term.answer},
+        )
 
 
 def newtermEnd(request, score):
-    return render(request, "newtermEnd.html", {'score': score})
+    return render(request, "newtermEnd.html", {"score": score})
 
 
 def newtermButton1(request, id):
@@ -127,7 +138,7 @@ def addComment(request, id):
     comment.date = timezone.datetime.now()
     comment.like = 0
     comment.dis_like = 0
-    comment.text = request.POST.get('commenttext')
+    comment.text = request.POST.get("commenttext")
     if comment.text:
         comment.communitytext = get_object_or_404(communityText, pk=id)
         comment.save()
@@ -136,12 +147,12 @@ def addComment(request, id):
 
 def search(request):
     context = dict()
-    free_post = Post.objects.order_by('-id')
-    post = request.POST.get('post', "")
+    free_post = Post.objects.order_by("-id")
+    post = request.POST.get("post", "")
     if post:
         free_post = free_post.filter(title__icontains=post)
-        context['free_post'] = free_post
-        context['post'] = post
+        context["free_post"] = free_post
+        context["post"] = post
         return render(request, "mannerSearch.html", context)
     else:
         return render(request, "mannerSearch.html")
