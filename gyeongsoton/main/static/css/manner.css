@@ -69,6 +69,10 @@
   margin-right: 5px;
 }
 
+.search__box:focus {
+  outline: none;
+}
+
 .find__btn {
   width: 70px;
   height: 35px;

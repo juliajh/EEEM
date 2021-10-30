@@ -1,0 +1,26 @@
+<form method="post">
+  {%csrf_token%}
+  {% if not free_post %}
+  <h1>검색 결과가 없습니다.</h1>
+  {% else %}
+
+
+  {% for m in manner.all %}
+  <a class="manner__box" href="{%url 'mannersDetail' m.id %}">
+    <div class="manner__main">
+      <div class="manner__text">
+        제목 : {{m.text}}
+      </div>
+      <div class="manner__hashtag">
+        <div class="manner__hashtag--detail">{{m.hashtag_me}}</div>
+        <div class="manner__hashtag--detail">{{m.hashtag_you}}</div>
+      </div>
+    </div>
+    <div class="mannerthumbs">
+      <i class="fas fa-thumbs-up"></i>: {{m.like}}
+      <i class="fas fa-thumbs-down"></i>: {{m.dis_like}}
+    </div>
+  </a>
+  {% endfor %}
+  {% endif %}
+</form>

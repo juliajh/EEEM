@@ -11,7 +11,7 @@
         </div>
         <div class="manner__hashtag">
           <div class="manner__hashtag--detail">{{m.hashtag_me}}</div>
-          <!-- <div class="manner__hashtag--detail">{{m.hashtag_you}}</div> -->
+          <div class="manner__hashtag--detail">{{m.hashtag_you}}</div>
         </div>
       </div>
       <div class="mannerthumbs">
@@ -19,14 +19,15 @@
         <i class="fas fa-thumbs-down"></i>: {{m.dis_like}}
       </div>
     </a>
-
     {% endfor %}
-    <div class="search">
-      <input onkeyup="filter()" type="text" class="search__box" placeholder="#누가" defer>
-      <!-- <input onkeyup="filter()" class="search__box" placeholder="#누구에게"></input> -->
-      <button class="find__btn">검색</button>
-      <button class="writeText">글쓰기</button>
-    </div>
+
+    <form method="post" class="search" action="{% url 'search' %}">
+      {%csrf_token%}
+      <input type="text" class="search__box" placeholder="#누가" value="{{post}}">
+      <!-- <input type="text" class="search__box" placeholder="#누구에게"> -->
+      <button type="submit" class="find__btn">검색</button>
+      <!-- <button class="writeText">글쓰기</button> -->
+    </form>
   </main>
   <script src="{% static 'js/mannerSearch.js' %}" defer></script>
   <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>

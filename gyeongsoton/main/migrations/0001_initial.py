@@ -17,7 +17,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='manner',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('text', models.CharField(max_length=500)),
                 ('like', models.IntegerField()),
                 ('dis_like', models.IntegerField()),
@@ -29,32 +30,38 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='newterm',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('question', models.CharField(max_length=100)),
                 ('answer', models.CharField(max_length=100)),
                 ('non_answer', models.CharField(max_length=100)),
+                ('correct', models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
             name='communityText',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateTimeField()),
                 ('text', models.CharField(max_length=500)),
                 ('like', models.IntegerField()),
                 ('dis_like', models.IntegerField()),
-                ('user', models.ForeignKey(default='', on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(
+                    default='', on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
             name='communityComment',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateTimeField()),
                 ('like', models.IntegerField()),
                 ('dis_like', models.IntegerField()),
                 ('text', models.CharField(max_length=300)),
-                ('communitytext', models.ForeignKey(default='', on_delete=django.db.models.deletion.CASCADE, to='main.communitytext')),
+                ('communitytext', models.ForeignKey(
+                    default='', on_delete=django.db.models.deletion.CASCADE, to='main.communitytext')),
             ],
         ),
     ]

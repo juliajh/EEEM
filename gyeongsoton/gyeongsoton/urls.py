@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 from main import views
 from account import views as account_view
 
@@ -26,14 +26,24 @@ urlpatterns = [
     path('community/', views.community, name="community"),
     path('community/detail/<str:id>',
          views.communityDetail, name="communityDetail"),
-    path('community/detail/<str:id>/addComment/',views.addComment,name='addComment'),
-    path('community/detail/<str:community_id>/likeup/<comment_id>/',views.communityCommentLikeUp,name='communityCommentLikeUp'),
-    path('community/detail/<str:community_id>/dislikeup/<comment_id>/',views.communityCommentDisLikeUp,name='communityCommentDisLikeUp'),
+    path('community/detail/<str:id>/addComment/',
+         views.addComment, name='addComment'),
+    path('community/detail/<str:community_id>/likeup/<comment_id>/',
+         views.communityCommentLikeUp, name='communityCommentLikeUp'),
+    path('community/detail/<str:community_id>/dislikeup/<comment_id>/',
+         views.communityCommentDisLikeUp, name='communityCommentDisLikeUp'),
     path('trend/', views.trend, name="trend"),
     path('manner/', views.manners, name="manner"),
     path('manner/detail/<str:id>', views.mannersDetail, name='mannersDetail'),
-    path('manner/detail/<str:id>/likeup', views.mannerLikeUp, name="mannerLikeUp"),
-    path('manner/detail/<str:id>/dislikeup', views.mannerDisLikeUp, name="mannerDisLikeUp"),
+    path('manner/detail/<str:id>/likeup',
+         views.mannerLikeUp, name="mannerLikeUp"),
+    path('manner/detail/<str:id>/dislikeup',
+         views.mannerDisLikeUp, name="mannerDisLikeUp"),
     path('newterms/', views.newterms, name="newterms"),
     path('newtermQuiz/<str:id>/', views.newtermQuiz, name="newtermQuiz"),
+    path('newtermQuiz/<str:id>/button1',
+         views.newtermButton1, name="newtermButton1"),
+    path('newtermQuiz/<str:id>/button2',
+         views.newtermButton2, name="newtermButton2"),
+    path('manner/search/', views.search, name="search"),
 ]

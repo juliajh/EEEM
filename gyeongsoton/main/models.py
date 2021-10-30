@@ -8,6 +8,9 @@ class newterm(models.Model):
     question = models.CharField(max_length=100)
     answer = models.CharField(max_length=100)
     non_answer = models.CharField(max_length=100)
+    score = models.IntegerField(default=0)  # 현재까지 맞은 개수
+    correct = models.BooleanField(default=False)  # 이전 문제가 맞았는지 틀렸는지
+    randanswer = models.IntegerField(default=0)
 
 
 class communityText(models.Model):

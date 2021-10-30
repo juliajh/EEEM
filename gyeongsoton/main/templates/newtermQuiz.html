@@ -32,13 +32,13 @@
                 </div>
             </div>
             <div class="newtermFont">
-                {{term.question}}
+                {{term.question}} {{term.score}}
             </div>
-            <div style="margin-left: 70px;">
-                <a href="{%url 'newtermQuiz' term.id %}">
+            <div style="margin-left: 35%;">
+                <a href="{%url 'newtermButton1' term.id %}">
                     <div class="bubbly-button" style="background-color: cornflowerblue;  box-shadow: 0 2px 25px rgba(0, 76, 255, 0.5);">{{choice_1}}</div>
                 </a>
-                <a href="{%url 'newtermQuiz' term.id %}">
+                <a href="{%url 'newtermButton2' term.id %}">
                     <div class="bubbly-button" style="background-color: coral;  box-shadow: 0 2px 25px rgba(255, 72, 0, 0.5);">{{choice_2}}</div>
                 </a>
             </div>
