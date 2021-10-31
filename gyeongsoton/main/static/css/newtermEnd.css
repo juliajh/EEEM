@@ -1,19 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gamja+Flower&family=Jua&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gamja+Flower&family=Jua&display=swap");
 
 main {
   padding-top: 120px;
-  font-family: 'Jua', sans-serif;
+  font-family: "Jua", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameCard {
+  position: relative;
+  height: 600px;
+  width: 600px;
 }
 
 .gameCard__side {
-  margin: 0 auto;
-  padding-top: 30px;
-  height: 550px;
-  width: 50%;
+  /* margin: 0 auto; */
+  /* padding-top: 30px; */
+  height: 100%;
+  width: 100%;
   position: absolute;
   background-size: cover !important;
   background-color: rgb(236, 199, 120);
-  border-radius: 30px 30px 30px 30px;
+  border-radius: 30px;
   box-shadow: 5px 5px 9px #f26b11;
   grid-row: -1;
   text-transform: uppercase;
@@ -25,24 +34,47 @@ main {
   line-height: 3em;
   min-width: 3em;
   text-align: center;
-  left: 30%;
+  /* left: 30%; */
   backface-visibility: hidden;
-  transition: 0.3s ease-in-out;
+  /* transition: 0.3s ease-in-out; */
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
 .gameCard__side--front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: rgb(236, 199, 120);
 }
 .gameCard__side--back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform: rotateY(180deg);
   background-color: rgb(236, 199, 120);
 }
 .gameCard:hover .gameCard__side--front {
-  transform: rotateY(-180deg);
+  animation: rotateFront 0.3s ease-in-out forwards;
 }
 .gameCard:hover .gameCard__side--back {
-  transform: rotateY(0deg);
+  animation: rotateBack 0.3s ease-in-out forwards;
 }
 
+@keyframes rotateFront {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-180deg);
+  }
+}
 
+@keyframes rotateBack {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}

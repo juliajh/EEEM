@@ -11,12 +11,14 @@
         <div class="gameCard">
             <div class="gameCard__side gameCard__side--front">
                 <span>점수 공개 !</span>
+                <span>마우스를 올려주세요.</span>
             </div>
             <div class="gameCard__side gameCard__side--back">
-                <p>당신의 점수는 {{score}}점 입니다.</p>
+                <p>당신의 점수는 {{score}} / 4 점 입니다.</p>
             </div>
         </div>
     </main>
+    <script src="{% static 'js/newtermEnd.js' %}"></script>
 </body>
 
 {% endblock %}
