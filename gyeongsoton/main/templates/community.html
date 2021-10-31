@@ -11,6 +11,7 @@
   <div class="row d-flex justify-content-center mt-100 mb-100">
     <div class="col-lg-6">
         <div class="card">
+          <span class="info">자유롭게 소통할 수 있는 페이지입니다.<br><br>회원가입 후 글을 쓰고 댓글을 달아보세요😃</span>
             <div class="comment-widgets">
               {% for community in communities.all %}
               <a href="{%url 'communityDetail' community.id %}">

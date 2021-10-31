@@ -1,4 +1,72 @@
+* {
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
 
+h1 {
+  font-weight: bold;
+  font-size: 30px;
+  margin: 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+.overlay-container p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+}
+
+.form-container span {
+  font-size: 12px;
+}
+
+.social-container a {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+.overlay-panel p {
+  font-size: 15px;
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid #d3af92;
+  background-color: #d3af92;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+button.ghost {
+  background-color: transparent;
+  border-color: #ffffff;
+}
+
+form {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   padding: 0 50px;
   height: 100%;
@@ -19,7 +87,7 @@ input {
 }
 
 .main-container {
-  padding-top: 100px;
+  padding-top: 200px;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -104,3 +172,21 @@ input {
   height: 100%;
   width: 50%;
 }
+
+.error-field {
+  font-size: 12px;
+  color: red;
+}
+
+select {
+  width:210px;
+  height: 30px;
+  border: 1px solid #999;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-bottom: 7px;
+  font-size: 15px;
+  text-align: center;
+}
+

@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 h1 {
@@ -42,7 +43,7 @@ button {
   border: 1px solid #d3af92;
   background-color: #d3af92;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
   padding: 12px 45px;
   letter-spacing: 1px;
@@ -88,7 +89,7 @@ input {
 }
 
 .main-container {
-  padding-top: 100px;
+  padding-top: 200px;
   align-items: center;
   justify-content: center;
   display: flex;

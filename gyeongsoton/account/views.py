@@ -37,13 +37,13 @@ def logout_view(request):
     return redirect("home")
 
 
-def signUp_view(request):
+def signup_view(request):
     if request.method == "POST":
-        form = RegisterForm(request.POST, request.FILES)
+        form = RegisterForm(data=request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect("login")
     else:
         form = RegisterForm()
-    return render(request, "signUp.html", {"form": form})
+    return render(request, "signup.html", {"form": form})
