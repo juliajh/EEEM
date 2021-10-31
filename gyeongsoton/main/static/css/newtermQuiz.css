@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Kanit:900");
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 
 .gameCard {
   margin: 0 auto;
@@ -8,6 +8,7 @@
   background-size: cover !important;
   background-color: rgb(236, 199, 120);
   border-radius: 30px 30px 30px 30px;
+  box-shadow: 5px 5px 9px #f26b11;
 }
 
 .container {
@@ -113,11 +114,11 @@
 }
 
 .bubbly-button {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Gamja Flower";
   display: inline-block;
-  font-size: 1em;
-  padding: 2em 2em;
-  margin: 60px 100px 0px 0px;
+  font-size: 30px;
+  padding: 20px 20px;
+  margin: 30px 50px 0px 0px;
   -webkit-appearance: none;
   appearance: none;
   color: #fff;
@@ -223,10 +224,10 @@ main {
   margin-top: 60px;
   margin-left: auto;
   text-transform: uppercase;
-  font-family: "Kanit";
+  font-family: "Gamja Flower";
   font-size: 8em;
   font-weight: 550;
   color: #fff;
-  text-shadow: 1px 1px 1px rgb(94, 255, 94), 1px 2px 1px rgb(94, 255, 94),
-    1px 3px 1px rgb(94, 255, 94);
+  text-shadow: 1px 1px 1px #f26b11, 1px 2px 1px #f26b11,
+    1px 3px 1px #f26b11, 1px 4px 1px #f26b11;
 }

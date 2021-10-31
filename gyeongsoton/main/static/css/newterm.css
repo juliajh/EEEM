@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gamja+Flower&family=Jua&display=swap');
+
 .centered,
 .button,
 .button .qube .front::before {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 25px;
   position: absolute;
   top: 0;
   bottom: 0;
