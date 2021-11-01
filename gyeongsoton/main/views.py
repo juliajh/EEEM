@@ -28,6 +28,26 @@ def communityDetail(request, id):
         {"community": community, "comments": allComments},
     )
 
+def addCommunity(request):
+    if request.user.is_authenticated:
+        community = communityText()
+        community.date = timezone.datetime.now()
+        community.like = 0
+        community.dis_like = 0
+        community.text = request.POST.get("communitytext")
+        community.user=request.user
+        community.title=request.POST.get("communitytitle")
+        if community.text and community.title:
+            community.save()
+        return redirect("communityDetail", community.id)
+    else:
+        return redirect("404error")
+
+def toaddCommunitypage(request):
+    if request.user.is_authenticated:
+        return render(request,"addCommunity.html")
+    else:
+        return redirect("404error")
 
 def communityCommentLikeUp(request, community_id, comment_id):
     if request.user.is_authenticated:
@@ -147,6 +167,7 @@ def addComment(request, id):
         comment.like = 0
         comment.dis_like = 0
         comment.text = request.POST.get("commenttext")
+        comment.user=request.user
         if comment.text:
             comment.communitytext = get_object_or_404(communityText, pk=id)
             comment.save()

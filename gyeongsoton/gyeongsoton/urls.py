@@ -24,6 +24,8 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('', views.home, name="home"),
     path('community/', views.community, name="community"),
+    path('community/addCommunity', views.addCommunity, name="addCommunity"),
+    path('community/toaddCommunitypage', views.toaddCommunitypage, name="toaddCommunitypage"),
     path('community/detail/<str:id>',
          views.communityDetail, name="communityDetail"),
     path('community/detail/<str:id>/addComment/',

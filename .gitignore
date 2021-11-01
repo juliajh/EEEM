@@ -24,3 +24,4 @@ gyeongsoton/main/__pycache__/admin.cpython-39.pyc
 *.pyc
 *.pyc
 *.pyc
+*.sqlite3

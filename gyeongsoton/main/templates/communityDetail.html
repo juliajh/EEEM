@@ -34,13 +34,6 @@
              </div>
         </div>
 
-        
-        <div id="loginmodal" class="modal">
-            <p>로그인 후 EEEM의 다양한 기능을 사용해보세요😃<br><br></p>
-            <button class="tologinbtn" onclick="location.href='{% url 'login' %}'">로그인 하러 가기</button>
-            <button class="tologinbtn" onclick="location.href='{% url 'signup' %}'">회원가입 하러 가기</button>
-        </div>
-
         <div class="chat-box">
             {% if user.is_authenticated %}
                 <form action="{% url 'addComment' community.id %}" method="POST">
