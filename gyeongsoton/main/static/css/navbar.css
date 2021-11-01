@@ -61,6 +61,53 @@
 .login__btn {
   position: absolute;
   right: 20px;
+  border-radius: 15px;
+  border: 1px solid #d3af92;
+  background-color: #d3af92;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  color:white;
+}
+
+.login__btn:active {
+  transform: scale(0.95);
+}
+
+.login__btn:focus {
+  outline: none;
+}
+
+.logout__btn {
+  position: absolute;
+  right: 20px;
+  border-radius: 15px;
+  border: 1px solid #d3af92;
+  background-color: #d3af92;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  color:white;
+}
+
+.logout__btn:active {
+  transform: scale(0.95);
+}
+
+.logout__btn:focus {
+  outline: none;
+}
+
+/*
+.login__btn {
+  position: absolute;
+  right: 20px;
   border-radius: 10px;
   padding: 13px;
   background-color: rgb(126, 241, 203);
@@ -73,7 +120,7 @@
   padding: 13px;
   background-color: rgb(126, 241, 203);
 }
-
+*/
 .navbar__toggleBtn {
   position: absolute;
   display: none;
