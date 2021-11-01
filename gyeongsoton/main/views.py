@@ -30,17 +30,23 @@ def communityDetail(request, id):
 
 
 def communityCommentLikeUp(request, community_id, comment_id):
-    comment = get_object_or_404(communityComment, pk=comment_id)
-    comment.like += 1
-    comment.save()
-    return redirect("communityDetail", community_id)
+    if request.user.is_authenticated:
+        comment = get_object_or_404(communityComment, pk=comment_id)
+        comment.like += 1
+        comment.save()
+        return redirect("communityDetail", community_id)
+    else:
+        return redirect("404error")
 
 
 def communityCommentDisLikeUp(request, community_id, comment_id):
-    comment = get_object_or_404(communityComment, pk=comment_id)
-    comment.dis_like += 1
-    comment.save()
-    return redirect("communityDetail", community_id)
+    if request.user.is_authenticated:
+        comment = get_object_or_404(communityComment, pk=comment_id)
+        comment.dis_like += 1
+        comment.save()
+        return redirect("communityDetail", community_id)
+    else:
+        return redirect("404error")
 
 
 def trend(request):
@@ -135,16 +141,18 @@ def newtermButton2(request, id):
 
 
 def addComment(request, id):
-    comment = communityComment()
-    comment.date = timezone.datetime.now()
-    comment.like = 0
-    comment.dis_like = 0
-    comment.text = request.POST.get("commenttext")
-    if comment.text:
-        comment.communitytext = get_object_or_404(communityText, pk=id)
-        comment.save()
-    return redirect("communityDetail", id)
-
+    if request.user.is_authenticated:
+        comment = communityComment()
+        comment.date = timezone.datetime.now()
+        comment.like = 0
+        comment.dis_like = 0
+        comment.text = request.POST.get("commenttext")
+        if comment.text:
+            comment.communitytext = get_object_or_404(communityText, pk=id)
+            comment.save()
+        return redirect("communityDetail", id)
+    else:
+        return redirect("404error")
 
 def search(request):
     if 'kw' in request.GET:
@@ -160,3 +168,6 @@ def search(request):
     #         Q(hashtag_you__icontains=query2)
     #     )
     return render(request, "mannerSearch.html", {'query': query, 'result': result})
+
+def notfound(request):
+    return render(request,"404error.html")

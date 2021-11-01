@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #f3ebe6;
+  background-color: transparent;
   display: flex;
   align-items: center;
   padding: 10px 8px;
@@ -60,7 +60,7 @@
 
 .login__btn {
   position: absolute;
-  right: 20px;
+  right: 40px;
   border-radius: 15px;
   border: 1px solid #d3af92;
   background-color: #d3af92;

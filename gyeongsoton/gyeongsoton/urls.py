@@ -47,4 +47,5 @@ urlpatterns = [
          views.newtermButton2, name="newtermButton2"),
     path('newterms/<int:score>/result', views.newtermEnd, name="newtermEnd"),
     path('manner/search/', views.search, name="search"),
+    path('404/',views.notfound,name="404error"),
 ]

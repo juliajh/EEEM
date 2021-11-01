@@ -124,3 +124,31 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+#loginmodal{
+  height: 150px;
+  text-align: center;
+  padding-top: 50px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.tologinbtn{
+  border-radius: 20px;
+  border: 1px solid #d3af92;
+  background-color: #d3af92;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+  
+.tologinbtn:active {
+  transform: scale(0.95);
+}
+  
+.tologinbtn:focus {
+    outline: none;
+}

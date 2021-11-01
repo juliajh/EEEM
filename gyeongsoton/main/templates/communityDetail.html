@@ -34,12 +34,26 @@
              </div>
         </div>
 
+        
+        <div id="loginmodal" class="modal">
+            <p>로그인 후 EEEM의 다양한 기능을 사용해보세요😃<br><br></p>
+            <button class="tologinbtn" onclick="location.href='{% url 'login' %}'">로그인 하러 가기</button>
+            <button class="tologinbtn" onclick="location.href='{% url 'signup' %}'">회원가입 하러 가기</button>
+        </div>
+
         <div class="chat-box">
-            <form action="{% url 'addComment' community.id %}" method="POST">
-                {% csrf_token %}
-                <input id="inputText" name="commenttext" type="text" placeholder="댓글을 달아 의견을 공유해주세요!"/>
-                <input id="inputSubmit" type="submit" value="댓글 달기"/>
-            </form>
+            {% if user.is_authenticated %}
+                <form action="{% url 'addComment' community.id %}" method="POST">
+                    {% csrf_token %}
+                    <input id="inputText" name="commenttext" type="text" placeholder="댓글을 달아 의견을 공유해주세요!"/>
+                    <input id="inputSubmit" type="submit" value="댓글 달기"/>
+                </form>
+            {% else %}
+                <a href="#loginmodal" rel="modal:open">
+                    <input id="inputText" name="commenttext" type="text" placeholder="댓글을 달아 의견을 공유해주세요!"/>
+                    <button id="inputSubmit" type="submit" >댓글달기</button>
+                </a>
+            {% endif %}
         </div> 
 
         <div class="comment">            
@@ -63,9 +77,9 @@
                         <div class="post-description"> 
                             <p>{{comment.text}}</p>
                         </div>
-                        
+
                         <div class="like-dislike">
-                            <div class="like">
+                            {% if user.is_authenticated %}
                             <a href="{% url 'communityCommentLikeUp' community.id  comment.id%}" class="like">
                                 <img src="{%static 'img/thumbs-up.png'%}" width="20px" height="20px"/>
                                 <span>&nbsp{{comment.like}}&nbsp&nbsp&nbsp&nbsp</span>
@@ -74,6 +88,16 @@
                                 <img src="{%static 'img/thumb-down.png'%}" width="20px" height="20px"/>
                                 <span>&nbsp{{comment.dis_like}}</span>
                             </a>
+                            {% else %}
+                                <a href="#loginmodal" rel="modal:open" class="like">
+                                    <img src="{%static 'img/thumbs-up.png'%}" width="20px" height="20px"/>
+                                    <span>&nbsp{{comment.like}}&nbsp&nbsp&nbsp&nbsp</span>
+                                </a>
+                                <a href="#loginmodal" rel="modal:open" class="dislike">
+                                    <img src="{%static 'img/thumb-down.png'%}" width="20px" height="20px"/>
+                                    <span>&nbsp{{comment.dis_like}}</span>
+                                </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -81,6 +105,8 @@
                 
             </div>
         </div>
+
+          
     </div>
     
 </body>
