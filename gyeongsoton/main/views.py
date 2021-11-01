@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
+from django.db.models import Q
 from .models import communityText
 from .models import manner
 from .models import newterm
@@ -146,13 +147,16 @@ def addComment(request, id):
 
 
 def search(request):
-    context = dict()
-    free_post = Post.objects.order_by("-id")
-    post = request.POST.get("post", "")
-    if post:
-        free_post = free_post.filter(title__icontains=post)
-        context["free_post"] = free_post
-        context["post"] = post
-        return render(request, "mannerSearch.html", context)
-    else:
-        return render(request, "mannerSearch.html")
+    if 'kw' in request.GET:
+        query = request.GET.get('kw')
+        result = manner.objects.all().filter(
+            Q(hashtag_me__icontains=query) |
+            Q(hashtag_you__icontains=query)
+        )
+    # if 'kw2' in request.GET:
+    #     query2 = request.GET.get('kw2')
+    #     result = manner.objects.all().filter(
+    #         Q(hashtag_me__icontains=query2) |
+    #         Q(hashtag_you__icontains=query2)
+    #     )
+    return render(request, "mannerSearch.html", {'query': query, 'result': result})

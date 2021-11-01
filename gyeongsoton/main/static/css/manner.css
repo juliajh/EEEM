@@ -62,7 +62,7 @@
 }
 
 .search__box {
-  width: 100px;
+  width: 110px;
   height: 30px;
   border: 1px solid white;
   border-radius: 10px;
@@ -103,4 +103,9 @@
     width: 180px;
     font-size: 13px;
   }
+}
+
+h4 {
+  display: block;
+  margin-bottom: 30px;
 }
