@@ -103,6 +103,10 @@
     width: 180px;
     font-size: 13px;
   }
+  .search {
+    position: static;
+    margin-bottom: 30px;
+  }
 }
 
 h4 {

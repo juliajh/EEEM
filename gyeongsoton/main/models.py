@@ -44,3 +44,11 @@ class manner(models.Model):
     hashtag_me = models.CharField(max_length=20)
     hashtag_you = models.CharField(max_length=20)
     hashtag_situation = models.CharField(max_length=500)
+
+class product(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='')
+    date = models.DateTimeField()
+    productName = models.CharField(max_length=30, default='')
+    productText = models.CharField(max_length=500, default='')
+    like = models.IntegerField()
+

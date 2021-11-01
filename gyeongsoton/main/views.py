@@ -4,7 +4,9 @@ from .models import communityText
 from .models import manner
 from .models import newterm
 from .models import communityComment
+from .models import product
 from django.utils import timezone
+import datetime
 import random
 
 # Create your views here.
@@ -175,20 +177,38 @@ def addComment(request, id):
     else:
         return redirect("404error")
 
-def search(request):
+def search(request): 
     if 'kw' in request.GET:
         query = request.GET.get('kw')
         result = manner.objects.all().filter(
             Q(hashtag_me__icontains=query) |
             Q(hashtag_you__icontains=query)
         )
-    # if 'kw2' in request.GET:
-    #     query2 = request.GET.get('kw2')
-    #     result = manner.objects.all().filter(
-    #         Q(hashtag_me__icontains=query2) |
-    #         Q(hashtag_you__icontains=query2)
-    #     )
     return render(request, "mannerSearch.html", {'query': query, 'result': result})
 
 def notfound(request):
     return render(request,"404error.html")
+
+def newproduct(request):
+    new_product = product.objects.all()
+    now = datetime.datetime.now() #현재 시간. ~분전 하고 싶어서 .! 
+    return render(request, "newproduct.html",{'products':new_product, 'now':now})
+
+
+def newproductDetail(request, user):
+    product_detail = get_object_or_404(product, pk=user)
+    return render(request, "newproductDetail.html", {"productDetail": product_detail})
+
+def communitySearch(request):
+    if 'kw' in request.GET:
+        query = request.GET.get('kw')
+        result = communityText.objects.all().filter(
+            Q(title__icontains=query)
+        )
+    return render(request, "communitySearch.html", {'query': query, 'result': result})
+
+def addProduct(request):
+    if request.user.is_authenticated:
+        return render(request,"addProduct.html")
+    else:
+        return redirect("404error")

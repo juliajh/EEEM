@@ -3,6 +3,12 @@
 <link rel="stylesheet" href='{% static "css/manner.css" %}'>
 <body>
   <main class="main__screen">
+    <form method="get" class="search" action="{% url 'search' %}">
+      <input type="search" class="search__box" placeholder="#해시태그 검색" name="kw">
+      <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
+      <button type="submit" class="find__btn">검색</button>
+      <!-- <button class="writeText">글쓰기</button> -->
+    </form>
     {% for m in manner.all %}
     <a class="manner__box" href="{%url 'mannersDetail' m.id %}">
       <div class="manner__main">
@@ -21,12 +27,7 @@
     </a>
     {% endfor %}
 
-    <form method="get" class="search" action="{% url 'search' %}">
-      <input type="search" class="search__box" placeholder="#해시태그 검색" name="kw">
-      <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
-      <button type="submit" class="find__btn">검색</button>
-      <!-- <button class="writeText">글쓰기</button> -->
-    </form>
+    
   </main>
   <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>
 </body>

@@ -40,7 +40,7 @@
   margin-bottom: 10px;
 }
 
-.info{
+.info {
   font-size:20px;
   text-align: center;
 }
@@ -79,4 +79,34 @@
   margin-top: 10px;
   float: right;
   color: rgb(83, 83, 83);
+}
+
+
+.search {
+  position: absolute;
+  top: 90px;
+  right: 20px;
+}
+
+.search__box {
+  width: 110px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+.search__box:focus {
+  outline: none;
+}
+
+.find__btn {
+  width: 70px;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  color: black;
+  background-color: #f0d4f5;
+  font-weight: bold;
+  border-radius: 10px;
 }

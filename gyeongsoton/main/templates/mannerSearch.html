@@ -5,7 +5,12 @@
   <main class="main__screen">
 
     <h4>'{{query}}'에 대한 검색결과</h4>
-
+    <form method="get" class="search" action="{% url 'search' %}">
+      <input type="search" class="search__box" placeholder="#해시태그 검색" name="kw">
+      <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
+      <button type="submit" class="find__btn">검색</button>
+      <!-- <button class="writeText">글쓰기</button> -->
+    </form>
     {% for result in result.all %}
     <a class="manner__box" href="{%url 'mannersDetail' result.id %}">
       <div class="manner__main">
@@ -22,21 +27,11 @@
         <i class="fas fa-thumbs-down"></i>: {{result.dis_like}}
       </div>
     </a>
-    <form method="get" class="search" action="{% url 'search' %}">
-      <input type="search" class="search__box" placeholder="#해시태그 검색" name="kw">
-      <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
-      <button type="submit" class="find__btn">검색</button>
-      <!-- <button class="writeText">글쓰기</button> -->
-    </form>
+    
 
     {% empty %}
     <h4>검색 결과가 없습니다.</h4>
-    <form method="get" class="search" action="{% url 'search' %}">
-      <input type="search" class="search__box" placeholder="#해시태그 검색" name="kw">
-      <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
-      <button type="submit" class="find__btn">검색</button>
-      <!-- <button class="writeText">글쓰기</button> -->
-    </form>
+    
 
     {% endfor %}
 
