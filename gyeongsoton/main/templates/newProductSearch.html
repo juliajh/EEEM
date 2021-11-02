@@ -9,11 +9,11 @@
 
 <body>
     <form method="get" class="search" action="{% url 'newproductSearch' %}">
-        <input type="search" class="search__box" placeholder="신문물 검색" name="kw">
-        <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
-        <button type="submit" class="find__btn">검색</button>
-        <!-- <button class="writeText">글쓰기</button> -->
-    </form>
+      <input type="search" class="search__box" placeholder="신문물 검색" name="kw">
+      <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
+      <button type="submit" class="find__btn">검색</button>
+      <!-- <button class="writeText">글쓰기</button> -->
+    </form> 
     {% if user.is_authenticated %}
         <a href="{%url 'addProduct' %}" class="plusButton"></a>
     {% else %}
@@ -21,23 +21,26 @@
     {% endif %}
     <div class="container mt-2">
           <div class="row" style="padding-top: 70px;">
-            {% for product in products.all %}
+            {% for result in result.all %}
                 <div class="col-md-3 col-sm-6">
-                    <a href="{%url 'newproductDetail' product.id %}">
+                    <a href="{%url 'newproductDetail' result.id %}">
                         <div class="productCard productCard-block">
                             <h4 class="productCard-title text-right"><i class="material-icons">상품</i></h4>
                             <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
-                            <h5 class="productCard-title mt-3 mb-3">{{product.productName}}</h5>
-                            <div style="text-align: right; line-height: 1rem;"> - 작성자 {{product.user}}</div>
-                            <p class="productCard-text" style="line-height: 1.5rem;">{{product.productText}}</p> 
-                            <div style = "text-align: right; margin-top: 30px;">heart {{product.like}}</div>
+                            <h5 class="productCard-title mt-3 mb-3">{{result.productName}}</h5>
+                            <div style="text-align: right; line-height: 1rem;"> - 작성자 {{result.user}}</div>
+                            <p class="productCard-text" style="line-height: 1.5rem;">{{result.productText}}</p> 
+                            <div style = "text-align: right; margin-top: 30px;">heart {{result.like}}</div>
                         </div>
                     </a>
                 </div>
+
+                {% empty %}
+                <h4 style="text-align: center; font-size: large;">'{{query}}'에 대한 검색 결과가 없습니다.</h4>
+
             {% endfor %}
             
           </div>
-          
         </div>
         
 </body>

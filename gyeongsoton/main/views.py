@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from django.db.models import Q
+from django.db.models import Q, query
 from .models import communityText
 from .models import manner
 from .models import newterm
@@ -212,3 +212,11 @@ def addProduct(request):
         return render(request,"addProduct.html")
     else:
         return redirect("404error")
+
+def newproductSearch(request):
+    if 'kw' in request.GET:
+        query = request.GET.get('kw')
+        result = product.objects.all().filter(
+            Q(productName__icontains=query)
+        )
+    return render(request, 'newProductSearch.html', {'query': query, 'result': result})
