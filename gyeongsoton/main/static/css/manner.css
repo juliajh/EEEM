@@ -58,7 +58,7 @@
 .search {
   position: absolute;
   top: 90px;
-  right: 20px;
+  right: 100px;
 }
 
 .search__box {
@@ -82,9 +82,16 @@
   background-color: #f0d4f5;
   font-weight: bold;
   border-radius: 10px;
+  font-size: 13px;
 }
 
 .writeText {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 90px;
+  right: 20px;
   width: 70px;
   height: 35px;
   border: none;
@@ -92,6 +99,7 @@
   color: black;
   background-color: #f0d4f5;
   font-weight: bold;
+  font-size: 13px;
   border-radius: 10px;
 }
 

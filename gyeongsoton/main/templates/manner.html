@@ -7,8 +7,8 @@
       <input type="search" class="search__box" placeholder="#해시태그 검색" name="kw">
       <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
       <button type="submit" class="find__btn">검색</button>
-      <!-- <button class="writeText">글쓰기</button> -->
     </form>
+    <a href="{% url 'addManner' %}" class="writeText">글쓰기</a>
     {% for m in manner.all %}
     <a class="manner__box" href="{%url 'mannersDetail' m.id %}">
       <div class="manner__main">

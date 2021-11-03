@@ -30,6 +30,7 @@ def communityDetail(request, id):
         {"community": community, "comments": allComments},
     )
 
+
 def addCommunity(request):
     if request.user.is_authenticated:
         community = communityText()
@@ -37,19 +38,21 @@ def addCommunity(request):
         community.like = 0
         community.dis_like = 0
         community.text = request.POST.get("communitytext")
-        community.user=request.user
-        community.title=request.POST.get("communitytitle")
+        community.user = request.user
+        community.title = request.POST.get("communitytitle")
         if community.text and community.title:
             community.save()
         return redirect("communityDetail", community.id)
     else:
         return redirect("404error")
 
+
 def toaddCommunitypage(request):
     if request.user.is_authenticated:
-        return render(request,"addCommunity.html")
+        return render(request, "addCommunity.html")
     else:
         return redirect("404error")
+
 
 def communityCommentLikeUp(request, community_id, comment_id):
     if request.user.is_authenticated:
@@ -169,7 +172,7 @@ def addComment(request, id):
         comment.like = 0
         comment.dis_like = 0
         comment.text = request.POST.get("commenttext")
-        comment.user=request.user
+        comment.user = request.user
         if comment.text:
             comment.communitytext = get_object_or_404(communityText, pk=id)
             comment.save()
@@ -177,7 +180,8 @@ def addComment(request, id):
     else:
         return redirect("404error")
 
-def search(request): 
+
+def search(request):
     if 'kw' in request.GET:
         query = request.GET.get('kw')
         result = manner.objects.all().filter(
@@ -186,18 +190,21 @@ def search(request):
         )
     return render(request, "mannerSearch.html", {'query': query, 'result': result})
 
+
 def notfound(request):
-    return render(request,"404error.html")
+    return render(request, "404error.html")
+
 
 def newproduct(request):
     new_product = product.objects.all()
-    now = datetime.datetime.now() #현재 시간. ~분전 하고 싶어서 .! 
-    return render(request, "newproduct.html",{'products':new_product, 'now':now})
+    now = datetime.datetime.now()  # 현재 시간. ~분전 하고 싶어서 .!
+    return render(request, "newproduct.html", {'products': new_product, 'now': now})
 
 
 def newproductDetail(request, user):
     product_detail = get_object_or_404(product, pk=user)
     return render(request, "newproductDetail.html", {"productDetail": product_detail})
+
 
 def communitySearch(request):
     if 'kw' in request.GET:
@@ -207,11 +214,13 @@ def communitySearch(request):
         )
     return render(request, "communitySearch.html", {'query': query, 'result': result})
 
+
 def addProduct(request):
     if request.user.is_authenticated:
-        return render(request,"addProduct.html")
+        return render(request, "addProduct.html")
     else:
         return redirect("404error")
+
 
 def newproductSearch(request):
     if 'kw' in request.GET:
@@ -220,3 +229,7 @@ def newproductSearch(request):
             Q(productName__icontains=query)
         )
     return render(request, 'newProductSearch.html', {'query': query, 'result': result})
+
+
+def addManner(request):
+    return render(request, "addmanner.html")
