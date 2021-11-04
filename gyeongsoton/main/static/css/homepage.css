@@ -1,5 +1,6 @@
 body {
   height: 400vh;
+  background-color: rgb(242, 240, 248);
 }
 
 .mainContent {
@@ -8,13 +9,15 @@ body {
 }
 
 .mainContent span:first-child {
+  display: block;
+  margin-bottom: 20px;
   font-size: 130px;
-  color: #88AED0;
+  color: #88aed0;
 }
 
 .mainContent span:last-child {
   font-size: 180px;
-  color: #88AED0;
+  color: #88aed0;
 }
 
 .arrow {
@@ -34,8 +37,7 @@ body {
 
 .gotoContent a {
   padding: 0px 15px;
-  color: #88AED0;
+  color: #88aed0;
   opacity: 0.7;
   font-size: 13px;
 }
-

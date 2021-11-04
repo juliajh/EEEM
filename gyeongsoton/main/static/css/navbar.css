@@ -1,5 +1,5 @@
 .navbar {
-  background-color: white;
+  background-color: rgb(242, 240, 248);
   display: flex;
   align-items: center;
   padding: 10px 8px;
@@ -62,8 +62,8 @@
   position: absolute;
   right: 40px;
   border-radius: 15px;
-  border: 1px solid #88AED0;
-  background-color: #88AED0;
+  border: 1px solid #88aed0;
+  background-color: #88aed0;
   font-size: 15px;
   font-weight: bold;
   padding: 10px 30px;
@@ -88,8 +88,8 @@
   position: absolute;
   right: 20px;
   border-radius: 15px;
-  border: 1px solid #88AED0;
-  background-color: #88AED0;
+  border: 1px solid #88aed0;
+  background-color: #88aed0;
   font-size: 15px;
   font-weight: bold;
   padding: 10px 30px;
