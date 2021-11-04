@@ -59,6 +59,8 @@ class RegisterForm(UserCreationForm):
         "password_mismatch": "입력하신 두 비밀번호가 같지 않습니다.",
     }
 
+    profile=forms.ImageField()
+
     class Meta:
         model = CustomUser
         fields = ["username", "password1", "password2", "nickname", "age", "sex"]

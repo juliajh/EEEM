@@ -3,10 +3,9 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
-
 class CustomUser(AbstractUser):
 
-    SEX_CHOICES = (("", "성별을 선택하세요"), ("M", "남"), ("W", "여"))
+    SEX_CHOICES = (("", "성별을 선택하세요"), ("남", "남"), ("여", "여"))
 
     AGE_CHOICES = (
         ("", "나이대를 선택하세요"),
