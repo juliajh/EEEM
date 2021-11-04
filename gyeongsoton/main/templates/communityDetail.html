@@ -74,20 +74,20 @@
                         <div class="like-dislike">
                             {% if user.is_authenticated %}
                             <a href="{% url 'communityCommentLikeUp' community.id  comment.id%}" class="like">
-                                <img src="{%static 'img/thumbs-up.png'%}" width="20px" height="20px"/>
+                                <img src="{%static 'img/like.png' %}" width="20px" height="20px"/>
                                 <span>&nbsp{{comment.like}}&nbsp&nbsp&nbsp&nbsp</span>
                             </a>
                             <a href="{% url 'communityCommentDisLikeUp' community.id comment.id %}" class="dislike">
-                                <img src="{%static 'img/thumb-down.png'%}" width="20px" height="20px"/>
+                                <img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/>
                                 <span>&nbsp{{comment.dis_like}}</span>
                             </a>
                             {% else %}
                                 <a href="#loginmodal" rel="modal:open" class="like">
-                                    <img src="{%static 'img/thumbs-up.png'%}" width="20px" height="20px"/>
+                                    <img src="{%static 'img/like.png' %}" width="20px" height="20px"/>
                                     <span>&nbsp{{comment.like}}&nbsp&nbsp&nbsp&nbsp</span>
                                 </a>
                                 <a href="#loginmodal" rel="modal:open" class="dislike">
-                                    <img src="{%static 'img/thumb-down.png'%}" width="20px" height="20px"/>
+                                    <img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/>
                                     <span>&nbsp{{comment.dis_like}}</span>
                                 </a>
                             {% endif %}

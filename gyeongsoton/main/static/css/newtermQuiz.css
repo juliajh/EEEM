@@ -119,6 +119,7 @@
   font-size: 30px;
   padding: 20px 20px;
   margin-bottom: 15px;
+  margin-top:10px;
   -webkit-appearance: none;
   appearance: none;
   color: #fff;
@@ -222,6 +223,7 @@ main {
   position: static;
   text-align: center;
   margin-top: 60px;
+  margin-bottom: 40px;
   text-transform: uppercase;
   font-family: "Gamja Flower";
   font-size: 8em;

@@ -40,8 +40,8 @@ h2 {
 
 button {
   border-radius: 20px;
-  border: 1px solid #d3af92;
-  background-color: #d3af92;
+  border: 1px solid #88AED0;
+  background-color: #88AED0;
   color: #ffffff;
   font-size: 15px;
   font-weight: bold;
@@ -161,8 +161,8 @@ input {
 
 .overlay {
   background: #f0787c;
-  background: -webkit-linear-gradient(to right, #d3b9a5, #d3af92);
-  background: linear-gradient(to right, #d3b9a5, #d3af92);
+  background: -webkit-linear-gradient(to right, #88AED0, #88AED0);
+  background: linear-gradient(to right, #88AED0, #88AED0);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;

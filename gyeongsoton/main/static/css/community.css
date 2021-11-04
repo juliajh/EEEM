@@ -19,7 +19,7 @@
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #f3ebe6;
+  background-color: transparent;
   background-clip: border-box;
   border: 0px solid transparent;
   border-radius: 0px;
@@ -43,6 +43,8 @@
 .info {
   font-size:20px;
   text-align: center;
+  display: block;
+  margin-bottom: 20px;
 }
 
 .comment-widgets {
@@ -72,7 +74,7 @@
 }
 
 .comment-widgets .comment-row:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(136, 174, 208, 0.158);
 }
 
 .comment-footer {

@@ -23,7 +23,10 @@ class communityText(models.Model):
     title = models.CharField(max_length=30, default='')
 
     def __str__(self):
-        return self.text[:50]+"..."
+        if len(self.text)>100:
+            return self.text[:100]+"..."
+        else:
+            return self.text
 
 
 class communityComment(models.Model):
@@ -51,4 +54,6 @@ class product(models.Model):
     productName = models.CharField(max_length=30, default='')
     productText = models.CharField(max_length=500, default='')
     like = models.IntegerField()
-
+    
+    def __str__(self):
+        return self.productText[:50]+"..."

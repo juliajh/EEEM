@@ -115,8 +115,9 @@ def newtermQuiz(request, id):
         termId = int(id) + 1
         term = get_object_or_404(newterm, pk=termId)
         term.score = previousTerm.score
-    term.radanswer = random.randint(0, 1)
+    term.randanswer = random.randint(0, 1)
     term.save()
+
     if term.randanswer == 0:
         return render(
             request,

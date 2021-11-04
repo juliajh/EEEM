@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import RegisterForm
+from .forms import RegisterForm,CustomAuthForm
 from django.contrib import messages
 from gyeongsoton import *
 from account.models import CustomUser
@@ -16,7 +16,7 @@ def login_view(request):
         return redirect("home")
 
     if request.method == "POST":
-        form = AuthenticationForm(request=request, data=request.POST)
+        form = CustomAuthForm(request=request, data=request.POST)
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
@@ -28,7 +28,7 @@ def login_view(request):
             messages.add_message(request, messages.ERROR, " 가입하지 않은 계정이거나, 잘못된 비밀번호입니다")
             return redirect("login")
     else:
-        form = AuthenticationForm()
+        form = CustomAuthForm()
     return render(request, "login.html", {"form": form})
 
 

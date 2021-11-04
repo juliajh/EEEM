@@ -15,6 +15,7 @@ div [class^="col-"] {
   cursor: pointer;
   height: 370px;
   width: 280px;
+  border-radius: 20px;
 }
 .productCard-title {
   font-size: 25px;
@@ -83,7 +84,7 @@ div [class^="col-"] {
   transform: translateZ(-25px);
   transition: transform 0.25s;
   font-family: "Montserrat", sans-serif;
-  margin-top: 55px;
+  margin-top: 40px;
   margin-right: 30px;
 }
 .plusButton:before,
@@ -139,4 +140,12 @@ div [class^="col-"] {
   background-color: #f0d4f5;
   font-weight: bold;
   border-radius: 10px;
+}
+
+.info {
+  padding-top: 80px;
+  display: block;
+  font-size:20px;
+  text-align: center;
+  /* margin-bottom: 20px; */
 }

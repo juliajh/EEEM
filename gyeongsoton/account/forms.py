@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django import forms
 from .models import CustomUser
 from django.core.exceptions import ValidationError
@@ -11,7 +11,7 @@ class RegisterForm(UserCreationForm):
             attrs={
                 "class": "input",
                 "type": "username",
-                "placeholder": "id",
+                "placeholder": "ID",
             }
         ),
         label="Username",
@@ -62,3 +62,14 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ["username", "password1", "password2", "nickname", "age", "sex"]
+
+
+class CustomAuthForm(AuthenticationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={'class':'validate',
+            'placeholder': 'ID'
+            }
+        )
+    )
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'비밀번호'}))

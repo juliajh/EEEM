@@ -4,13 +4,22 @@
 <head>
     <link rel="stylesheet" href='{% static "css/homepage.css" %}'>
     <title>homepage</title>
+    <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="main__content">
-        <a href='{% url "newterms" %}' class="main__content--box">신조어 게임</a>
-        <a href='{% url "community" %}' class="main__content--box">커뮤니티</a>
-        <a href='{% url "newproduct" %}' class="main__content--box">신문물 소개</a>
-        <a href='{% url "manner" %}' class="main__content--box">매너를 지켜쥬</a>
+    <div class="mainContent">
+        <span>We are</span><br>
+        <span>EEEM</span>
+    </div>
+    <div class="arrow">
+        <span>go to start!</span>
+        <i class="fas fa-arrow-down"></i>
+    </div>
+    <div class="gotoContent">
+        <a href='{% url "community" %}'>커뮤니티</a>
+        <a href='{% url "manner" %}'>매너를 지켜쥬</a>
+        <a href='{% url "newproduct" %}'>신문물 소개</a>
+        <a href='{% url "newterms" %}'>신조어 능력고사</a>
     </div>
 </body>
 </html>

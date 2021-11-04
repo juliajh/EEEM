@@ -8,19 +8,18 @@
 </head>
 
 <body>
+    <span class="info">신문물 입니다.<br><br>회원가입 후 글을 써서 새로운 문물들을 전파해주세요!😍</span>
     <form method="get" class="search" action="{% url 'newproductSearch' %}">
         <input type="search" class="search__box" placeholder="신문물 검색" name="kw">
-        <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
         <button type="submit" class="find__btn">검색</button>
-        <!-- <button class="writeText">글쓰기</button> -->
     </form>
     {% if user.is_authenticated %}
         <a href="{%url 'addProduct' %}" class="plusButton"></a>
     {% else %}
-        <a href="#loginmodal" class="plusButton"></a>
+        <a href="#loginmodal" class="plusButton" rel="modal:open"></a>
     {% endif %}
     <div class="container mt-2">
-          <div class="row" style="padding-top: 70px;">
+          <div class="row" style="padding-top: 40px;">
             {% for product in products.all %}
                 <div class="col-md-3 col-sm-6">
                     <a href="{%url 'newproductDetail' product.id %}">
@@ -29,8 +28,8 @@
                             <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
                             <h5 class="productCard-title mt-3 mb-3">{{product.productName}}</h5>
                             <div style="text-align: right; line-height: 1rem;"> - 작성자 {{product.user}}</div>
-                            <p class="productCard-text" style="line-height: 1.5rem;">{{product.productText}}</p> 
-                            <div style = "text-align: right; margin-top: 30px;">heart {{product.like}}</div>
+                            <p class="productCard-text" style="line-height: 1.5rem;">{{product}}</p> 
+                            <div style = "text-align: right; margin-top: 20px;"> {{product.date|date:'Y-m-d fa' }}  ❤{{product.like}}</div>
                         </div>
                     </a>
                 </div>

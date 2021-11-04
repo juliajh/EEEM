@@ -13,7 +13,7 @@
 }
 
 .communityDetail {
-  background-color: white;
+  background-color: rgba(136, 174, 208, 0.158);
   padding: 30px 30px 30px 30px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -55,7 +55,7 @@
 }
 
 #inputText {
-  background-color: #f3ebe6;
+  background-color: transparent;
   width: 690px;
   height: 50px;
   border-top: none;
@@ -67,7 +67,7 @@
 }
 
 #inputSubmit {
-  background-color: #f3ebe6;
+  background-color: transparent;
   width: 90px;
   height: 56px;
   border-top: none;

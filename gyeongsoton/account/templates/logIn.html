@@ -13,8 +13,8 @@
             {%csrf_token%}
             <h1>Sign IN</h1>
             <br /><br />
-            <div class="form-element">{{form.username}}</div>
-            <div class="form-element">{{form.password}}</div>
+            <div class="form-element" placeholder="ID">{{form.username}}</div>
+            <div class="form-element" placeholder="비밀번호">{{form.password}}</div>
             <br />
             <div class="failed-login">
               {% if messages %} {% for message in messages %}
