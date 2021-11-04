@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from main import views
 from account import views as account_view
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -58,4 +60,4 @@ urlpatterns = [
          views.newproductDetail, name='newproductDetail'),
     path('newProduct/addProduct', views.addProduct, name="addProduct"),
     path('newProduct/search/', views.newproductSearch, name="newproductSearch"),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

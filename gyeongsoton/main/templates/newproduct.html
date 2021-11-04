@@ -25,7 +25,8 @@
                     <a href="{%url 'newproductDetail' product.id %}">
                         <div class="productCard productCard-block">
                             <h4 class="productCard-title text-right"><i class="material-icons">상품</i></h4>
-                            <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+                            <!--<img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset"> -->
+                            <div>{{product.img}}</div>
                             <h5 class="productCard-title mt-3 mb-3">{{product.productName}}</h5>
                             <div style="text-align: right; line-height: 1rem;"> - 작성자 {{product.user}}</div>
                             <p class="productCard-text" style="line-height: 1.5rem;">{{product}}</p> 
