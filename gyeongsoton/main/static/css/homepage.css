@@ -1,29 +1,52 @@
 body {
-  height: 400vh;
   background-color: rgb(242, 240, 248);
 }
 
-.mainContent {
-  padding-top: 60px;
+.main {
+  background-color: rgb(242, 240, 248);
+  height: 500vh;
+  transition: transform 0.5s;
+}
+
+.firstPage {
+  height: 100vh;
+  padding-top: 80px;
   padding-left: 60px;
 }
 
-.mainContent span:first-child {
+.firstPage span:first-child {
   display: block;
   margin-bottom: 20px;
   font-size: 130px;
   color: #88aed0;
 }
 
-.mainContent span:last-child {
+.firstPage span:last-child {
   font-size: 180px;
   color: #88aed0;
 }
 
+.mainPage {
+  height: 100vh;
+}
+
 .arrow {
-  position: absolute;
+  position: fixed;
   bottom: 70px;
   right: 170px;
+  animation: updown 2s ease-in-out infinite;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .gotoContent {
@@ -35,9 +58,12 @@ body {
   right: 20px;
 }
 
-.gotoContent a {
+.gotoContent button {
   padding: 0px 15px;
   color: #88aed0;
-  opacity: 0.7;
   font-size: 13px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: transparent;
 }

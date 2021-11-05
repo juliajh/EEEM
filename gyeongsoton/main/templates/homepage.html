@@ -2,26 +2,37 @@
 {% endblock %} {% block content %}
 
 <head>
-    <link rel="stylesheet" href='{% static "css/homepage.css" %}'>
     <title>homepage</title>
+    <link rel="stylesheet" href='{% static "css/homepage.css" %}'>
     <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="mainContent">
-        <span>We are</span><br>
-        <span>‘EEEM’</span>
-    </div>
+    <main class="main">
+        <div class="firstPage">
+            <span>모두를 잇는다.</span><br>
+            <span>이음</span>
+        </div>
+            <div class="mainPage">커뮤니티</div>
+            <div class="mainPage">매너를 지켜쥬</div>
+            <div class="mainPage">신문물 소개</div>
+            <div class="mainPage">신조어 능력고사</div>
+    </main>
     <div class="arrow">
-        <span>go to start!</span>
+        <span>눌러주세요!</span>
         <i class="fas fa-arrow-down"></i>
     </div>
     <div class="gotoContent">
-        <a href='{% url "community" %}'>커뮤니티</a>
-        <a href='{% url "manner" %}'>매너를 지켜쥬</a>
-        <a href='{% url "newproduct" %}'>신문물 소개</a>
-        <a href='{% url "newterms" %}'>신조어 능력고사</a>
+    
+        <button type="button" onclick="$('html, body').stop().animate( { scrollTop : 1000 } ); ">커뮤니티</button>
+        <button type="button" onclick="$('html, body').stop().animate( { scrollTop : 2000 } ); ">매너를 지켜쥬</button>
+        <button type="button" onclick="$('html, body').stop().animate( { scrollTop : 3000 } ); ">신문물 소개</button>
+        <button type="button" onclick="$('html, body').stop().animate( { scrollTop : 4000 } ); ">신조어 능력고사</button>
+
     </div>
+
+
 </body>
+
 </html>
 
 {% endblock %}
