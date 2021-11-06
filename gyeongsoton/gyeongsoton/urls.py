@@ -56,8 +56,11 @@ urlpatterns = [
     path('newterms/<int:score>/result', views.newtermEnd, name="newtermEnd"),
     path('404/', views.notfound, name="404error"),
     path('newproduct/', views.newproduct, name="newproduct"),
-    path('newproductDetail/<str:user>',
+    path('newproductDetail/<str:id>',
          views.newproductDetail, name='newproductDetail'),
     path('newProduct/addProduct', views.addProduct, name="addProduct"),
     path('newProduct/search/', views.newproductSearch, name="newproductSearch"),
+    path('newproductDetail/<str:id>/likeup',
+         views.productLikeUp, name="productLikeUp"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

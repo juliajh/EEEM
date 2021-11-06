@@ -202,8 +202,8 @@ def newproduct(request):
     return render(request, "newproduct.html", {'products': new_product, 'now': now})
 
 
-def newproductDetail(request, user):
-    product_detail = get_object_or_404(product, pk=user)
+def newproductDetail(request, id):
+    product_detail = get_object_or_404(product, pk=id)
     return render(request, "newproductDetail.html", {"productDetail": product_detail})
 
 
@@ -234,3 +234,10 @@ def newproductSearch(request):
 
 def addManner(request):
     return render(request, "addmanner.html")
+
+def productLikeUp(request, id):
+    productDetail = get_object_or_404(manner, pk=id)
+    productDetail.like += 1
+    productDetail.save()
+    return redirect("newproductDetail", id)
+

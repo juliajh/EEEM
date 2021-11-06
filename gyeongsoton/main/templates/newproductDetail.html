@@ -1,5 +1,4 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %}
-
 {% endblock %} {% block content %}
 
 <head>
@@ -7,10 +6,16 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/9452825322.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div style="padding-top: 50px;">
-      {{productDetail.user}}
+  <section>
+    <h1>{{productDetail.productName}}</h1>
+    <div class="content">
+      <p>{{productDetail.productText}}</p>
+      <!--<a href = "{% url 'productLikeUp' productDetail.id %}">❤ {{productDetail.like}}</a>-->
+      <button onclick="location.href = '{% url 'productLikeUp' productDetail.id %}'">❤ {{productDetail.like}}</button>
     </div>
+    <div class="img"><img src="{{productDetail.image.url}}"/></div>
+  </section>
 </body>
-</html>
 {% endblock %}

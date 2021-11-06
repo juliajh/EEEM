@@ -14,9 +14,9 @@
         <button type="submit" class="find__btn">검색</button>
     </form>
     {% if user.is_authenticated %}
-        <a href="{%url 'addProduct' %}" class="plusButton"></a>
+    <a href="{%url 'addProduct' %}" class="writeText">글쓰기</a>
     {% else %}
-        <a href="#loginmodal" class="plusButton" rel="modal:open"></a>
+    <a href="#loginmodal" class="writeText" rel="modal:open">글쓰기</a>
     {% endif %}
     <div class="container mt-2">
           <div class="row" style="padding-top: 40px;">
@@ -25,8 +25,9 @@
                     <a href="{%url 'newproductDetail' product.id %}">
                         <div class="productCard productCard-block">
                             <h4 class="productCard-title text-right"><i class="material-icons">상품</i></h4>
+                            <div><img src="{{product.image.url}}"/></div>
                             <!--<img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset"> -->
-                            <div>{{product.img}}</div>
+                            <!--<div>{{product.img}}</div>-->
                             <h5 class="productCard-title mt-3 mb-3">{{product.productName}}</h5>
                             <div style="text-align: right; line-height: 1rem;"> - 작성자 {{product.user}}</div>
                             <p class="productCard-text" style="line-height: 1.5rem;">{{product}}</p> 

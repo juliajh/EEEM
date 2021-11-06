@@ -9,7 +9,11 @@
       <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
       <button type="submit" class="find__btn">검색</button>
     </form>
-    <a href="{% url 'addManner' %}" class="writeText">글쓰기</a>
+    {% if user.is_authenticated %}
+    <a href="{%url 'addManner' %}" class="writeText">글쓰기</a>
+    {% else %}
+    <a href="#loginmodal" class="writeText" rel="modal:open">글쓰기</a>
+    {% endif %}
     {% for m in manner.all %}
     <a class="manner__box" href="{%url 'mannersDetail' m.id %}">
       <div class="manner__main">

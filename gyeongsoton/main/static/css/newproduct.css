@@ -67,56 +67,10 @@ div [class^="col-"] {
   transform: scale3d(1, 1, 1);
 }
 
-.plusButton {
-  float: right;
-  display: flex;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  display: inline-flex;
-  width: 100px;
-  height: 30px;
-  perspective: 1000px;
-  font-size: 19px;
-  letter-spacing: 1px;
-  transform-style: preserve-3d;
-  transform: translateZ(-25px);
-  transition: transform 0.25s;
-  font-family: "Montserrat", sans-serif;
-  margin-top: 40px;
-  margin-right: 30px;
-}
-.plusButton:before,
-.plusButton:after {
-  position: absolute;
-  content: "글쓰기";
-  height: 30px;
-  width: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 5px solid rgb(230, 118, 33);
-  box-sizing: border-box;
-  border-radius: 5px;
-}
-.plusButton:before {
-  color: rgb(255, 220, 198);
-  background: rgb(230, 118, 33);
-  transform: rotateY(0deg) translateZ(25px);
-}
-.plusButton:after {
-  color: rgb(230, 118, 33);
-  transform: rotateX(90deg) translateZ(25px);
-}
-.plusButton:hover {
-  transform: translateZ(-25px) rotateX(-90deg);
-}
-
 .search {
   position: absolute;
   top: 90px;
-  right: 20px;
+  right: 100px;
 }
 
 .search__box {
@@ -139,6 +93,25 @@ div [class^="col-"] {
   color: black;
   background-color: #f0d4f5;
   font-weight: bold;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.writeText {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 90px;
+  right: 20px;
+  width: 70px;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  color: black;
+  background-color: #f0d4f5;
+  font-weight: bold;
+  font-size: 13px;
   border-radius: 10px;
 }
 
