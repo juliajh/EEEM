@@ -9,7 +9,7 @@ body {
 }
 
 .firstPage {
-  height: 100vh;
+  height: 1000px;
   padding-top: 80px;
   padding-left: 60px;
 }
@@ -27,7 +27,7 @@ body {
 }
 
 .mainPage {
-  height: 100vh;
+  height: 1000px;
 }
 
 .arrow {
