@@ -12,11 +12,43 @@
             <span>모두를 잇는다.</span><br>
             <span>이음</span>
         </div>
-            <div class="mainPage">커뮤니티</div>
-            <div class="mainPage">매너를 지켜쥬</div>
-            <div class="mainPage">신문물 소개</div>
-            <div class="mainPage">신조어 능력고사</div>
-    </main>
+            <div class="mainPage community">
+                <img src="{% static 'img/community.png' %}">
+                <div class="text">
+                    <div class="title">커뮤니티</div>
+                    <div class="description">자유롭게 소통할 수 있는 페이지입니다.</div>
+                    <div class="description">회원가입 후 글을 쓰고 댓글을 달아보세요</div>
+                    <a class="goto" href="{% url 'community' %}">커뮤니티 바로가기</a>
+                </div>
+            </div>
+            <div class="mainPage manner">
+                <img src="{% static 'img/demand.png' %}">
+                <div class="text">
+                    <div class="title">매너를 지켜쥬</div>
+                    <div class="description">다양한 상황에 어떻게 예의를 지키며 대화 할 수 있는지의 틀을 제시해 주는 페이지 입니다.</div>
+                    <div class="description">회원가입 후 글을 쓰고 댓글을 달아보세요</div>
+                    <a class="goto" href="{% url 'manner' %}">매너를 지켜쥬 바로가기</a>
+                </div>
+            </div>
+            <div class="mainPage trend">
+                <img src="{% static 'img/game-console.png' %}">
+                <div class="text">
+                    <div class="title">신문물 소개</div>
+                    <div class="description">최신 문물을 소개하는 페이지 입니다.</div>
+                    <div class="description">회원가입 후 글을 쓰고 댓글을 달아보세요</div>
+                    <a class="goto" href="{% url 'newproduct' %}">신문물 바로가기</a>
+                </div>
+            </div>
+            <div class="mainPage newterm">
+                <img src="{% static 'img/respect.png' %}">
+                <div class="text">
+                    <div class="title">신조어 능력고사</div>
+                    <div class="description">신조어를 알기 위한 재밌는 게임입니다.</div>
+                    <div class="description">당신은 몇개까지 알 수 있을까요?</div>
+                    <a class="goto" href="{% url 'newterms' %}">신조어 게임 바로가기</a>
+                </div>
+            </div>
+        </main>
     <div class="arrow">
         <span>눌러주세요!</span>
         <i class="fas fa-arrow-down"></i>

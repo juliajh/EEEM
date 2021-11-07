@@ -24,3 +24,5 @@ class CustomUser(AbstractUser):
     age = models.CharField(
         max_length=10, choices=AGE_CHOICES, help_text="나이대를 선택하세요", null=False
     )
+
+    profile=models.ImageField(null=True,blank=True)

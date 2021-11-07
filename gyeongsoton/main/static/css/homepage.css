@@ -27,7 +27,28 @@ body {
 }
 
 .mainPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 1000px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.mainPage img {
+  width: 500px;
+  height: 500px;
+}
+
+.title {
+  color: #88aed0;
+  font-size: 80px;
+  margin-bottom: 100px;
 }
 
 .arrow {

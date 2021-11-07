@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap");
+
+.titleFont {
+  padding-top: 90px;
+  text-align: center;
+  font-size: 50px;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 12px;
+}
+
+.contentFont {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 3px;
+}
+
+.container {
+  width: 3px;
+  height: 3px;
+  padding: 4rem;
+  cursor: pointer;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
+    -10px -10px 10px rgba(255, 255, 255, 0.6);
+}
+.container .fas {
+  place-items: center;
+  font-size: 3rem;
+  color: gray;
+}
+.container:active {
+  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.1),
+    inset -10px -10px 10px rgba(255, 255, 255, 0.6);
+}
+.container:active .fas {
+  color: rgb(243, 187, 66);
+}

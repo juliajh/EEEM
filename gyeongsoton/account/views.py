@@ -43,6 +43,34 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            user=CustomUser.objects.get(username=request.user)
+            if(user.sex=="남"):
+                if(user.age=="5"):
+                    print('남5')
+                elif(user.age=="10"):
+                    print('남10')
+                elif(user.age=="20"):
+                    print('남20')
+                elif(user.age=="30"):
+                    print('남30')
+                elif(user.age=="40"):
+                    print('남40')
+                elif(user.age=="50"):
+                    print('남50')
+            else:
+                if(user.age=="5"):
+                    print('여5')
+                elif(user.age=="10"):
+                    print('여10')
+                elif(user.age=="20"):
+                    print('여20')
+                elif(user.age=="30"):
+                    print('여30')
+                elif(user.age=="40"):
+                    print('여40')
+                elif(user.age=="50"):
+                    print('여50')
+
             return redirect("login")
     else:
         form = RegisterForm()

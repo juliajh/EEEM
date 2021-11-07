@@ -2,27 +2,36 @@
 {% endblock %} {% block content %}
 
 <head>
-    <link rel="stylesheet" href='{% static "css/newterm.css" %}'>
-    <title></title>
+    <link rel="stylesheet" href='{% static "css/newterms.css" %}'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>newterm</title>
 </head>
 
-<body>
+<body style="background-color: #d8d7d7;">
     <br>
-    <main style = "font-family: 'Jua', sans-serif; font-size: 70px; font-weight: lighter; margin-top:100px; text-align: center;">
-        <h1>신조어를 맞춰보자!</h1>
-        <div class="button">
-            <div class="qube">
-                <a href="{%url 'newtermQuiz' 1 %}">
-                    <div class="front">click to be young !</div>
-                    <div class="back">mouse over me !</div>
-                </a>
-            </div>
-        </div>
-    </main>
+    <div class="titleFont">신조어 능력고사</div>
+    <br>
+    <div class="contentFont">
+        <span style=>수험생 여러분 안녕하십니까.</span>
+        <br><br>
+        <span>2021학년도 신조어 능력 시험을 보러 오신 여러분을 환영합니다.</span>
+        <br><br>
+        <span>■ 센스를 발휘해서 신조어를 맞춰보세요.</span>
+        <br><br>
+        <span>■ 옆에 친구가 있다면 함께 풀어보세요.</span>
+        <br><br>
+        <span>■ 단, 친구가 아닌 부모님이나 자식과 함께라면 혼자 푸시는 걸 추천드립니다.</span>
+        <br><br><br>
+        <span>▷ 기준</span>
+        <br><br>
+        <span>■ 50%이상 맞추면 인싸.</span>
+        <br><br>
+        <span>■ 70%이상 맞추면 핵인싸.</span>
+    </div>
+    <div class="container">
+        <i class="fas fa-play"></i>
+    </div>  
  </body>
- 
- 
- 
  
 </html>
 

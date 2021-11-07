@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(242, 240, 248);
+}
+
 .main__screen {
   padding-top: 90px;
   display: flex;
@@ -105,7 +109,7 @@
 
 .info {
   display: block;
-  font-size:20px;
+  font-size: 20px;
   text-align: center;
   margin-bottom: 60px;
 }

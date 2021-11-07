@@ -236,7 +236,7 @@ def addManner(request):
     return render(request, "addmanner.html")
 
 def productLikeUp(request, id):
-    productDetail = get_object_or_404(manner, pk=id)
+    productDetail = get_object_or_404(product, pk=id)
     productDetail.like += 1
     productDetail.save()
     return redirect("newproductDetail", id)

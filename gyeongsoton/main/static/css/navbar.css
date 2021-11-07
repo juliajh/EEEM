@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(242, 240, 248);
+}
+
 .navbar {
   background-color: rgb(242, 240, 248);
   display: flex;
