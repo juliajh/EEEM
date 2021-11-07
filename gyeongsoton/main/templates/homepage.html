@@ -8,58 +8,61 @@
 </head>
 <body>
     <main class="main">
-        <div class="firstPage">
-            <span>모두를 잇는다.</span><br>
-            <span>이음</span>
-        </div>
-            <div class="mainPage community">
+        <section class="firstPage">
+            <div class="firstPageTitle">
+                <span>모두를 잇는다.</span><br>
+                <span class="EEEM">이음</span>
+            </div>
+            <!-- <img class="firstPageImg" src="{% static 'img/connection.png' %}"> -->
+            <!-- <img class="firstPageImg" src="{% static 'img/connection2.png' %}"> -->
+            <img class="firstPageImg" src="{% static 'img/connection3.png' %}">
+        </section>
+            <section class="mainPage community" id="sec1">
                 <img src="{% static 'img/community.png' %}">
                 <div class="text">
                     <div class="title">커뮤니티</div>
                     <div class="description">자유롭게 소통할 수 있는 페이지입니다.</div>
-                    <div class="description">회원가입 후 글을 쓰고 댓글을 달아보세요</div>
-                    <a class="goto" href="{% url 'community' %}">커뮤니티 바로가기</a>
+                    <div class="description">회원가입 후 글을 쓰고 댓글을 달아보세요!</div>
+                    <a class="goto" href="{% url 'community' %}"><span>커뮤니티 바로가기</span></a>
                 </div>
-            </div>
-            <div class="mainPage manner">
-                <img src="{% static 'img/demand.png' %}">
+            </section>
+            <section class="mainPage manner" id="sec2">
+                <img src="{% static 'img/respect.png' %}">
                 <div class="text">
                     <div class="title">매너를 지켜쥬</div>
                     <div class="description">다양한 상황에 어떻게 예의를 지키며 대화 할 수 있는지의 틀을 제시해 주는 페이지 입니다.</div>
-                    <div class="description">회원가입 후 글을 쓰고 댓글을 달아보세요</div>
-                    <a class="goto" href="{% url 'manner' %}">매너를 지켜쥬 바로가기</a>
+                    <div class="description">회원가입 후 글을 쓰고 댓글을 달아보세요!</div>
+                    <a class="goto" href="{% url 'manner' %}"><span>매너를 지켜쥬 바로가기</span></a>
                 </div>
-            </div>
-            <div class="mainPage trend">
-                <img src="{% static 'img/game-console.png' %}">
+            </section>
+            <section class="mainPage trend" id="sec3">
+                <img src="{% static 'img/trend.png' %}">
                 <div class="text">
                     <div class="title">신문물 소개</div>
                     <div class="description">최신 문물을 소개하는 페이지 입니다.</div>
-                    <div class="description">회원가입 후 글을 쓰고 댓글을 달아보세요</div>
-                    <a class="goto" href="{% url 'newproduct' %}">신문물 바로가기</a>
+                    <div class="description">회원가입 후 글을 쓰서 새로운 문물들을 공유해요!</div>
+                    <a class="goto" href="{% url 'newproduct' %}"><span>신문물 바로가기</span></a>
                 </div>
-            </div>
-            <div class="mainPage newterm">
-                <img src="{% static 'img/respect.png' %}">
+            </section>
+            <section class="mainPage newterm" id="sec4">
+                <img src="{% static 'img/quiz.png' %}">
                 <div class="text">
                     <div class="title">신조어 능력고사</div>
                     <div class="description">신조어를 알기 위한 재밌는 게임입니다.</div>
                     <div class="description">당신은 몇개까지 알 수 있을까요?</div>
-                    <a class="goto" href="{% url 'newterms' %}">신조어 게임 바로가기</a>
+                    <a class="goto" href="{% url 'newterms' %}"><span>신조어 게임 바로가기</span></a>
                 </div>
-            </div>
+            </section>
         </main>
     <div class="arrow">
         <span>눌러주세요!</span>
         <i class="fas fa-arrow-down"></i>
     </div>
     <div class="gotoContent">
-    
-        <button type="button" onclick="$('html, body').stop().animate( { scrollTop : 1000 } ); ">커뮤니티</button>
-        <button type="button" onclick="$('html, body').stop().animate( { scrollTop : 2000 } ); ">매너를 지켜쥬</button>
-        <button type="button" onclick="$('html, body').stop().animate( { scrollTop : 3000 } ); ">신문물 소개</button>
-        <button type="button" onclick="$('html, body').stop().animate( { scrollTop : 4000 } ); ">신조어 능력고사</button>
-
+        <a href="#sec1">커뮤니티</a>
+        <a href="#sec2">매너를 지켜쥬</a>
+        <a href="#sec3">신문물 소개</a>
+        <a href="#sec4">신조어 능력고사</a>
     </div>
 
 

@@ -17,14 +17,14 @@
 }
 
 .container {
-  width: 3px;
-  height: 3px;
-  padding: 4rem;
+  width: 2px;
+  height: 2px;
+  padding: 3rem;
   cursor: pointer;
   position: absolute;
-  bottom: 50px;
-  right: 50px;
   display: flex;
+  top: 70px;
+  right: 20px;
   align-items: center;
   justify-content: center;
 

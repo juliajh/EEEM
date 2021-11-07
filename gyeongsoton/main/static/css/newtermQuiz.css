@@ -1,258 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap");
 
-.gameCard {
-  margin: 0 auto;
-  padding-top: 30px;
-  height: 550px;
-  width: 550px;
-  background-size: cover !important;
-  background-color: rgb(236, 199, 120);
-  border-radius: 30px 30px 30px 30px;
-  box-shadow: 5px 5px 9px #f26b11;
-}
-
-.container {
-  margin: 0 auto;
-  width: 400px;
-  text-align: center;
-}
-
-.container .progress {
-  margin: 0 auto;
-  width: 400px;
-}
-
-.progress {
-  padding: 4px;
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25),
-    0 1px rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25),
-    0 1px rgba(255, 255, 255, 0.08);
-}
-
-.progress-bar {
-  height: 16px;
-  border-radius: 4px;
-  background-image: -webkit-linear-gradient(
-    top,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.05)
-  );
-  background-image: -moz-linear-gradient(
-    top,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.05)
-  );
-  background-image: -o-linear-gradient(
-    top,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.05)
-  );
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.05)
-  );
-  -webkit-transition: 0.4s linear;
-  -moz-transition: 0.4s linear;
-  -o-transition: 0.4s linear;
-  transition: 0.4s linear;
-  -webkit-transition-property: width, background-color;
-  -moz-transition-property: width, background-color;
-  -o-transition-property: width, background-color;
-  transition-property: width, background-color;
-  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25),
-    inset 0 1px rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25),
-    inset 0 1px rgba(255, 255, 255, 0.1);
-}
-
-#five:checked ~ .progress > .progress-bar {
-  width: 5%;
-  background-color: #f63a0f;
-}
-
-#twentyfive:checked ~ .progress > .progress-bar {
-  width: 25%;
-  background-color: #f27011;
-}
-
-#fifty:checked ~ .progress > .progress-bar {
-  width: 50%;
-  background-color: #f2b01e;
-}
-
-#seventyfive:checked ~ .progress > .progress-bar {
-  width: 75%;
-  background-color: #f2d31b;
-}
-
-#onehundred:checked ~ .progress > .progress-bar {
-  width: 100%;
-  background-color: #86e01e;
-}
-
-.radio {
-  display: none;
-}
-
-.label {
-  display: inline-block;
-  margin-bottom: 5px;
-  padding: 3px 8px;
-  color: rgb(255, 255, 255);
-  text-shadow: 0 1px black;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.radio:checked + .label {
-  color: white;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.bubbly-button {
-  font-family: "Gamja Flower";
-  display: inline-block;
-  font-size: 30px;
-  padding: 20px 20px;
-  margin-bottom: 15px;
-  margin-top:10px;
-  -webkit-appearance: none;
-  appearance: none;
-  color: #fff;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-}
-.bubbly-button:focus {
-  outline: 0;
-}
-.bubbly-button:before,
-.bubbly-button:after {
+.point {
   position: absolute;
-  content: "";
-  display: block;
-  width: 140%;
-  height: 100%;
-  left: -20%;
-  z-index: -1000;
-  transition: all ease-in-out 0.5s;
-  background-repeat: no-repeat;
-}
-.bubbly-button:before {
-  display: none;
-  top: -75%;
-  background-image: radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%);
-  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
-    10% 10%, 18% 18%;
-}
-.bubbly-button:after {
-  display: none;
-  bottom: -75%;
-  background-image: radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%);
-  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
-}
-.bubbly-button:active {
-  transform: scale(0.9);
-  background-color: #e60074;
-  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
-}
-.bubbly-button.animate:before {
-  display: block;
-  animation: topBubbles ease-in-out 0.75s forwards;
-}
-.bubbly-button.animate:after {
-  display: block;
-  animation: bottomBubbles ease-in-out 0.75s forwards;
-}
-@keyframes topBubbles {
-  0% {
-    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
-      40% 90%, 55% 90%, 70% 90%;
-  }
-  50% {
-    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
-      50% 50%, 65% 20%, 90% 30%;
-  }
-  100% {
-    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
-      50% 40%, 65% 10%, 90% 20%;
-    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-  }
-}
-@keyframes bottomBubbles {
-  0% {
-    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
-      70% -10%, 70% 0%;
-  }
-  50% {
-    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
-      105% 0%;
-  }
-  100% {
-    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
-      110% 10%;
-    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-  }
+  display: flex;
+  top: 70px;
+  right: 30px;
+  font-size: 30px;
+  font-family: "Noto Serif KR", serif;
 }
 
-main {
-  padding-top: 120px;
+.questionFont {
+  padding: 70px 0 0 30px;
+  font-size: 37px;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 8px;
 }
 
-.newtermFont {
-  position: static;
+.newtermBox {
+  border-style: double;
+  border-color: black;
+  border-width: 6px;
+  margin: 50px 0 0 100px;
+  padding: 50px 50px 50px 50px;
+  display: inline-block;
+  align-items: center;
   text-align: center;
-  margin-top: 60px;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  font-family: "Gamja Flower";
-  font-size: 8em;
-  font-weight: 550;
-  color: #fff;
-  text-shadow: 1px 1px 1px #f26b11, 1px 2px 1px #f26b11,
-    1px 3px 1px #f26b11, 1px 4px 1px #f26b11;
-}
-
-.gameCard  {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.questionBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-@media screen and (max-width:700px) {
-  .gameCard {
-    margin-top: 20px;
-    width: 350px;
-    height: 700px;
-  }
-  .container {
-    position: absolute;
-    top: 70px;
-  } 
+  font-size: 130px;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 5px;
 }

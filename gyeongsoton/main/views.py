@@ -108,6 +108,7 @@ def newterms(request):
 
 
 def newtermQuiz(request, id):
+    newtermCount = newterm.objects.count
     if id == 0:
         term = get_object_or_404(newterm, pk=id)
     else:
@@ -122,13 +123,15 @@ def newtermQuiz(request, id):
         return render(
             request,
             "newtermQuiz.html",
-            {"term": term, "choice_1": term.answer, "choice_2": term.non_answer},
+            {"term": term, "choice_1": term.answer,
+                "choice_2": term.non_answer, "newtermCount": newtermCount},
         )
     else:
         return render(
             request,
             "newtermQuiz.html",
-            {"term": term, "choice_1": term.non_answer, "choice_2": term.answer},
+            {"term": term, "choice_1": term.non_answer,
+                "choice_2": term.answer, "newtermCount": newtermCount},
         )
 
 
@@ -235,9 +238,9 @@ def newproductSearch(request):
 def addManner(request):
     return render(request, "addmanner.html")
 
+
 def productLikeUp(request, id):
     productDetail = get_object_or_404(product, pk=id)
     productDetail.like += 1
     productDetail.save()
     return redirect("newproductDetail", id)
-

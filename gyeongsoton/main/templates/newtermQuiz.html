@@ -7,43 +7,10 @@
     <title>newtermQuiz</title>
 </head>
 
-<body>
-    <main>
-        <div class="gameCard">
-            <div class="container">
-                {% if term.id == 2 %}
-                    <input type="radio" class="radio" name="progress" value="five" id="five" checked>
-                    <label for="five" class="label">5%</label>
-                {% elif term.id == 3 %}
-                    <input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive" checked>
-                    <label for="twentyfive" class="label">25%</label>
-                {% elif term.id == 4 %}
-                    <input type="radio" class="radio" name="progress" value="fifty" id="fifty" checked>
-                    <label for="fifty" class="label">50%</label>
-                {% elif term.id == 5 %}
-                    <input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive" checked>
-                    <label for="seventyfive" class="label">75%</label>
-                {% else %}    
-                    <input type="radio" class="radio" name="progress" value="onehundred" id="onehundred" checked>
-                    <label for="onehundred" class="label">100%</label>
-                {% endif %}
-                <div class="progress">
-                <div class="progress-bar"></div>
-                </div>
-            </div>
-            <div class="newtermFont">
-                {{term.question}}
-            </div>
-            <div class="questionBox">
-                <a href="{%url 'newtermButton1' term.id %}">
-                    <div class="bubbly-button" style="background-color: cornflowerblue;  box-shadow: 0 2px 25px rgba(0, 76, 255, 0.5);">{{choice_1}}</div>
-                </a>
-                <a href="{%url 'newtermButton2' term.id %}">
-                    <div class="bubbly-button" style="background-color: coral;  box-shadow: 0 2px 25px rgba(255, 72, 0, 0.5);">{{choice_2}}</div>
-                </a>
-            </div>
-        </div>
-    </main> 
+<body style="background-color: #d8d7d7;">
+    <div class="point">{{term.score}} / {{newtermCount}}</div>
+    <div class="questionFont">Q. 다음 신조어의 의미를 고르시오.</div>
+    <div class="newtermBox">{{term.question}}</div>
 </body>
 
 {% endblock %}
