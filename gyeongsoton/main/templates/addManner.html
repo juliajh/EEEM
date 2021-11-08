@@ -1,27 +1,34 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %}
 
 {% endblock %} {% block content %}
-
+<link rel="stylesheet" href="{% static 'css/addmanner.css' %}">
 <body>
+  <div class="title">
+    매너를 지켜쥬 글쓰기
+  </div>
   <form action="{% url 'create' %}" method="post">
     {% csrf_token %}
-    <div style="padding-top: 100px;">
+    <div class="box" style="padding-top: 100px;">
       <label for="title">제목</label><br>
-      <input type="text" name="title" id="title">
+      <input type="text" name="title" id="title" style="width: 225px;" required>
     </div>
-    <div>
-      <label for="hashtagMe">누가</label><br>
-      <input type="text" name="hashtagMe" id="hashtagMe">
+    <div class="box hashtag">
+      <div>
+        <label for="hashtagMe" style="margin-right: 37px;">#누가</label>
+        <input type="text" name="hashtagMe" placeholder="#" id="hashtagMe" required>
+      </div>
+      <div>
+        <label for="hashtagYou">#누구에게</label>
+        <input type="text" name="hashtagYou" placeholder="#" id="hashtagYou" required>
+      </div>
     </div>
-    <div>
-      <label for="hashtagYou">누구에게</label><br>
-      <input type="text" name="hashtagYou" id="hashtagYou">
-    </div>
-    <div>
+    <div class="box">
       <label for="content">내용</label><br>
-      <textarea name="body" id="body" cols="30" rows="10"></textarea>
+      <textarea name="body" id="body" cols="30" rows="10" required></textarea>
     </div>
-    <input type="submit" value="글쓰기">
+    <button class="submitButton" type="submit">글쓰기</button>
+    
+
   </form>
 </body>
 
