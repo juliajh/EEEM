@@ -47,6 +47,7 @@ urlpatterns = [
          views.mannerDisLikeUp, name="mannerDisLikeUp"),
     path('manner/search/', views.search, name="search"),
     path('manner/addmanner/', views.addManner, name="addManner"),
+    path('manner/create/', views.create, name="create"),
     path('newterms/', views.newterms, name="newterms"),
     path('newtermQuiz/<str:id>/', views.newtermQuiz, name="newtermQuiz"),
     path('newtermQuiz/<str:id>/button1',

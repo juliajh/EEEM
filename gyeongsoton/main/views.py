@@ -104,11 +104,12 @@ def mannerDisLikeUp(request, id):
 
 def newterms(request):
     newterm_quiz = newterm.objects.all()
-    return render(request, "newterms.html", {"new_term": newterm_quiz})
+    tYear=datetime.datetime.today().year
+    return render(request, "newterms.html", {"new_term": newterm_quiz,"year":tYear})
 
 
 def newtermQuiz(request, id):
-    newtermCount = newterm.objects.count
+    newtermCount = newterm.objects.count()-1
     if id == 0:
         term = get_object_or_404(newterm, pk=id)
     else:
@@ -136,11 +137,22 @@ def newtermQuiz(request, id):
 
 
 def newtermEnd(request, score):
-    return render(request, "newtermEnd.html", {"score": score})
+    tYear=datetime.datetime.today().year
+    now = datetime.datetime.now()
+    newtermCount=newterm.objects.count()-1
+    if score>newtermCount*0.5:
+        if score>newtermCount*0.7:
+            level = 3
+        else:
+            level = 2
+    else:
+        level = 1
+    return render(request, "newtermEnd.html", {"score": score,"newtermCount":newtermCount,"year":tYear,"now":now,"level":level})
 
 
 def newtermButton1(request, id):
     term = get_object_or_404(newterm, pk=id)
+    newtermCount = newterm.objects.count()
     if term.randanswer == 0:
         term.correct = True
         term.score += 1
@@ -148,7 +160,8 @@ def newtermButton1(request, id):
     else:
         term.correct = False
         term.save()
-    if int(id) < 5:
+    c = newtermCount
+    if int(id) < c:
         return redirect("newtermQuiz", id)
     else:
         return redirect("newtermEnd", term.score)
@@ -156,6 +169,7 @@ def newtermButton1(request, id):
 
 def newtermButton2(request, id):
     term = get_object_or_404(newterm, pk=id)
+    newtermCount = newterm.objects.count()
     if term.randanswer == 1:
         term.correct = True
         term.score += 1
@@ -163,7 +177,8 @@ def newtermButton2(request, id):
     else:
         term.correct = False
         term.save()
-    if int(id) < 5:
+    c = newtermCount
+    if int(id)  < c:
         return redirect("newtermQuiz", id)
     else:
         return redirect("newtermEnd", term.score)
@@ -244,3 +259,15 @@ def productLikeUp(request, id):
     productDetail.like += 1
     productDetail.save()
     return redirect("newproductDetail", id)
+
+def create(request):
+    if(request.method == 'POST'):
+        post = manner()
+        post.text = request.POST['title']
+        post.hashtag_me = request.POST['hashtagMe']
+        post.hashtag_you = request.POST['hashtagYou']
+        post.hashtag_situation = request.POST['body']
+        post.like = 0
+        post.dis_like = 0
+        post.save()
+    return redirect('manner')

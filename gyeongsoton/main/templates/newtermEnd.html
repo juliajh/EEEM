@@ -3,22 +3,47 @@
 
 <head>
     <link rel="stylesheet" href='{% static "css/newtermEnd.css" %}'>
-    <title></title>
+    <title>newtermResult</title>
 </head>
 
-<body>
-    <main>
-        <div class="gameCard">
-            <div class="gameCard__side gameCard__side--front">
-                <span>점수 공개 !</span>
-                <span>마우스를 올려주세요.</span>
-            </div>
-            <div class="gameCard__side gameCard__side--back">
-                <p>당신의 점수는 {{score}} / 4 점 입니다.</p>
-            </div>
+<body style="background-color: #d8d7d7;">
+    <div style="padding-top:70px; text-align: center; font-size: 35px; font-family: 'Noto Serif KR', serif;font-weight: 10px;">{{year}}학년도 신조어 능력고사 성적통지표</div>
+    <div class="borderBox" style="display: inline-block;">
+        <div style="display: flex; font-weight: bold;">
+            <div class="table-data" style="width: 300px;">일시</div>
+            <div class="table-data" style="width: 500px;">성명</div>
+            <div class="table-data" style="width: 120px;">성별</div>
+            <div class="table-data" style="width: 120px;">나이</div>
+            <div class="table-data" style="width: 120px;">고사장</div>
+
         </div>
-    </main>
-    <script src="{% static 'js/newtermEnd.js' %}"></script>
+        <div style="display: flex;">
+            <div class="table-data" style="width: 300px;font-size:25px;padding-top:20px;">{{now|date:'Y-m-d fa' }}</div>
+            {% if user.is_authenticated %}
+            <div class="table-data" style="width: 500px;">{{user.username}}</div>
+            <div class="table-data" style="width: 120px;">{{user.sex}}</div>
+            <div class="table-data" style="width: 120px;">{{user.age}}대</div>
+            {% else %}
+            <div class="table-data" style="width: 500px;">비회원상태</div>
+            <div class="table-data" style="width: 120px;">비회원상태</div>
+            <div class="table-data" style="width: 120px;">비회원상태</div>
+            {% endif %}
+            <div class="table-data" style="width: 120px;">온라인</div>
+        </div>
+        <div style="display: flex;">
+            <div class="table-data" style="height: 300px; width: 50%;">
+                <span>점수</span>
+                <div style="margin-top: 50px; font-size: 100px;">{{score}} / {{newtermCount}}</div>
+            </div>
+            {% if level == 3 %}
+                <div class="table-data" style="width: 50%; height: 265px; padding-top: 50px; font-size: 70px;">당신은 핵인싸!</div>
+            {% elif level == 2 %}
+                <div class="table-data" style="width: 50%; height: 265px; padding-top: 50px; font-size: 70px;">당신은 인싸!</div>
+            {% else %}
+                <div class="table-data" style="width: 50%; height: 265px; padding-top: 50px; font-size: 70px;">이제부터 인싸!</div>
+            {% endif %}
+        </div>
+    </div>
 </body>
 
 {% endblock %}

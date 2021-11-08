@@ -1,12 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+{% extends 'base.html' %}{% load static %}{% block extrahead %}
+
+{% endblock %} {% block content %}
+
 <body>
-  hello
+  <form action="{% url 'create' %}" method="post">
+    {% csrf_token %}
+    <div style="padding-top: 100px;">
+      <label for="title">제목</label><br>
+      <input type="text" name="title" id="title">
+    </div>
+    <div>
+      <label for="hashtagMe">누가</label><br>
+      <input type="text" name="hashtagMe" id="hashtagMe">
+    </div>
+    <div>
+      <label for="hashtagYou">누구에게</label><br>
+      <input type="text" name="hashtagYou" id="hashtagYou">
+    </div>
+    <div>
+      <label for="content">내용</label><br>
+      <textarea name="body" id="body" cols="30" rows="10"></textarea>
+    </div>
+    <input type="submit" value="글쓰기">
+  </form>
 </body>
-</html>
+
+{% endblock %}

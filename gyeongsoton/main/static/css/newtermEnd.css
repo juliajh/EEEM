@@ -1,87 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gamja+Flower&family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap");
 
-main {
-  padding-top: 120px;
-  font-family: "Jua", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.gameCard {
+.borderBox{
+  width: 80%;
+  height: 500px;
+  margin-top:30px;
   position: relative;
-  height: 600px;
-  width: 600px;
-}
-
-.gameCard__side {
-  /* margin: 0 auto; */
-  /* padding-top: 30px; */
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background-size: cover !important;
-  background-color: rgb(236, 199, 120);
-  border-radius: 30px;
-  box-shadow: 5px 5px 9px #f26b11;
-  grid-row: -1;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 35px;
-  font-weight: 550;
-  cursor: pointer;
-  display: block;
-  line-height: 3em;
-  min-width: 3em;
+  left: 10%;
+  font-family: "Noto Serif KR", serif;
   text-align: center;
-  /* left: 30%; */
-  backface-visibility: hidden;
-  /* transition: 0.3s ease-in-out; */
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  font-size: 35px;
 }
 
-.gameCard__side--front {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(236, 199, 120);
-}
-.gameCard__side--back {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: rotateY(180deg);
-  background-color: rgb(236, 199, 120);
-}
-.gameCard:hover .gameCard__side--front {
-  animation: rotateFront 0.3s ease-in-out forwards;
-}
-.gameCard:hover .gameCard__side--back {
-  animation: rotateBack 0.3s ease-in-out forwards;
-}
-
-@keyframes rotateFront {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(-180deg);
-  }
-}
-
-@keyframes rotateBack {
-  from {
-    transform: rotateY(180deg);
-  }
-  to {
-    transform: rotateY(0deg);
-  }
-}
-
-@media screen and (max-width:700px) {
-  .gameCard {
-    width: 400px;
-    height: 400px;
-  }
+.table-data{
+   padding: 15px;
+	 text-align: center;
+   border-style: ridge;
+   border-color: rgb(26, 26, 26);
+   border-width: 1px;
 }
