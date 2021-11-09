@@ -2,6 +2,14 @@
 {% endblock %} {% block content %}
 <link rel="stylesheet" href='{% static "css/mannersDetail.css" %}'>
 <body>
+  
+  {% if request.user == mannersdetail.user %}
+  <div class="retouch">
+      <a href="{% url 'mannerModify' mannersdetail.id %}">수정</a>
+      <a href="{% url 'mannerdelete' mannersdetail.id %}">삭제</a>
+  </div>
+  {% endif %}
+
   <div class="mannersDetail__box">
     <h3>제목 : {{mannersdetail.text}}</h3>
     <div class="mannersDetail__box--situation">

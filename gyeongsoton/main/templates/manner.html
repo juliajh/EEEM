@@ -9,6 +9,8 @@
       <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
       <button type="submit" class="find__btn">검색</button>
     </form>
+    <a class="order" href="{% url 'mannerOrder' %}">좋아요 순</a>
+  
     {% if user.is_authenticated %}
     <a href="{%url 'addManner' %}" class="writeText">글쓰기</a>
     {% else %}
@@ -21,18 +23,23 @@
           제목 : {{m.text}}
         </div>
         <div class="manner__hashtag">
-          <div class="manner__hashtag--detail">{{m.hashtag_me}}</div>
-          <div class="manner__hashtag--detail">{{m.hashtag_you}}</div>
-          <div class="manner__hashtag--detail">{{m.date}}</div>
-          <div class="manner__hashtag--detail">{{m.user}}</div>
+          <div class="manner__hashtag--detail">누가:{{m.hashtag_me}}</div>
+          <div class="manner__hashtag--detail">누구에게:{{m.hashtag_you}}</div>
         </div>
       </div>
-      <div class="mannerthumbs">
-        <i class="fas fa-thumbs-up"></i>: {{m.like}}
-        <i class="fas fa-thumbs-down"></i>: {{m.dis_like}}
+      <div class="mannerInfo">
+        <div class="mannerthumbs">
+          <i class="fas fa-thumbs-up"></i>: {{m.like}}
+          <i class="fas fa-thumbs-down"></i>: {{m.dis_like}}
+        </div>
+        <div>{{m.date}}</div>
+        <div class="manner__user">
+          <div>{{m.user.sex}}, {{m.user.age}}대</div>
+        </div>
       </div>
     </a>
-    {% endfor %}
+  {% endfor %}
+    
 
     
   </main>

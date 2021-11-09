@@ -2,6 +2,30 @@ body {
   background-color: rgb(242, 240, 248);
 }
 
+.retouch {
+  position: absolute;
+  top: 130px;
+  left: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.retouch a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 60px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: #f0d4f5;
+}
+
+.retouch a:last-child {
+  left: 100px;
+}
+
 .mannersDetail__box {
   display: flex;
   flex-direction: column;
@@ -19,7 +43,7 @@ body {
   width: 500px;
   height: auto;
   min-height: 30px;
-  border: 3px solid white;
+  border: 3px solid #f0d4f5;
   margin-bottom: 60px;
 }
 

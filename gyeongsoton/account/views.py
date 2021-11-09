@@ -72,6 +72,7 @@ def signup_view(request):
                     print('여40')
                 elif(user.age == "50"):
                     print('여50')
+            user.save()
 
             return redirect("login")
     else:

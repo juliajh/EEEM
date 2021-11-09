@@ -48,6 +48,9 @@ urlpatterns = [
     path('manner/search/', views.search, name="search"),
     path('manner/addmanner/', views.addManner, name="addManner"),
     path('manner/create/', views.create, name="create"),
+    path('manner/modify/<int:id>/', views.mannerModify, name="mannerModify"),
+    path('manner/delete/<int:id>/', views.mannerdelete, name="mannerdelete"),
+    path('manner/ordered', views.mannerOrder, name="mannerOrder"),
     path('newterms/', views.newterms, name="newterms"),
     path('newtermQuiz/<str:id>/', views.newtermQuiz, name="newtermQuiz"),
     path('newtermQuiz/<str:id>/button1',
@@ -64,4 +67,3 @@ urlpatterns = [
     path('newproductDetail/<str:id>/likeup',
          views.productLikeUp, name="productLikeUp"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

@@ -1,11 +1,13 @@
+from typing import Text
 from django.shortcuts import get_object_or_404, render, redirect
-from django.db.models import Q, query
+from django.db.models import Q, Count
 from .models import communityText
 from .models import manner
 from .models import newterm
 from .models import communityComment
 from .models import product
 from django.utils import timezone
+from django.contrib import messages
 import datetime
 import random
 
@@ -80,7 +82,14 @@ def trend(request):
 
 def manners(request):
     manner_alltext = manner.objects.all()
+    manner_alltext = manner.objects.order_by('-date')
     return render(request, "manner.html", {"manner": manner_alltext})
+
+
+def mannerOrder(request):
+    manner_alltext = manner.objects.all()
+    manner_alltext = manner.objects.order_by('-like')
+    return render(request, "mannerorder.html", {"manner": manner_alltext})
 
 
 def mannersDetail(request, id):
@@ -100,6 +109,49 @@ def mannerDisLikeUp(request, id):
     manner_detail.dis_like += 1
     manner_detail.save()
     return redirect("mannersDetail", id)
+
+
+def create(request):
+    if(request.method == 'POST'):
+        post = manner()
+        post.user = request.user
+        post.date = timezone.datetime.now()
+        post.text = request.POST['title']
+        post.hashtag_me = request.POST['hashtagMe']
+        post.hashtag_you = request.POST['hashtagYou']
+        post.hashtag_situation = request.POST['body']
+        post.like = 0
+        post.dis_like = 0
+        post.save()
+    return redirect('manner')
+
+
+def mannerModify(request, id):
+    modify = get_object_or_404(manner, pk=id)
+    if request.user != modify.user:
+        messages.error(request, '수정권한이 없습니다')
+        return redirect('manner', id=modify.id)
+
+    if request.method == "POST":
+        form = manner(request.POST, text=modify)
+        if form.is_valid():
+            question = form.save(commit=False)
+            question.modify_date = timezone.now()  # 수정일시 저장
+            question.save()
+            return redirect('manner', id=question.id)
+    else:
+        form = manner(text=modify)
+    context = {'form': form}
+    return render(request, 'manner.html', context)
+
+
+def mannerdelete(request, id):
+    question = get_object_or_404(manner, pk=id)
+    if request.user != question.user:
+        messages.error(request, '삭제권한이 없습니다')
+        return redirect('manner', id=question.id)
+    question.delete()
+    return redirect('manner')
 
 
 def newterms(request):
@@ -260,17 +312,3 @@ def productLikeUp(request, id):
     productDetail.save()
     return redirect("newproductDetail", id)
 
-
-def create(request):
-    if(request.method == 'POST'):
-        post = manner()
-        post.user = request.user
-        post.date = timezone.datetime.now()
-        post.text = request.POST['title']
-        post.hashtag_me = request.POST['hashtagMe']
-        post.hashtag_you = request.POST['hashtagYou']
-        post.hashtag_situation = request.POST['body']
-        post.like = 0
-        post.dis_like = 0
-        post.save()
-    return redirect('manner')
