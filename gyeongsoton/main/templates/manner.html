@@ -18,13 +18,16 @@
     {% endif %}
     {% for m in manner.all %}
     <a class="manner__box" href="{%url 'mannersDetail' m.id %}">
-      <div class="manner__main">
-        <div class="manner__text">
-          제목 : {{m.text}}
-        </div>
-        <div class="manner__hashtag">
-          <div class="manner__hashtag--detail">누가:{{m.hashtag_me}}</div>
-          <div class="manner__hashtag--detail">누구에게:{{m.hashtag_you}}</div>
+      <div class="profile">
+        <img src="{{m.user.profile.url}}" style="border-radius: 70%" alt="user" width="60px" class="rounded-circle">
+        <div class="manner__main">
+          <div class="manner__text">
+            제목 : {{m.text}}
+          </div>
+          <div class="manner__hashtag">
+            <div class="manner__hashtag--detail">누가:{{m.hashtag_me}}</div>
+            <div class="manner__hashtag--detail">누구에게:{{m.hashtag_you}}</div>
+          </div>
         </div>
       </div>
       <div class="mannerInfo">
