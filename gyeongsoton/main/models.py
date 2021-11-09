@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from datetime import datetime
 
 # Create your models here.
 
@@ -23,7 +24,7 @@ class communityText(models.Model):
     title = models.CharField(max_length=30, default='')
 
     def __str__(self):
-        if len(self.text)>100:
+        if len(self.text) > 100:
             return self.text[:100]+"..."
         else:
             return self.text
@@ -41,20 +42,25 @@ class communityComment(models.Model):
 
 
 class manner(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE, default='')
     text = models.CharField(max_length=18)
     like = models.IntegerField()
     dis_like = models.IntegerField()
     hashtag_me = models.CharField(max_length=20)
     hashtag_you = models.CharField(max_length=20)
     hashtag_situation = models.CharField(max_length=500)
+    date = models.DateTimeField(default=datetime.now, blank=True)
+
 
 class product(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE, default='')
     date = models.DateTimeField()
     productName = models.CharField(max_length=30, default='')
     productText = models.CharField(max_length=1000, default='')
     like = models.IntegerField()
-    image = models.ImageField(upload_to='main/',null=False, blank=False)
-    
+    image = models.ImageField(upload_to='main/', null=False, blank=False)
+
     def __str__(self):
         return self.productText[:50]+"..."

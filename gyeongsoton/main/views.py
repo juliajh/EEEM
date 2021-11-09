@@ -104,8 +104,8 @@ def mannerDisLikeUp(request, id):
 
 def newterms(request):
     newterm_quiz = newterm.objects.all()
-    tYear=datetime.datetime.today().year
-    return render(request, "newterms.html", {"new_term": newterm_quiz,"year":tYear})
+    tYear = datetime.datetime.today().year
+    return render(request, "newterms.html", {"new_term": newterm_quiz, "year": tYear})
 
 
 def newtermQuiz(request, id):
@@ -137,17 +137,17 @@ def newtermQuiz(request, id):
 
 
 def newtermEnd(request, score):
-    tYear=datetime.datetime.today().year
+    tYear = datetime.datetime.today().year
     now = datetime.datetime.now()
-    newtermCount=newterm.objects.count()-1
-    if score>newtermCount*0.5:
-        if score>newtermCount*0.7:
+    newtermCount = newterm.objects.count()-1
+    if score > newtermCount*0.5:
+        if score > newtermCount*0.7:
             level = 3
         else:
             level = 2
     else:
         level = 1
-    return render(request, "newtermEnd.html", {"score": score,"newtermCount":newtermCount,"year":tYear,"now":now,"level":level})
+    return render(request, "newtermEnd.html", {"score": score, "newtermCount": newtermCount, "year": tYear, "now": now, "level": level})
 
 
 def newtermButton1(request, id):
@@ -178,7 +178,7 @@ def newtermButton2(request, id):
         term.correct = False
         term.save()
     c = newtermCount
-    if int(id)  < c:
+    if int(id) < c:
         return redirect("newtermQuiz", id)
     else:
         return redirect("newtermEnd", term.score)
@@ -260,9 +260,12 @@ def productLikeUp(request, id):
     productDetail.save()
     return redirect("newproductDetail", id)
 
+
 def create(request):
     if(request.method == 'POST'):
         post = manner()
+        post.user = request.user
+        post.date = timezone.datetime.now()
         post.text = request.POST['title']
         post.hashtag_me = request.POST['hashtagMe']
         post.hashtag_you = request.POST['hashtagYou']
