@@ -3,7 +3,7 @@
 <link rel="stylesheet" href='{% static "css/manner.css" %}'>
 <body>
   <main class="main__screen">
-    <span class="info">다양한 상황에 어떻게 예의를 지키며 대화 할 수 있는지의 틀을 제시해 주는 페이지 입니다.<br><br>회원가입 후 글을 쓰고 댓글을 달아보세요😆</span>
+    <div class="info">매너를 지켜쥬</div>
     <form method="get" class="search" action="{% url 'search' %}">
       <input type="search" class="search__box" placeholder="#해시태그 검색" name="kw">
       <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
@@ -31,7 +31,7 @@
           <i class="fas fa-thumbs-up"></i>: {{m.like}}
           <i class="fas fa-thumbs-down"></i>: {{m.dis_like}}
         </div>
-        <div>{{m.date}}</div>
+        <div>{{m.date|date:'Y-m-d fa' }}</div>
         <div class="manner__user">
           <div>{{m.user.sex}}, {{m.user.age}}대</div>
         </div>
