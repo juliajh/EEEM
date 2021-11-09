@@ -41,7 +41,7 @@
         </div>
         {% if user.is_authenticated %}
           <div class="addCommunity">
-            <a href="{%url 'toaddCommunitypage' %}">글 쓰기</a>
+          <a class="addCommunitybtn" href='{% url 'toaddCommunitypage' %}'>글 쓰기</a>
           </div>
         {% else %}
           <div class="addCommunity">
