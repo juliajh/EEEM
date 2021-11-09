@@ -266,7 +266,8 @@ def communitySearch(request):
     if 'kw' in request.GET:
         query = request.GET.get('kw')
         result = communityText.objects.all().filter(
-            Q(title__icontains=query)
+            Q(title__icontains=query) |
+            Q(text__icontains=query)
         )
     return render(request, "communitySearch.html", {'query': query, 'result': result})
 
