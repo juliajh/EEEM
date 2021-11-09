@@ -24,7 +24,7 @@
               <a href="{%url 'communityDetail' result.id %}">
                 <div class="d-flex flex-row comment-row m-t-0">
                   <div class="userimg">
-                    <img src="https://i.imgur.com/Ur43esv.jpg" style="border-radius: 70%" alt="user" width="45px" class="rounded-circle">
+                    <img src="{{result.user.profile.url}}" style="border-radius: 70%" alt="user" width="45px" class="rounded-circle">
                   </div>
                   <div class="comment-text w-100">
                       <h6 class="font-medium" style="margin-bottom: 9px;">{{result.user}}
