@@ -1,39 +1,67 @@
-{% extends 'base.html' %}{% load static %}{% block extrahead %}
-{% endblock %} {% block content %}
+{% extends 'base.html' %}{% load static %}{% block extrahead %} {% endblock %}
+{% block content %}
 
 <head>
-  <link rel="stylesheet" href='{% static "css/communityDetail.css" %}'>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/9452825322.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href='{% static "css/communityDetail.css" %}' />
+  <link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://kit.fontawesome.com/9452825322.js"
+    crossorigin="anonymous"
+  ></script>
 </head>
 <body>
-    <div class="main-container">
-        <div class="communityDetail">
-            <div class="userimg">
-                <img src="https://i.imgur.com/Ur43esv.jpg" style="border-radius: 70%" alt="user" width="50px" class="rounded-circle">
-            </div>
-            <div class="userinfo">
-                <h6 class="font-medium" style="margin-bottom: 9px;">{{request.user}}
-                    {%if request.user.sex == 0%}
-                    <span class="sex">남</span>
-                    {%else%}
-                    <span class="sex">여</span>
-                    {%endif%}
-                    {{request.user.age}}살
-                </h6>
-            </div>
-            <div class="title">
-                <div class="input-group">
-                    <textarea class="form-control" aria-label="With textarea" name="communitytitle"></textarea>
-                </div>
-            </div>
-            <div class="text">
-                <div class="input-group">
-                    <textarea class="form-control" aria-label="With textarea" name="communitytext"></textarea>
-                </div>
-            </div>
-            <button class="addbtn" onclick="location.href='{% url 'addCommunity' %}'">추가</button>
+  <div class="main-container">
+    <div class="communityDetail">
+      <div class="userimg">
+        <img
+          src="https://i.imgur.com/Ur43esv.jpg"
+          style="border-radius: 70%"
+          alt="user"
+          width="50px"
+          class="rounded-circle"
+        />
+      </div>
+      <div class="userinfo">
+        <h6 class="font-medium" style="margin-bottom: 9px">
+          {{request.user}} {%if request.user.sex == 0%}
+          <span class="sex">남</span>
+          {%else%}
+          <span class="sex">여</span>
+          {%endif%} {{request.user.age}}살
+        </h6>
+      </div>
+      <form
+        action="{% url 'addCommunity' %}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        {%csrf_token%}
+        <div class="title">
+          <div class="input-group">
+            <textarea
+              class="form-control"
+              aria-label="With textarea"
+              name="communitytitle"
+            ></textarea>
+          </div>
         </div>
+        <div class="text">
+          <div class="input-group">
+            <textarea
+              class="form-control"
+              aria-label="With textarea"
+              name="communitytext"
+            ></textarea>
+          </div>
+        </div>
+        <input class="btn btn-light" type="submit" value="제출하기" />
+      </form>
     </div>
+  </div>
 </body>
 {% endblock %}
