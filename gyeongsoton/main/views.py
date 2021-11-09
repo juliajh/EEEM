@@ -247,8 +247,6 @@ def addComment(request, id):
         return redirect("404error")
 
 
-
-
 def notfound(request):
     return render(request, "404error.html")
 

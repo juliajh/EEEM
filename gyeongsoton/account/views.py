@@ -48,7 +48,7 @@ def signup_view(request):
             user = CustomUser.objects.get(username=request.user)
             if(user.sex == "남"):
                 if(user.age == "5"):
-                    user.profile = "static/img/5b.png"
+                    user.profile = "char/5b.png"
                 elif(user.age == "10"):
                     print('남10')
                 elif(user.age == "20"):
