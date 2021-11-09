@@ -18,11 +18,7 @@
              </div>
              <div class="userinfo">
                 <h6 class="font-medium" style="margin-bottom: 9px;">{{community.user}}
-                    {%if community.user.sex == 0%}
-                    <span class="sex">남</span>
-                    {%else%}
-                    <span class="sex">여</span>
-                    {%endif%}
+                    <span class="sex">{{community.user.sex}}</span>
                     {{community.user.age}}살
                 </h6>
              </div>
