@@ -26,13 +26,20 @@
       </div>
     </div>
     <div class="date">
-      {{mannersdetail.date|date:'Y-m-d fa' }}
+      작성일자 : {{mannersdetail.date|date:'Y-m-d fa' }}
     </div>
-    <div class="user">
-      나이, 성별 : {{mannersdetail.user.sex}}, {{mannersdetail.user.age}}대
-    </div>
-    <div>
-      닉네임 : {{mannersdetail.user}}
+    <div class="profile">
+      <div>
+        <img src="{{mannersdetail.user.profile.url}}" style="border-radius: 70%" alt="user" width="50px" class="rounded-circle">
+      </div>
+      <div>
+        <div class="user">
+          나이, 성별 : {{mannersdetail.user.sex}}, {{mannersdetail.user.age}}대
+        </div>
+        <div>
+          닉네임 : {{mannersdetail.user}}
+        </div>
+      </div>
     </div>
   </div>
   <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>
