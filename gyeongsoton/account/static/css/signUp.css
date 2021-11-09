@@ -13,6 +13,10 @@ h2 {
   text-align: center;
 }
 
+body {
+  background-color: rgb(242, 240, 248);
+}
+
 .overlay-container p {
   font-size: 14px;
   font-weight: 100;
@@ -38,8 +42,8 @@ h2 {
 
 button {
   border-radius: 20px;
-  border: 1px solid #88AED0;
-  background-color: #88AED0;
+  border: 1px solid #88aed0;
+  background-color: #88aed0;
   color: #ffffff;
   font-size: 15px;
   font-weight: bold;
@@ -150,8 +154,8 @@ input {
 }
 
 .overlay {
-  background: -webkit-linear-gradient(to left, #88AED0, #88AED0);
-  background: linear-gradient(to left,#88AED0, #88AED0);
+  background: -webkit-linear-gradient(to left, #88aed0, #88aed0);
+  background: linear-gradient(to left, #88aed0, #88aed0);
   background-size: cover;
   background-position: 0 0;
   color: #ffffff;
@@ -179,7 +183,7 @@ input {
 }
 
 select {
-  width:210px;
+  width: 210px;
   height: 30px;
   border: 1px solid #999;
   -webkit-appearance: none;
@@ -189,4 +193,3 @@ select {
   font-size: 15px;
   text-align: center;
 }
-

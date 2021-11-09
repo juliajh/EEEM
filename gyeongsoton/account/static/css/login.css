@@ -15,6 +15,10 @@ h2 {
   text-align: center;
 }
 
+body {
+  background-color: rgb(242, 240, 248);
+}
+
 .overlay-container p {
   font-size: 14px;
   font-weight: 100;
@@ -40,8 +44,8 @@ h2 {
 
 button {
   border-radius: 20px;
-  border: 1px solid #88AED0;
-  background-color: #88AED0;
+  border: 1px solid #88aed0;
+  background-color: #88aed0;
   color: #ffffff;
   font-size: 15px;
   font-weight: bold;
@@ -161,8 +165,8 @@ input {
 
 .overlay {
   background: #f0787c;
-  background: -webkit-linear-gradient(to right, #88AED0, #88AED0);
-  background: linear-gradient(to right, #88AED0, #88AED0);
+  background: -webkit-linear-gradient(to right, #88aed0, #88aed0);
+  background: linear-gradient(to right, #88aed0, #88aed0);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;

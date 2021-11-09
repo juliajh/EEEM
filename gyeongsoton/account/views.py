@@ -50,28 +50,28 @@ def signup_view(request):
                 if(user.age == "5"):
                     user.profile = "char/5b.png"
                 elif(user.age == "10"):
-                    print('남10')
+                    user.profile = "char/10b.png"
                 elif(user.age == "20"):
-                    print('남20')
+                    user.profile = "char/20b.png"
                 elif(user.age == "30"):
-                    print('남30')
+                    user.profile = "char/30b.png"
                 elif(user.age == "40"):
-                    print('남40')
+                    user.profile = "char/40b.png"
                 elif(user.age == "50"):
-                    print('남50')
+                    user.profile = "char/50b.png"
             else:
                 if(user.age == "5"):
-                    print('여5')
+                    user.profile = "char/5g.png"
                 elif(user.age == "10"):
-                    print('여10')
+                    user.profile = "char/10g.png"
                 elif(user.age == "20"):
-                    print('여20')
+                    user.profile = "char/20g.png"
                 elif(user.age == "30"):
-                    print('여30')
+                    user.profile = "char/30g.png"
                 elif(user.age == "40"):
-                    print('여40')
+                    user.profile = "char/30g.png"
                 elif(user.age == "50"):
-                    print('여50')
+                    user.profile = "char/50g.png"
             user.save()
 
             return redirect("login")

@@ -59,6 +59,7 @@ urlpatterns = [
     path('newterms/<int:score>/result', views.newtermEnd, name="newtermEnd"),
     path('404/', views.notfound, name="404error"),
     path('newproduct/', views.newproduct, name="newproduct"),
+    path('newproduct/ordered/', views.newproductOrder, name="newproductOrder"),
     path('newproductDetail/<str:id>',
          views.newproductDetail, name='newproductDetail'),
     path('newproduct/addProduct', views.addProduct, name="addProduct"),

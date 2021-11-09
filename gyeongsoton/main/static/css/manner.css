@@ -11,13 +11,23 @@ body {
 
 .manner__box {
   padding: 20px 10px;
-  width: 500px;
+  width: 700px;
   height: auto;
   border: 3px solid #f0d4f5;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile img {
+  margin-right: 20px;
 }
 
 .manner__hashtag {
@@ -73,7 +83,7 @@ body {
   justify-content: center;
   top: 90px;
   left: 40px;
-  width: 140px;
+  width: 120px;
   height: 35px;
   border: none;
   cursor: pointer;
@@ -134,7 +144,7 @@ body {
 
 .info {
   display: block;
-  font-size: 20px;
+  font-size: 40px;
   text-align: center;
   margin-bottom: 60px;
 }

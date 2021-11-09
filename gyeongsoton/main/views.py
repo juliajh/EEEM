@@ -253,8 +253,15 @@ def notfound(request):
 
 def newproduct(request):
     new_product = product.objects.all()
+    new_product = product.objects.order_by('-date')
     now = datetime.datetime.now()  # 현재 시간. ~분전 하고 싶어서 .!
     return render(request, "newproduct.html", {'products': new_product, 'now': now})
+
+def newproductOrder(request):
+    new_product = product.objects.all()
+    new_product = product.objects.order_by('-like')
+    now = datetime.datetime.now()  # 현재 시간. ~분전 하고 싶어서 .!
+    return render(request, "newproductorder.html", {'products': new_product, 'now': now})
 
 
 def newproductDetail(request, id):
