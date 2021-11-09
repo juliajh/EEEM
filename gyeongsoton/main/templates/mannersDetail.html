@@ -2,10 +2,10 @@
 {% endblock %} {% block content %}
 <link rel="stylesheet" href='{% static "css/mannersDetail.css" %}'>
 <body>
-  
+
   {% if request.user == mannersdetail.user %}
   <div class="retouch">
-      <a href="{% url 'mannerModify' mannersdetail.id %}">수정</a>
+      <a href="#">수정</a>
       <a href="{% url 'mannerdelete' mannersdetail.id %}">삭제</a>
   </div>
   {% endif %}
@@ -24,6 +24,15 @@
         <button onclick="location.href = '{% url 'mannerLikeUp' mannersdetail.id %}'"><i class="fas fa-thumbs-up"></i> : {{mannersdetail.like}}</button>
         <button onclick="location.href = '{% url 'mannerDisLikeUp' mannersdetail.id %}'"><i class="fas fa-thumbs-down"></i> : {{mannersdetail.dis_like}}</button>
       </div>
+    </div>
+    <div class="date">
+      {{mannersdetail.date}}
+    </div>
+    <div class="user">
+      나이, 성별 : {{mannersdetail.user.sex}}, {{mannersdetail.user.age}}대
+    </div>
+    <div>
+      닉네임 : {{mannersdetail.user}}
     </div>
   </div>
   <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>

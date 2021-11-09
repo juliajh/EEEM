@@ -111,7 +111,21 @@ def mannerDisLikeUp(request, id):
     return redirect("mannersDetail", id)
 
 
-def create(request):
+def mannerSearch(request):
+    if 'kw' in request.GET:
+        query = request.GET.get('kw')
+        result = manner.objects.all().filter(
+            Q(hashtag_me__icontains=query) |
+            Q(hashtag_you__icontains=query)
+        )
+    return render(request, "mannerSearch.html", {'query': query, 'result': result})
+
+
+def addManner(request):
+    return render(request, "addmanner.html")
+
+
+def mannerCreate(request):
     if(request.method == 'POST'):
         post = manner()
         post.user = request.user
@@ -124,25 +138,6 @@ def create(request):
         post.dis_like = 0
         post.save()
     return redirect('manner')
-
-
-def mannerModify(request, id):
-    modify = get_object_or_404(manner, pk=id)
-    if request.user != modify.user:
-        messages.error(request, '수정권한이 없습니다')
-        return redirect('manner', id=modify.id)
-
-    if request.method == "POST":
-        form = manner(request.POST, text=modify)
-        if form.is_valid():
-            question = form.save(commit=False)
-            question.modify_date = timezone.now()  # 수정일시 저장
-            question.save()
-            return redirect('manner', id=question.id)
-    else:
-        form = manner(text=modify)
-    context = {'form': form}
-    return render(request, 'manner.html', context)
 
 
 def mannerdelete(request, id):
@@ -252,14 +247,6 @@ def addComment(request, id):
         return redirect("404error")
 
 
-def search(request):
-    if 'kw' in request.GET:
-        query = request.GET.get('kw')
-        result = manner.objects.all().filter(
-            Q(hashtag_me__icontains=query) |
-            Q(hashtag_you__icontains=query)
-        )
-    return render(request, "mannerSearch.html", {'query': query, 'result': result})
 
 
 def notfound(request):
@@ -285,14 +272,6 @@ def communitySearch(request):
         )
     return render(request, "communitySearch.html", {'query': query, 'result': result})
 
-
-def addProduct(request):
-    if request.user.is_authenticated:
-        return render(request, "addProduct.html")
-    else:
-        return redirect("404error")
-
-
 def newproductSearch(request):
     if 'kw' in request.GET:
         query = request.GET.get('kw')
@@ -301,14 +280,23 @@ def newproductSearch(request):
         )
     return render(request, 'newProductSearch.html', {'query': query, 'result': result})
 
-
-def addManner(request):
-    return render(request, "addmanner.html")
-
-
 def productLikeUp(request, id):
     productDetail = get_object_or_404(product, pk=id)
     productDetail.like += 1
     productDetail.save()
     return redirect("newproductDetail", id)
 
+def addProduct(request):
+    return render(request, "addProduct.html")
+
+
+def productCreate(request):
+    if(request.method == 'POST'):
+        post = product()
+        post.user = request.user
+        post.date = timezone.datetime.now()
+        post.productName = request.Post['productName']
+        post.productText = request.POST['productText']
+        post.like = 0
+        post.save()
+    return redirect("newproduct")

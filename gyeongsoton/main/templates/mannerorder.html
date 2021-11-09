@@ -9,7 +9,7 @@
       <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
       <button type="submit" class="find__btn">검색</button>
     </form>
-    <a class="order" href="{% url 'manner' %}">최신 순</a>
+    <a class="order" href="{% url 'manner' %}">최신 순으로 정렬하기</a>
     {% if user.is_authenticated %}
     <a href="{%url 'addManner' %}" class="writeText">글쓰기</a>
     {% else %}
