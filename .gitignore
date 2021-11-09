@@ -26,3 +26,4 @@ gyeongsoton/main/__pycache__/admin.cpython-39.pyc
 *.pyc
 *.sqlite3
 gyeongsoton/db.sqlite3
+venv
