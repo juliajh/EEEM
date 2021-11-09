@@ -14,7 +14,7 @@
                 {{community.date|date:'Y-m-d fa' }}
             </h6>
              <div class="userimg">
-                <img src="https://i.imgur.com/Ur43esv.jpg" style="border-radius: 70%" alt="user" width="50px" class="rounded-circle">
+                <img src="{{community.user.profile.url}}" style="border-radius: 70%" alt="user" width="50px" class="rounded-circle">
              </div>
              <div class="userinfo">
                 <h6 class="font-medium" style="margin-bottom: 9px;">{{community.user}}
@@ -57,7 +57,7 @@
                         <div class="post-heading">
                             <h6 class="commentdate">{{comment.date|date:'Y-m-d fa' }}</h6>
                             <div class="commentUserImage">
-                                <img src="https://i.imgur.com/Ur43esv.jpg" style="border-radius: 70%" alt="user" width="38px" class="rounded-circle">
+                                <img src="{{comment.user.profile.url}}" style="border-radius: 70%" alt="user" width="38px" class="rounded-circle">
                             </div>
                             <div class="float-left meta">
                                 <div class="title h5">
