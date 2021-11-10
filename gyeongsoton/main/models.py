@@ -61,7 +61,7 @@ class product(models.Model):
     productName = models.CharField(max_length=30, default='')
     productText = models.CharField(max_length=1000, default='')
     like = models.IntegerField()
-    image = models.ImageField(upload_to='main/', null=False, blank=False)
+    image = models.ImageField(upload_to='media/main/', null=False, blank=False)
 
     def __str__(self):
         return self.productText[:50]+"..."
