@@ -301,8 +301,9 @@ def productCreate(request):
         post = product()
         post.user = request.user
         post.date = timezone.datetime.now()
-        post.productName = request.Post['productName']
+        post.productName = request.POST['productName']
         post.productText = request.POST['productText']
         post.like = 0
+        post.image=request.POST['image']
         post.save()
-    return redirect("newproduct")
+    return redirect('newproduct')
