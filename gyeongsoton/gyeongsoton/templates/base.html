@@ -85,11 +85,16 @@
           src="{{request.user.profile.url}}"
           style="border-radius: 70%"
           alt="user"
-          width="35px"
+          width="37px"
           class="rounded-circle"
         />
       </div>
       <div class="username"><span>{{request.user.nickname}}</span></div>
+      <img src="{% static 'img/coin.png' %}" width="30px" style="  position: absolute;
+      right: 190px;
+      font-weight: bold;"/>
+      <span class="cointext">{{request.user.coin}}</span>
+      </div>
       {% endif %}
     </nav>
     <div id="loginmodal" class="modal">

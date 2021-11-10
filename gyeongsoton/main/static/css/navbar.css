@@ -116,12 +116,18 @@ body {
 
 .userprofile {
   position: absolute;
-  right: 240px;
+  right: 310px;
 }
 
 .username {
   position: absolute;
-  right: 190px;
+  right: 260px;
+  font-weight: bold;
+}
+
+.cointext {
+  position: absolute;
+  right: 160px;
   font-weight: bold;
 }
 /*

@@ -26,5 +26,5 @@ class CustomUser(AbstractUser):
     )
     
     nickname = models.CharField(max_length=10,default="")
-
     profile=models.ImageField(null=True,blank=True)
+    coin=models.IntegerField(default=0)

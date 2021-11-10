@@ -36,12 +36,32 @@
              {% endif %}
         </div>
 
+
+        <div id="commentModal" class="modal">
+            매칭 기능을 켜보세요!<br>
+            매칭을 원하는 다른 사용자와 더 자유롭게 소통이 가능해집니다😊
+            <div class="on-offbtn">
+                <div class="toggle-radio">
+                    <input type="radio" name="rdo" id="yes" >
+                    <input type="radio" name="rdo" id="no" checked>
+                    <div class="switch">
+                      <label for="yes">Yes</label>
+                      <label for="no">No</label>
+                      <span></span>
+                    </div>
+                  </div>
+            </div>
+            <br><br>
+
+        </div>
+
+
         <div class="chat-box">
             {% if user.is_authenticated %}
                 <form action="{% url 'addComment' community.id %}" method="POST">
-                    {% csrf_token %}
+                    {%csrf_token%}
                     <input id="inputText" name="commenttext" type="text" placeholder="댓글을 달아 의견을 공유해주세요!"/>
-                    <input id="inputSubmit" type="submit" value="댓글 달기"/>
+                    <a href="#commentModal" rel="modal:open" class="commentAdd"><button id="inputSubmit" type="submit" >SUBMIT</button></a>
                 </form>
             {% else %}
                 <a href="#loginmodal" rel="modal:open">
