@@ -4,10 +4,12 @@
 
 <head>
   <link rel="stylesheet" href='{% static "css/community.css" %}'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
   <title></title>
 </head>
 
 <body>
+
   <form method="get" class="search" action="{% url 'communitysearch' %}">
     <input type="search" class="search__box" placeholder="제목으로 검색" name="kw">
     <!-- <input type="search" class="search__box" placeholder="#누구에게" name="kw2"> -->
@@ -49,6 +51,10 @@
         {% endif %}
     </div>
   </div>
+
+ 
+
 </body>
+
 
 {% endblock %}

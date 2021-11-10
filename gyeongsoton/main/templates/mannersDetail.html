@@ -5,7 +5,7 @@
 
   {% if request.user == mannersdetail.user %}
   <div class="retouch">
-      <a href="#">수정</a>
+      <a href="{% url 'toEditMannerpage' mannersdetail.id %}">수정</a>
       <a href="{% url 'mannerdelete' mannersdetail.id %}">삭제</a>
   </div>
   {% endif %}
@@ -21,8 +21,14 @@
         <span>누구에게 : {{mannersdetail.hashtag_you}}</span>
       </div>
       <div class="mannersDetail__box--tag--like">
-        <button onclick="location.href = '{% url 'mannerLikeUp' mannersdetail.id %}'"><img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{mannersdetail.like}}</button>
-        <button onclick="location.href = '{% url 'mannerDisLikeUp' mannersdetail.id %}'"><img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{mannersdetail.dis_like}}</button>
+        {% if mannersdetail.user != request.user %}
+          <button onclick="location.href = '{% url 'mannerLikeUp' mannersdetail.id %}'"><img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{mannersdetail.like}}</button>
+          <button onclick="location.href = '{% url 'mannerDisLikeUp' mannersdetail.id %}'"><img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{mannersdetail.dis_like}}</button>
+        {% else %}
+        <button><img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{mannersdetail.like}}</button>
+        <button><img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{mannersdetail.dis_like}}</button>
+        {% endif %}
+
       </div>
     </div>
     <div class="profile">

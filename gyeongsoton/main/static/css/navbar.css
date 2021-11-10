@@ -114,9 +114,15 @@ body {
   outline: none;
 }
 
-.userinfo {
+.userprofile {
   position: absolute;
-  right: 1px;
+  right: 240px;
+}
+
+.username {
+  position: absolute;
+  right: 190px;
+  font-weight: bold;
 }
 /*
 .login__btn {

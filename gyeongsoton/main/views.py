@@ -75,11 +75,31 @@ def communityCommentDisLikeUp(request, community_id, comment_id):
     else:
         return redirect("404error")
 
+def toEditCommunitypage(request,id):
+    edit_community=communityText.objects.get(pk=id)
+    return render(request,'editCommunity.html',{'community':edit_community})
+
+def communityEdit(request,id):
+    edit_community=communityText.objects.get(pk=id)
+    edit_community.text=request.POST.get('text',False)
+    edit_community.title=request.POST.get('title',False)
+    edit_community.date=timezone.datetime.now()
+    edit_community.writer=request.user
+    edit_community.save()
+    return redirect('communityDetail',edit_community.id)
+
+def communityDelete(request, id):
+    community = get_object_or_404(communityText, pk=id)
+    if request.user != community.user:
+        messages.error(request, '삭제권한이 없습니다')
+        return redirect('communityDetail', id=community.id)
+    community.delete()
+    return redirect('community')
 
 def trend(request):
     return render(request, "trend.html")
 
-#manners
+#매너를 지켜쥬
 def manners(request):
     manner_alltext = manner.objects.all()
     manner_alltext = manner.objects.order_by('-date')
@@ -129,7 +149,6 @@ def mannerCreate(request):
     if(request.method == 'POST'):
         post = manner()
         post.user = request.user
-        post.date = timezone.datetime.now()
         post.text = request.POST['title']
         post.hashtag_me = request.POST['hashtagMe']
         post.hashtag_you = request.POST['hashtagYou']
@@ -147,6 +166,19 @@ def mannerdelete(request, id):
         return redirect('manner', id=question.id)
     question.delete()
     return redirect('manner')
+
+def toEditMannerpage(request,id):
+    edit_manner=manner.objects.get(pk=id)
+    return render(request,'editManner.html',{'manner':edit_manner})
+
+def mannerEdit(request,id):
+    edit_manner=manner.objects.get(pk=id)
+    edit_manner.text=request.POST.get('text',False)
+    edit_manner.hashtag_situation=request.POST.get('hashtag_situation',False)
+    edit_manner.date=timezone.datetime.now()
+    edit_manner.writer=request.user
+    edit_manner.save()
+    return redirect('mannersDetail',edit_manner.id)
 
 #newterms
 def newterms(request):
@@ -306,7 +338,6 @@ def productCreate(request):
         post.productText = request.POST['productText']
         post.like = 0
         if 'image' in request.FILES:
-            print('in')
             post.image=request.FILES['image']
             post.save()
             return redirect('newproductDetail',post.id)

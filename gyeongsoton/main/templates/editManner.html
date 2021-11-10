@@ -1,0 +1,30 @@
+{% extends 'base.html' %}{% load static %}{% block extrahead %} {% endblock %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href='{% static "css/editmanner.css" %}' />
+</head>
+<body>
+  <div class="maincontainer">
+    <form
+      action="{%url 'mannerEdit' manner.id%}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      {%csrf_token%}
+      <div class="editcontainer">
+        제목:
+        <textarea name="text" style="height: 300px">
+{{manner.hashtag_situation}}</textarea
+        >
+        상황:
+        <textarea name="hashtag_situation" style="height: 50px">
+{{manner.text}}</textarea
+        >
+        <br /><br />{{manner.hashtag_me}} <br />{{manner.hashtag_you}}
+      </div>
+      <button class="submitButton" type="submit">수정하기</button>
+    </form>
+  </div>
+</body>
+
+{% endblock %}

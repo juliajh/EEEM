@@ -51,7 +51,6 @@ class manner(models.Model):
     hashtag_you = models.CharField(max_length=20)
     hashtag_situation = models.CharField(max_length=500)
     date = models.DateTimeField(default=datetime.now, blank=True)
-    modify_date = models.DateTimeField(null=True, blank=True)
 
 
 class product(models.Model):

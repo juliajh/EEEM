@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:600&display=swap");
-img {
-  height: 150px;
-  width: 100%;
-}
 
 div [class^="col-"] {
   padding-left: 20px;

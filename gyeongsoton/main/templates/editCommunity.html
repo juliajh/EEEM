@@ -1,0 +1,27 @@
+{% extends 'base.html' %}{% load static %}{% block extrahead %} {% endblock %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href='{% static "css/editmanner.css" %}' />
+</head>
+<body>
+  <div class="maincontainer">
+    <form
+      action="{%url 'communityEdit' community.id%}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      {%csrf_token%}
+      <div class="editcontainer">
+        제목:
+        <textarea name="title" style="height: 300px">
+            {{community.title}}
+        </textarea>
+        글:
+        <textarea name="text" style="height: 50px">{{community.text}}</textarea>
+      </div>
+      <button class="submitButton" type="submit">수정하기</button>
+    </form>
+  </div>
+</body>
+
+{% endblock %}

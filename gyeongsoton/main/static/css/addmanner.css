@@ -5,19 +5,11 @@ body {
   align-items: center;
 }
 
-.title {
-  padding-top: 150px;
-  font-size: 30px;
-  color: #88aed0;
-}
-
-input {
-  height: 20px;
-  border: 1px black solid;
-}
-
-label {
-  margin-bottom: 10px;
+.textInput {
+  display: block;
+  width: 900px;
+  height: 30px;
+  border: 1px solid black;
 }
 
 .box {
@@ -29,8 +21,12 @@ label {
   color: #88aed0;
 }
 
+.hashtag {
+  display: flex;
+}
+
 .hashtag input {
-  width: 135px;
+  width: 120px;
 }
 
 .submitButton {
@@ -43,4 +39,13 @@ label {
   color: whitesmoke;
   border: none;
   cursor: pointer;
+}
+
+input:focus {
+  outline: 1px solid skyblue;
+  border: 1px solid skyblue;
+}
+
+textarea:focus {
+  outline: 1px solid skyblue;
 }
