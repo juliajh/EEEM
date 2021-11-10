@@ -42,6 +42,8 @@ def addCommunity(request):
         community.text = request.POST.get("communitytext")
         community.user = request.user
         community.title = request.POST.get("communitytitle")
+        if request.POST.get('matching', False):
+            print('in')
         if community.text and community.title:
             community.save()
         return redirect("communityDetail", community.id)
