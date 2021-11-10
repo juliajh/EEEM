@@ -19,7 +19,10 @@
     {% for m in manner.all %}
     <a class="manner__box" href="{%url 'mannersDetail' m.id %}">
       <div class="profile">
-        <img src="{{m.user.profile.url}}" style="border-radius: 70%" alt="user" width="60px" class="rounded-circle">
+        <div class="manner__user">
+          <img src="{{m.user.profile.url}}" alt="user" width="60px" class="rounded-circle">
+            <div>{{m.user.sex}}, {{m.user.age}}대</div>
+        </div>
         <div class="manner__main">
           <div class="manner__text">
             제목 : {{m.text}}
@@ -32,15 +35,14 @@
       </div>
       <div class="mannerInfo">
         <div class="mannerthumbs">
-          <i class="fas fa-thumbs-up"></i>: {{m.like}}
-          <i class="fas fa-thumbs-down"></i>: {{m.dis_like}}
+          <img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{m.like}}
+          <img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{m.dis_like}}
         </div>
         <div>{{m.date|date:'Y-m-d fa' }}</div>
-        <div class="manner__user">
-          <div>{{m.user.sex}}, {{m.user.age}}대</div>
-        </div>
+        <div>작성자 : {{m.user.nickname}}</div>
       </div>
     </a>
+    
   {% endfor %}
     
 

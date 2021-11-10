@@ -80,10 +80,17 @@
       <a class="logout__btn" href="{%url 'logout' %}">
         <span>로그아웃</span>
       </a>
+      <div class="userinfo">
+        <img
+          src="{{request.user.profile.url}}"
+          style="border-radius: 70%"
+          alt="user"
+          width="45px"
+          class="rounded-circle"
+        />
+        <span>{{request.user.nickname}}</span>
+      </div>
       {% endif %}
-      <a href="#" class="navbar__toggleBtn">
-        <i class="fas fa-bars"></i>
-      </a>
     </nav>
     <div id="loginmodal" class="modal">
       <p>로그인 후 EEEM의 다양한 기능을 사용해보세요😃<br /><br /></p>

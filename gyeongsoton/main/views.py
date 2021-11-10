@@ -17,7 +17,7 @@ import random
 def home(request):
     return render(request, "homepage.html")
 
-
+#community
 def community(request):
     community_alltext = communityText.objects.all()
     return render(request, "community.html", {"communities": community_alltext})
@@ -79,7 +79,7 @@ def communityCommentDisLikeUp(request, community_id, comment_id):
 def trend(request):
     return render(request, "trend.html")
 
-
+#manners
 def manners(request):
     manner_alltext = manner.objects.all()
     manner_alltext = manner.objects.order_by('-date')
@@ -148,7 +148,7 @@ def mannerdelete(request, id):
     question.delete()
     return redirect('manner')
 
-
+#newterms
 def newterms(request):
     newterm_quiz = newterm.objects.all()
     tYear = datetime.datetime.today().year
@@ -250,12 +250,13 @@ def addComment(request, id):
 def notfound(request):
     return render(request, "404error.html")
 
-
+#신문물
 def newproduct(request):
     new_product = product.objects.all()
     new_product = product.objects.order_by('-date')
     now = datetime.datetime.now()  # 현재 시간. ~분전 하고 싶어서 .!
     return render(request, "newproduct.html", {'products': new_product, 'now': now})
+
 
 def newproductOrder(request):
     new_product = product.objects.all()
@@ -304,6 +305,10 @@ def productCreate(request):
         post.productName = request.POST['productName']
         post.productText = request.POST['productText']
         post.like = 0
-        post.image=request.POST['image']
-        post.save()
-    return redirect('newproduct')
+        if 'image' in request.FILES:
+            print('in')
+            post.image=request.FILES['image']
+            post.save()
+            return redirect('newproductDetail',post.id)
+    else:
+        return redirect('newproduct')

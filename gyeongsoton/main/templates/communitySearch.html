@@ -27,12 +27,8 @@
                     <img src="{{result.user.profile.url}}" style="border-radius: 70%" alt="user" width="45px" class="rounded-circle">
                   </div>
                   <div class="comment-text w-100">
-                      <h6 class="font-medium" style="margin-bottom: 9px;">{{result.user}}
-                      {%if result.user.sex == 0%}
-                      <span class="sex">남</span>
-                      {%else%}
-                      <span class="sex">여</span>
-                      {%endif%}
+                      <h6 class="font-medium" style="margin-bottom: 9px;">{{result.user.nickname}}
+                      <span class="sex">{{result.user.sex}}</span>
                       {{result.user.age}}살
                       </h6>
                       <span class="m-b-10 d-block">{{result.title}}</span><br>

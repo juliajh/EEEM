@@ -10,7 +10,11 @@
   <div class="titleBox">글쓰기</div>
   <div class="line"></div>
   <div style="margin-left: 100px">
-    <form action="{% url 'productCreate' %}" method="post">
+    <form
+      action="{% url 'productCreate' %}"
+      enctype="multipart/form-data"
+      method="POST"
+    >
       {% csrf_token %}
       <div class="box" style="padding-top: 50px">
         <label for="productName">제목</label><br />

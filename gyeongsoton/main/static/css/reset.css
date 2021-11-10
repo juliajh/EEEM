@@ -102,7 +102,7 @@ section {
 }
 body {
   line-height: 1;
-  background-color: #ffffff;
+  background-color: rgb(242, 240, 248);
   font-family: "Noto Sans KR", sans-serif;
 }
 ol,
