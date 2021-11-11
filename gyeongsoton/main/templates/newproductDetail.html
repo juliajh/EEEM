@@ -16,11 +16,30 @@
 </head>
 
 <body style="background-color: rgb(242, 240, 248)">
-  <section>
+  <main>
+    <div class="titleFont">{{productDetail.productName}}</div>
+    <div style="margin-top: 20px; margin-left: 80px">
+      <div class="gradient-border" style="display: inline-block">
+        <img
+          src="{{productDetail.image.url}}"
+          style="height: 310px; width: 470px"
+        />
+      </div>
+    </div>
+    <div style="margin-left: 90px; padding-top: -80px">
+      <label class="like">
+        <button
+          onclick="location.href = '{% url 'productLikeUp' productDetail.id %}'"
+          style="visibility: hidden"
+        ></button>
+        <div class="hearth" />
+      </label>
+    </div>
+
+    <!--<section>
     <h1>{{productDetail.productName}}</h1>
     <div class="content">
       <p>{{productDetail.productText}}</p>
-      <!--<a href = "{% url 'productLikeUp' productDetail.id %}">❤ {{productDetail.like}}</a>-->
       <button
         onclick="location.href = '{% url 'productLikeUp' productDetail.id %}'"
       >
@@ -29,5 +48,7 @@
     </div>
     <div class="img"><img src="{{productDetail.image.url}}" /></div>
   </section>
+-->
+  </main>
 </body>
 {% endblock %}

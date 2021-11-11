@@ -1,115 +1,76 @@
-:root {
-  --box-x-padding: 2rem;
-  --box-y-padding: 2rem;
-}
-
-@media (min-width: 40em) {
-  :root {
-    --box-y-padding: 6rem;
-  }
-}
-@media (min-width: 60em) {
-  :root {
-    --box-x-padding: 3rem;
-    --box-y-padding: 6rem;
-  }
-}
-@media (min-width: 40em) {
-  section {
-    display: grid;
-    grid-template-rows: repeat(3, auto);
-    grid-template-columns: 4fr 4fr 5fr;
-    grid-template-areas: ". . title" "img img content" "img img .";
-    max-width: 1000px;
-    height: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    border-radius: 20px;
-  }
-  section::after {
-    content: "";
-    grid-column: 2/-1;
-    grid-row: 1/3;
-    position: relative;
-    z-index: -1;
-    background: #fff;
-  }
-  h1 {
-    grid-area: title;
-    padding-top: var(--box-y-padding);
-    padding-left: var(--box-x-padding);
-  }
-  .content {
-    grid-area: content;
-    padding-bottom: var(--box-y-padding);
-    padding-left: var(--box-x-padding);
-    padding-right: var(--box-x-padding);
-  }
-  .img {
-    grid-area: img;
-  }
-}
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
-html {
-  font-family: Montserrat, sans-serif;
-  font-size: 15px;
-  background-color: #f5f5f5;
-}
-h1 {
-  font-size: 4em;
-  margin: 5px 5px 3rem;
+main {
+  padding-top: 80px;
   font-family: Montserrat;
-  text-align: center;
+}
+
+.titleFont {
+  font-weight: bold;
+  font-size: 60px;
+  text-align: left;
+  margin-left: 100px;
+}
+
+.gradient-border {
+  --border-width: 1px;
   position: relative;
+  border-radius: var(--border-width);
 }
-h1::after {
-  content: "";
+.gradient-border::after {
   position: absolute;
-  width: 22rem;
-  background-color: #ccc;
-  height: 2px;
-  top: 0;
-  left: 0;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(
+    60deg,
+    #7b94dad9,
+    #89a8ffd7,
+    #6d8fedd4,
+    #7795e9e0,
+    #7fdfe6e8,
+    #9ee2caee,
+    #afe0edec,
+    #ccd8f8
+  );
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
 }
-@media (min-width: 40em) {
-  h1::after {
-    left: var(--box-x-padding);
-    top: var(--box-y-padding);
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
   }
 }
 
-p {
-  padding-left: 10px;
-  font-size: 17px;
-  margin-bottom: var(--box-y-padding);
-  line-height: 2;
+.like {
+  --size: 100px;
+  --frames: 62;
+  width: var(--size);
+  height: var(--size);
+  cursor: pointer;
+  border-radius: 999px;
+  overflow: visible;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }
-.content a {
-  text-decoration: none;
-  border: 1px solid #b3b3b3;
-  border-radius: 1em;
-  padding: 1em 2em;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: inherit;
-  display: inline-block;
-  background-color: #fff;
+.hearth {
+  background-image: url("https://assets.codepen.io/23500/Hashflag-AppleEvent.svg");
+  background-size: calc(var(--size) * var(--frames)) var(--size);
+  background-repeat: no-repeat;
+  background-position-x: calc(var(--size) * (var(--frames) * -1 + 2));
+  background-position-y: calc(var(--size) * 0.02);
+  width: var(--size);
+  height: var(--size);
 }
-.img a {
-  position: relative;
-  left: 0;
-  bottom: 0;
-}
-img {
-  max-width: 100%;
-  vertical-align: middle;
-}
-.attribution {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: #ea4c89;
-  color: #fff;
-  padding: 0.5em 1em;
+@media (hover: hover) {
+  .like:hover {
+    background-color: #e1255e 15;
+  }
+  .like:hover .hearth {
+    background-position-x: calc(var(--size) * (var(--frames) * -1 + 1));
+  }
 }
