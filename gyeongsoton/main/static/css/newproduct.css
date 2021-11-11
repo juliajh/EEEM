@@ -6,12 +6,12 @@ div [class^="col-"] {
 
 .productCard {
   float: left;
-  margin-left: 7px;
-  margin-right: 7px;
+  margin-left: 20px;
+  margin-right: 20px;
   transition: 0.5s;
   cursor: pointer;
   height: 350px;
-  width: 210px;
+  width: 215px;
   border-radius: 20px;
 }
 .productCard-title {
@@ -91,7 +91,7 @@ div [class^="col-"] {
   background-color: #f0d4f5;
   font-weight: bold;
   border-radius: 10px;
-  font-size: 13px;
+  font-size: 17px;
 }
 
 .writeText {
@@ -108,7 +108,7 @@ div [class^="col-"] {
   color: black;
   background-color: #f0d4f5;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 17px;
   border-radius: 10px;
 }
 
@@ -127,8 +127,8 @@ div [class^="col-"] {
   justify-content: center;
   top: 90px;
   left: 40px;
-  width: 120px;
-  height: 35px;
+  width: 135px;
+  height: 45px;
   border-style: solid;
   border-width: 1px;
   border-color: #9370db;
@@ -136,6 +136,6 @@ div [class^="col-"] {
   color: black;
   background-color: #ffffff;
   font-weight: bold;
-  font-size: 13px;
-  border-radius: 10px;
+  font-size: 17px;
+  border-radius: 15px;
 }

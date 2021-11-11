@@ -80,6 +80,7 @@
       <a class="logout__btn" href="{%url 'logout' %}">
         <span>로그아웃</span>
       </a>
+      {% if user.profile %}
       <div class="userprofile">
         <img
           src="{{request.user.profile.url}}"
@@ -89,6 +90,7 @@
           class="rounded-circle"
         />
       </div>
+      {% endif %}
       <div class="username"><span>{{request.user.nickname}}</span></div>
       <img src="{% static 'img/coin.png' %}" width="30px" style="  position: absolute;
       right: 190px;

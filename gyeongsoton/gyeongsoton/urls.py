@@ -34,6 +34,7 @@ urlpatterns = [
     path('community/delete/<int:id>/', views.communityDelete, name="communityDelete"),
     path('community/detail/<str:id>/addComment/',
          views.addComment, name='addComment'),
+    path('community/selectComment/<str:id>', views.communitySelect, name="communitySelect"),
     path('community/detail/<str:community_id>/likeup/<comment_id>/',
          views.communityCommentLikeUp, name='communityCommentLikeUp'),
     path('community/detail/<str:community_id>/dislikeup/<comment_id>/',

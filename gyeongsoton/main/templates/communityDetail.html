@@ -89,6 +89,11 @@
                                         <img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/>
                                         <span>&nbsp{{comment.dis_like}}</span>
                                     </a>
+                                    {% if request.user == community.user and not community.selected %}
+                                    <div class="selectbtn">
+                                        <button class="selectbtn" onclick="location.href='{% url 'communitySelect' comment.id %}'">채택</button>
+                                    </div>
+                                    {% endif %}
                                 {% else %}
                                     <img src="{%static 'img/like.png' %}" width="20px" height="20px"/>
                                     <span>&nbsp{{comment.like}}&nbsp&nbsp&nbsp&nbsp</span>

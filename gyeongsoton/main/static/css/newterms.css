@@ -7,7 +7,7 @@ main {
 }
 
 .paper {
-  margin-top: 5px;
+  margin-top: 15px;
   height: 85vh;
   width: 900px;
   border-style: solid;
@@ -39,10 +39,10 @@ main {
   height: 1.2px;
   padding: 2rem;
   cursor: pointer;
-  position: fixed;
+  position: absolute;
   display: flex;
   top: 75px;
-  right: 220px;
+  right: 120px;
   align-items: center;
   justify-content: center;
   border-radius: 50%;

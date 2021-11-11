@@ -8,16 +8,8 @@ body {
 
 .main {
   background-color: rgb(242, 240, 248);
-  height: 500vh;
+  height: 600vh;
   transition: transform 0.5s;
-}
-
-.welcomecard {
-  position: absolute;
-  top: 80px;
-  width: 400px;
-  height: 606px;
-  background-color: white;
 }
 
 .firstPageTitle {
@@ -33,14 +25,22 @@ body {
   height: 100vh;
 }
 
+.welcome {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .firstPage span:first-child {
   display: block;
-  font-size: 130px;
+  font-size: 150px;
   color: #88aed0;
 }
 
 .EEEM {
-  font-size: 180px;
+  font-size: 200px;
   color: #88aed0;
 }
 
@@ -78,6 +78,11 @@ body {
 
 .goto {
   margin-top: 70px;
+}
+
+.question {
+  margin-bottom: 10px;
+  font-size: 40px;
 }
 
 .mainPage img {

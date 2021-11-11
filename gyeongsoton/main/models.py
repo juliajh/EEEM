@@ -22,7 +22,7 @@ class communityText(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE, default='')
     title = models.CharField(max_length=30, default='')
-
+    selected=models.BooleanField(default=False,null=True)
     def __str__(self):
         if len(self.text) > 100:
             return self.text[:100]+"..."
@@ -39,7 +39,7 @@ class communityComment(models.Model):
     text = models.CharField(max_length=300)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE, default='')
-
+    getcoin=models.BooleanField(default=False,null=True)
 
 class manner(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -51,7 +51,7 @@ class manner(models.Model):
     hashtag_you = models.CharField(max_length=20)
     hashtag_situation = models.CharField(max_length=500)
     date = models.DateTimeField(default=datetime.now, blank=True)
-
+    getcoin=models.BooleanField(default=False,null=True)
 
 class product(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,

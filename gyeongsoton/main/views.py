@@ -42,8 +42,6 @@ def addCommunity(request):
         community.text = request.POST.get("communitytext")
         community.user = request.user
         community.title = request.POST.get("communitytitle")
-        if request.POST.get('matching', False):
-            print('in')
         if community.text and community.title:
             community.save()
         return redirect("communityDetail", community.id)
@@ -61,8 +59,14 @@ def toaddCommunitypage(request):
 def communityCommentLikeUp(request, community_id, comment_id):
     if request.user.is_authenticated:
         comment = get_object_or_404(communityComment, pk=comment_id)
-        comment.like += 1
-        comment.save()
+        if request.user!= comment.user:
+            comment.like += 1
+            if not comment.getcoin:
+                if comment.like==10:
+                    comment.getcoin=True
+                    comment.user.coin+=5
+                    comment.user.save()
+            comment.save()
         return redirect("communityDetail", community_id)
     else:
         return redirect("404error")
@@ -71,8 +75,9 @@ def communityCommentLikeUp(request, community_id, comment_id):
 def communityCommentDisLikeUp(request, community_id, comment_id):
     if request.user.is_authenticated:
         comment = get_object_or_404(communityComment, pk=comment_id)
-        comment.dis_like += 1
-        comment.save()
+        if request.user!= comment.user:
+            comment.dis_like += 1
+            comment.save()
         return redirect("communityDetail", community_id)
     else:
         return redirect("404error")
@@ -83,8 +88,8 @@ def toEditCommunitypage(request,id):
 
 def communityEdit(request,id):
     edit_community=communityText.objects.get(pk=id)
-    edit_community.text=request.POST.get('communitytext',False)
-    edit_community.title=request.POST.get('communitytitle',False)
+    edit_community.text=request.POST.get('text',False)
+    edit_community.title=request.POST.get('title',False)
     edit_community.date=timezone.datetime.now()
     edit_community.writer=request.user
     edit_community.save()
@@ -97,6 +102,18 @@ def communityDelete(request, id):
         return redirect('communityDetail', id=community.id)
     community.delete()
     return redirect('community')
+
+def communitySelect(request,id):
+    comment=get_object_or_404(communityComment,pk=id)
+    comment.user.coin+=10
+    comment.user.save()
+    request.user.coin+=2
+    request.user.save()
+    community=get_object_or_404(communityText,pk=comment.communitytext.id)
+    community.selected=True
+    community.save()
+    return redirect('communityDetail',community.id)
+
 
 def trend(request):
     return render(request, "trend.html")
@@ -120,9 +137,15 @@ def mannersDetail(request, id):
 
 
 def mannerLikeUp(request, id):
-    manner_detail = get_object_or_404(manner, pk=id)
-    manner_detail.like += 1
-    manner_detail.save()
+    if request.user.is_authenticated:
+        manner_detail = get_object_or_404(manner, pk=id)
+        if manner_detail.user!=request.user:
+            manner_detail.like += 1
+            if manner_detail.like==10 and not manner_detail.getcoin:
+                manner_detail.getcoin=True
+                manner_detail.user.coin+=5
+                manner_detail.user.save()
+            manner_detail.save()
     return redirect("mannersDetail", id)
 
 
@@ -176,8 +199,6 @@ def toEditMannerpage(request,id):
 def mannerEdit(request,id):
     edit_manner=manner.objects.get(pk=id)
     edit_manner.text=request.POST.get('text',False)
-    edit_manner.hashtag_me=request.POST.get('hashtagMe',False)
-    edit_manner.hashtag_you=request.POST.get('hashtagYou',False)
     edit_manner.hashtag_situation=request.POST.get('hashtag_situation',False)
     edit_manner.date=timezone.datetime.now()
     edit_manner.writer=request.user

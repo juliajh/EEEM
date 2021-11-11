@@ -2,7 +2,6 @@
 {% endblock %} {% block content %}
 <link rel="stylesheet" href='{% static "css/mannersDetail.css" %}'>
 <body>
-
   {% if request.user == mannersdetail.user %}
   <div class="retouch">
       <a href="{% url 'toEditMannerpage' mannersdetail.id %}">수정</a>

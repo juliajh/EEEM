@@ -7,10 +7,10 @@
 </head>
 
 <body>
-    <span class="info"
+    <!-- <span class="info"
       >신문물 입니다.<br /><br />회원가입 후 글을 써서 새로운 문물들을
       전파해주세요!😍</span
-    >
+    > -->
     <form method="get" class="search" action="{% url 'newproductSearch' %}">
       <input
         type="search"
@@ -26,7 +26,7 @@
     {% else %}
     <a href="#loginmodal" class="writeText" rel="modal:open">글쓰기</a>
     {% endif %}
-    <div class="container mt-2">
+    <div class="container mt-2" style="margin-auto;">
       <div class="row" style="padding:40px 50px 0px 50px;">
         {% for product in products.all %}
         <div class="col-md-3 col-sm-6">
