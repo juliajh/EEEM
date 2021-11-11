@@ -7,8 +7,7 @@
 </head>
 
 <body style="background-color: rgb(242, 240, 248)">
-  <div class="titleBox">글쓰기</div>
-  <div class="line"></div>
+  <div class="titleBox">신문물 글쓰기</div>
   <div style="margin-left: 100px">
     <form
       action="{% url 'productCreate' %}"
@@ -17,22 +16,22 @@
     >
       {% csrf_token %}
       <div class="box" style="padding-top: 50px">
-        <label for="productName">제목</label><br />
         <input
           type="text"
           name="productName"
           id="productName"
           style="width: 225px"
+          placeholder="제목을 입력하세요."
           required
         />
       </div>
       <div class="box">
-        <label for="productText">내용</label><br />
         <textarea
           name="productText"
           id="productText"
-          cols="30"
-          rows="10"
+          cols="90"
+          rows="15"
+          placeholder="내용을 입력하세요."
           required
         ></textarea>
       </div>
@@ -42,7 +41,7 @@
         name="image"
       />
       <br /><br /><br />
-      <button class="submitButton" type="submit">등록</button>
+      <button class="submitButton" type="submit">글쓰기</button>
     </form>
   </div>
 </body>

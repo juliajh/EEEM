@@ -83,8 +83,8 @@ def toEditCommunitypage(request,id):
 
 def communityEdit(request,id):
     edit_community=communityText.objects.get(pk=id)
-    edit_community.text=request.POST.get('text',False)
-    edit_community.title=request.POST.get('title',False)
+    edit_community.text=request.POST.get('communitytext',False)
+    edit_community.title=request.POST.get('communitytitle',False)
     edit_community.date=timezone.datetime.now()
     edit_community.writer=request.user
     edit_community.save()
@@ -176,6 +176,8 @@ def toEditMannerpage(request,id):
 def mannerEdit(request,id):
     edit_manner=manner.objects.get(pk=id)
     edit_manner.text=request.POST.get('text',False)
+    edit_manner.hashtag_me=request.POST.get('hashtagMe',False)
+    edit_manner.hashtag_you=request.POST.get('hashtagYou',False)
     edit_manner.hashtag_situation=request.POST.get('hashtag_situation',False)
     edit_manner.date=timezone.datetime.now()
     edit_manner.writer=request.user

@@ -1,27 +1,44 @@
 {% extends 'base.html' %}{% load static %}{% block extrahead %} {% endblock %}
 {% block content %}
+
 <head>
-  <link rel="stylesheet" href='{% static "css/editmanner.css" %}' />
+  <link rel="stylesheet" href="{% static 'css/addcommunity.css' %}" />
 </head>
+
 <body>
-  <div class="maincontainer">
+  <div class="title">커뮤니티 수정하기</div>
+  <div class="container">
     <form
-      action="{%url 'communityEdit' community.id%}"
+      action="{%url 'communityEdit' community.id %}"
       method="POST"
       enctype="multipart/form-data"
     >
       {%csrf_token%}
-      <div class="editcontainer">
-        제목:
-        <textarea name="title" style="height: 300px">
-            {{community.title}}
-        </textarea>
-        글:
-        <textarea name="text" style="height: 50px">{{community.text}}</textarea>
+
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="formGroupExampleInput"
+          placeholder="제목을 입력하세요"
+          value="{{community.title}}"
+          name="communitytitle"
+        />
+
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="내용을 입력하세요"
+            id="floatingTextarea2"
+            name="communitytext"
+            value="{{community.text}}"
+            cols="90"
+            rows="15"
+          ></textarea>
       </div>
+  
       <button class="submitButton" type="submit">수정하기</button>
     </form>
   </div>
 </body>
-
 {% endblock %}

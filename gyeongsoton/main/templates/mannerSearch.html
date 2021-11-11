@@ -19,7 +19,10 @@
     {% for result in result.all %}
     <a class="manner__box" href="{%url 'mannersDetail' result.id %}">
       <div class="profile">
-        <img src="{{result.user.profile.url}}" style="border-radius: 70%" alt="user" width="60px" class="rounded-circle">
+        <div class="manner__user">
+          <img src="{{result.user.profile.url}}" alt="user" width="60px" class="rounded-circle">
+            <div>{{result.user.sex}}, {{result.user.age}}대</div>
+        </div>
         <div class="manner__main">
           <div class="manner__text">
             제목 : {{result.text}}
@@ -32,13 +35,11 @@
       </div>
       <div class="mannerInfo">
         <div class="mannerthumbs">
-          <i class="fas fa-thumbs-up"></i>: {{result.like}}
-          <i class="fas fa-thumbs-down"></i>: {{result.dis_like}}
+          <img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{result.like}}
+          <img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{result.dis_like}}
         </div>
         <div>{{result.date|date:'Y-m-d fa' }}</div>
-        <div class="manner__user">
-          <div>{{result.user.sex}}, {{result.user.age}}대</div>
-        </div>
+        <div>작성자 : {{result.user.nickname}}</div>
       </div>
     </a>
     

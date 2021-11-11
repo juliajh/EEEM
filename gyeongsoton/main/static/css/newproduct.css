@@ -3,18 +3,19 @@
 div [class^="col-"] {
   padding-left: 20px;
 }
+
 .productCard {
   float: left;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 7px;
+  margin-right: 7px;
   transition: 0.5s;
   cursor: pointer;
-  height: 370px;
-  width: 280px;
+  height: 350px;
+  width: 210px;
   border-radius: 20px;
 }
 .productCard-title {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 5px;
   transition: 1s;
   cursor: pointer;
@@ -23,7 +24,7 @@ div [class^="col-"] {
   font-size: 15px;
   transition: 1s;
   cursor: pointer;
-  color: #ffa710;
+  color: #95c0f8;
 }
 .productCard-title i:hover {
   transform: scale(1.25) rotate(100deg);
@@ -128,10 +129,12 @@ div [class^="col-"] {
   left: 40px;
   width: 120px;
   height: 35px;
-  border: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #9370db;
   cursor: pointer;
   color: black;
-  background-color: #f0d4f5;
+  background-color: #ffffff;
   font-weight: bold;
   font-size: 13px;
   border-radius: 10px;

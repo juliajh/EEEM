@@ -6,18 +6,22 @@
   <title>newtermQuiz</title>
 </head>
 
-<body style="background-color: #d8d7d7">
-  <div class="point">{{term.score}} / {{newtermCount}}</div>
-  <div class="questionFont">Q. 다음 신조어의 의미를 고르시오.</div>
-  <div class="newtermBox">{{term.question}}</div>
-  <br /><br /><br />
-  <div class="answerBox">
-    <a class="answer" href="{%url 'newtermButton1' term.id %}">①</a>
-    <span>{{choice_1}}</span>
-    <br /><br />
-    <a class="answer" href="{%url 'newtermButton2' term.id %}">②</a>
-    <span>{{choice_2}}</span>
-  </div>
+<body>
+  <main>
+    <div class="paper">
+      <div class="point">{{term.score}} / {{newtermCount}}</div>
+      <div class="questionFont">Q. 다음 신조어의 의미를 고르시오.</div>
+      <div class="newtermBox">{{term.question}}</div>
+      <br /><br /><br />
+      <div class="answerBox">
+        <a class="answer" href="{%url 'newtermButton1' term.id %}">①</a>
+        <span>{{choice_1}}</span>
+        <br /><br />
+        <a class="answer" href="{%url 'newtermButton2' term.id %}">②</a>
+        <span>{{choice_2}}</span>
+      </div>
+    </div>
+  </main>
 </body>
 
 {% endblock %}

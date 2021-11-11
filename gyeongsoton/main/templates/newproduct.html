@@ -7,7 +7,6 @@
 </head>
 
 <body>
-  <div class="main-container">
     <span class="info"
       >신문물 입니다.<br /><br />회원가입 후 글을 써서 새로운 문물들을
       전파해주세요!😍</span
@@ -28,7 +27,7 @@
     <a href="#loginmodal" class="writeText" rel="modal:open">글쓰기</a>
     {% endif %}
     <div class="container mt-2">
-      <div class="row" style="padding-top: 40px">
+      <div class="row" style="padding:40px 50px 0px 50px;">
         {% for product in products.all %}
         <div class="col-md-3 col-sm-6">
           <a href="{%url 'newproductDetail' product.id %}">
@@ -53,7 +52,7 @@
               <p class="productCard-text" style="line-height: 1.5rem">
                 {{product}}
               </p>
-              <div style="text-align: right; margin-top: 20px">
+              <div style="text-align: right; margin-top: 5px">
                 {{product.date|date:'Y-m-d fa' }} ❤{{product.like}}
               </div>
             </div>
@@ -62,7 +61,7 @@
         {% endfor %}
       </div>
     </div>
-  </div>
+  </main>
 </body>
 
 {% endblock %}
