@@ -8,13 +8,13 @@
 </head>
 <body>
     <main class="main">
+        <div class="welcomecard">
+        </div>
         <section class="firstPage">
             <div class="firstPageTitle">
                 <span>모두를 잇는다.</span><br>
                 <span class="EEEM">이음</span>
             </div>
-            <!-- <img class="firstPageImg" src="{% static 'img/connection.png' %}"> -->
-            <!-- <img class="firstPageImg" src="{% static 'img/connection2.png' %}"> -->
             <img class="firstPageImg" src="{% static 'img/connection3.png' %}">
         </section>
             <section class="mainPage community" id="sec1">
@@ -24,13 +24,9 @@
                     <div class="description">자유롭게 소통할 수 있는 페이지입니다.</div>
                     <div class="description">자유롭게 소통할 수 있는 페이지입니다.</div>
                     <div class="description">회원가입 후 글을 쓰고 댓글을 달아보세요!</div>
-                    <!-- <form class="goto" action="{% url 'community' %}">
-                        <button class="button-19" type="submit">커뮤니티 바로가기</button>
-                    </form> -->
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
                         <defs>
                             <filter id="gooey">
-                                <!-- in="sourceGraphic" -->
                                 <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
                                 <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
                                 <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />

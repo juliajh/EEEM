@@ -26,13 +26,14 @@
         />
       </div>
     </div>
-    <div style="margin-left: 90px; padding-top: -80px">
+    <div style="margin-left: 90px; width: 60px">
       <label class="like">
         <button
           onclick="location.href = '{% url 'productLikeUp' productDetail.id %}'"
           style="visibility: hidden"
         ></button>
         <div class="hearth" />
+        <span>{{productDetail.like}}</span>
       </label>
     </div>
 

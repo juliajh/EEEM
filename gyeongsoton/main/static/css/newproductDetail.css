@@ -47,7 +47,7 @@ main {
 }
 
 .like {
-  --size: 100px;
+  --size: 80px;
   --frames: 62;
   width: var(--size);
   height: var(--size);
@@ -63,7 +63,7 @@ main {
   background-repeat: no-repeat;
   background-position-x: calc(var(--size) * (var(--frames) * -1 + 2));
   background-position-y: calc(var(--size) * 0.02);
-  width: var(--size);
+  width: 100px;
   height: var(--size);
 }
 @media (hover: hover) {

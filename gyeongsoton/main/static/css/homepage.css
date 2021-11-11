@@ -12,6 +12,14 @@ body {
   transition: transform 0.5s;
 }
 
+.welcomecard {
+  position: absolute;
+  top: 80px;
+  width: 400px;
+  height: 606px;
+  background-color: white;
+}
+
 .firstPageTitle {
   display: flex;
   flex-direction: column;
