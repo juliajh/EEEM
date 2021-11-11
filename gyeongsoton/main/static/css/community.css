@@ -3,6 +3,11 @@
 body {
   background-color: rgb(242, 240, 248);
 }
+
+.co a {
+  color: skyblue;
+}
+
 .mt-100 {
   padding-top: 90px;
 }
@@ -89,7 +94,7 @@ body {
 .search {
   position: absolute;
   top: 90px;
-  right: 20px;
+  right: 100px;
 }
 
 .search__box {
@@ -112,5 +117,24 @@ body {
   color: black;
   background-color: #f0d4f5;
   font-weight: bold;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.writeText {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 90px;
+  right: 20px;
+  width: 70px;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  color: black;
+  background-color: #f0d4f5;
+  font-weight: bold;
+  font-size: 15px;
   border-radius: 10px;
 }

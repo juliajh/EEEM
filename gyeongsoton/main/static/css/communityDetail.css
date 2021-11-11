@@ -2,6 +2,37 @@
     margin-top: 60px
 } */
 
+.co a {
+  color: skyblue;
+}
+
+.retouch {
+  position: absolute;
+  top: 60px;
+  right: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.retouch button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 60px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: rgb(206, 191, 236);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.retouch button:last-child {
+  right: 80px;
+}
+
 .mb-100 {
   margin-bottom: 60px;
 }
@@ -18,6 +49,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   height: 400px;
+  position: relative;
 }
 
 .userinfo {

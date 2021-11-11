@@ -17,23 +17,28 @@
 
 <body style="background-color: rgb(242, 240, 248)">
   <main>
-    <div class="titleFont">{{productDetail.productName}}</div>
-    <div style="margin-top: 20px; margin-left: 80px">
-      <div class="gradient-border" style="display: inline-block">
-        <img
-          src="{{productDetail.image.url}}"
-          style="height: 310px; width: 470px"
-        />
-      </div>
+    {% if request.user == productDetail.user %}
+    <div class="retouch">
+      <a href="{% url 'toEditnewproduct' productDetail.id %}">수정</a>
+      <a href="{% url 'newproductdelete' productDetail.id %}">삭제</a>
     </div>
+    {% endif %}
+    <div class="titleFont">{{productDetail.productName}}</div>
+    <img
+      src="{{productDetail.image.url}}"
+      style="height: 370px; width: 550px; margin: 25px 0px 0px 70px"
+    />
+    <div class="content">{{productDetail.productText}}</div>
     <div style="margin-left: 90px; width: 60px">
       <label class="like">
         <button
           onclick="location.href = '{% url 'productLikeUp' productDetail.id %}'"
           style="visibility: hidden"
         ></button>
-        <div class="hearth" />
-        <span>{{productDetail.like}}</span>
+        <div class="hearth">
+          <br />
+          <span style="margin-left: 70px">{{productDetail.like}}</span>
+        </div>
       </label>
     </div>
 

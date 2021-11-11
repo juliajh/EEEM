@@ -29,7 +29,7 @@
                  {{community.text}}
              </div>
              {% if community.user == request.user %}
-             <div class="btns">
+             <div class="retouch">
                 <button class="btns" onclick="location.href='{% url 'toEditCommunitypage' community.id %}'">수정</button>
                 <button class="btns" onclick="location.href='{% url 'communityDelete' community.id %}'">삭제</button>        
              </div>
@@ -115,11 +115,8 @@
                     </div>
                 </div>
                 {% endfor %}
-                
             </div>
         </div>
-
-          
     </div>
     
 </body>

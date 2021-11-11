@@ -2,9 +2,8 @@ from django.db import models
 from django.conf import settings
 from datetime import datetime
 
+
 # Create your models here.
-
-
 class newterm(models.Model):
     question = models.CharField(max_length=100)
     answer = models.CharField(max_length=100)
@@ -52,6 +51,7 @@ class manner(models.Model):
     hashtag_situation = models.CharField(max_length=500)
     date = models.DateTimeField(default=datetime.now, blank=True)
     getcoin=models.BooleanField(default=False,null=True)
+    secret=models.BooleanField(default=False,null=True)
 
 class product(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -67,3 +67,9 @@ class product(models.Model):
             return self.productText[:50]+"..."
         else:
             return self.productText
+
+class certification(models.Model):
+    user=models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    job=models.CharField(max_length=20,default='',blank=True)
+    image = models.ImageField(null=True, blank=True)
+    certified=models.BooleanField(default=False,null=True)

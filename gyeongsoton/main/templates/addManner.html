@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{% static 'css/addmanner.css' %}" />
 <body>
   <div class="title">매너를 지켜쥬 글쓰기</div>
-  <form action="{% url 'create' %}" method="post">
+  <form action="{% url 'create' %}" method="POST">
     {% csrf_token %}
     <div class="titleandhashtag" style="padding-top: 50px">
       <div class="box">
@@ -18,6 +18,7 @@
         />
       </div>
       <div class="box hashtag">
+        {% if not user_certification.certified %}
         <div>
           <input
             type="text"
@@ -27,6 +28,17 @@
             required
           />
         </div>
+        {% else %}
+        <div>
+          <input
+            type="text"
+            name="hashtagMe"
+            placeholder="{{user_certification.job}}"
+            id="hashtagMe"
+            disabled
+          />
+        </div>
+        {% endif %}
         <div>
           <input
             type="text"
@@ -41,6 +53,7 @@
     <div class="box">
       <!-- <label for="content">내용</label><br /> -->
       <textarea
+        class="form-control"
         name="body"
         id="body"
         cols="90"

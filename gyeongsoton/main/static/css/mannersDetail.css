@@ -2,10 +2,14 @@ body {
   background-color: rgb(242, 240, 248);
 }
 
+.ma a {
+  color: skyblue;
+}
+
 .retouch {
-  position: absolute;
+  /* position: absolute;
   top: 130px;
-  left: 80px;
+  right: 100px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +27,7 @@ body {
 }
 
 .retouch a:last-child {
-  left: 100px;
+  right: 80px;
 }
 
 .mannersDetail__box {

@@ -7,10 +7,10 @@
 </head>
 
 <body>
-    <!-- <span class="info"
+    <span class="info"
       >신문물 입니다.<br /><br />회원가입 후 글을 써서 새로운 문물들을
       전파해주세요!😍</span
-    > -->
+    >
     <form method="get" class="search" action="{% url 'newproductSearch' %}">
       <input
         type="search"
@@ -46,13 +46,14 @@
               <h5 class="productCard-title mt-3 mb-3">
                 {{product.productName}}
               </h5>
+              <br>
               <div style="text-align: right; line-height: 1rem">
                 - 작성자 {{product.user.nickname}}
               </div>
               <p class="productCard-text" style="line-height: 1.5rem">
                 {{product}}
               </p>
-              <div style="text-align: right; margin-top: 5px">
+              <div style="text-align: right; margin-bottom: 5px">
                 {{product.date|date:'Y-m-d fa' }} ❤{{product.like}}
               </div>
             </div>

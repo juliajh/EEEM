@@ -1,49 +1,43 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+
 main {
   padding-top: 80px;
-  font-family: Montserrat;
+  font-family: "IBM Plex Sans KR", sans-serif;
 }
 
+.ne a {
+  color: skyblue;
+}
+
+.retouch {
+  position: absolute;
+  top: 130px;
+  right: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.retouch a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 60px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: rgb(206, 191, 236);
+}
+
+.retouch a:last-child {
+  right: 80px;
+}
 .titleFont {
   font-weight: bold;
   font-size: 60px;
   text-align: left;
   margin-left: 100px;
-}
-
-.gradient-border {
-  --border-width: 1px;
-  position: relative;
-  border-radius: var(--border-width);
-}
-.gradient-border::after {
-  position: absolute;
-  content: "";
-  top: calc(-1 * var(--border-width));
-  left: calc(-1 * var(--border-width));
-  z-index: -1;
-  width: calc(100% + var(--border-width) * 2);
-  height: calc(100% + var(--border-width) * 2);
-  background: linear-gradient(
-    60deg,
-    #7b94dad9,
-    #89a8ffd7,
-    #6d8fedd4,
-    #7795e9e0,
-    #7fdfe6e8,
-    #9ee2caee,
-    #afe0edec,
-    #ccd8f8
-  );
-  background-size: 300% 300%;
-  background-position: 0 50%;
-  border-radius: calc(2 * var(--border-width));
-  animation: moveGradient 4s alternate infinite;
-}
-@keyframes moveGradient {
-  50% {
-    background-position: 100% 50%;
-  }
 }
 
 .like {
@@ -65,6 +59,10 @@ main {
   background-position-y: calc(var(--size) * 0.02);
   width: 100px;
   height: var(--size);
+  font-size: 20px;
+  font-family: "Poor Story", cursive;
+  font-weight: bold;
+  color: #1b232e;
 }
 @media (hover: hover) {
   .like:hover {
@@ -73,4 +71,26 @@ main {
   .like:hover .hearth {
     background-position-x: calc(var(--size) * (var(--frames) * -1 + 1));
   }
+}
+
+.heartText {
+  margin-left: 32px;
+  transition-property: font-size;
+  font-size: 0px;
+}
+
+.heartText:hover {
+  font-size: 20px;
+}
+
+.content {
+  position: absolute;
+  left: 600px;
+  top: 170px;
+  width: 700px;
+  height: 600px;
+  font-size: 32px;
+  line-height: 60px;
+  font-weight: 590;
+  margin-left: 80px;
 }

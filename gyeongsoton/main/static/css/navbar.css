@@ -54,6 +54,10 @@ body {
   align-items: center;
 }
 
+.nav-item a:hover {
+  color: skyblue;
+}
+
 .nav-link {
   color: white;
 }
@@ -114,39 +118,27 @@ body {
   outline: none;
 }
 
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 200px;
+}
+
 .userprofile {
-  position: absolute;
-  right: 310px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
 }
 
-.username {
-  position: absolute;
-  right: 260px;
-  font-weight: bold;
+.coin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.cointext {
-  position: absolute;
-  right: 160px;
-  font-weight: bold;
-}
-/*
-.login__btn {
-  position: absolute;
-  right: 20px;
-  border-radius: 10px;
-  padding: 13px;
-  background-color: rgb(126, 241, 203);
-}
-
-.logout__btn {
-  position: absolute;
-  right: 20px;
-  border-radius: 10px;
-  padding: 13px;
-  background-color: rgb(126, 241, 203);
-}
-*/
 .navbar__toggleBtn {
   position: absolute;
   display: none;

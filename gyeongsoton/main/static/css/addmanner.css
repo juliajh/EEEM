@@ -11,6 +11,10 @@ body {
   color: #298adf;
 }
 
+.form-control {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
 .titleandhashtag {
   display: flex;
   justify-content: center;

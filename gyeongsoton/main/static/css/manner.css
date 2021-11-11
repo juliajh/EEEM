@@ -2,6 +2,10 @@ body {
   background-color: rgb(242, 240, 248);
 }
 
+.ma a {
+  color: skyblue;
+}
+
 .main__screen {
   padding-top: 90px;
   display: flex;
@@ -14,6 +18,17 @@ body {
   width: 700px;
   height: auto;
   border: 3px solid rgb(206, 191, 236);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.manner__box--secret {
+  padding: 20px 10px;
+  width: 700px;
+  height: auto;
+  border: 3px solid red;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -142,10 +157,10 @@ body {
 }
 
 .info {
-  display: block;
-  font-size: 40px;
+  font-size: 20px;
   text-align: center;
-  margin-bottom: 60px;
+  display: block;
+  margin-bottom: 20px;
 }
 
 .manner__index {
@@ -183,4 +198,41 @@ body {
 h4 {
   display: block;
   margin-bottom: 30px;
+}
+
+#certificationModal {
+  height: 200px;
+  text-align: center;
+  padding-top: 50px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+#certificationModal span {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.tocertificatebtn {
+  border-radius: 20px;
+  border: 1px solid #88aed0;
+  background-color: #88aed0;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 8px 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  line-height: 2;
+}
+
+.tocertificatebtn:active {
+  transform: scale(0.95);
+}
+
+.tocertificatebtn:focus {
+  outline: none;
+}
+
+button:active {
+  transform: scale(0.95);
 }

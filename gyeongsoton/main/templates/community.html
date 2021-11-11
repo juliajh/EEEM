@@ -42,14 +42,11 @@
             </div>
         </div>
         {% if user.is_authenticated %}
-          <div class="addCommunity">
-          <a class="addCommunitybtn" href='{% url 'toaddCommunitypage' %}'>글 쓰기</a>
-          </div>
+        <a class="writeText" href='{% url 'toaddCommunitypage' %}'>글 쓰기</a>  
         {% else %}
-          <div class="addCommunity">
-            <a href="#loginmodal" rel="modal:open">글 쓰기</a>
+        <a class="writeText" href="#loginmodal" rel="modal:open">글 쓰기</a>
         {% endif %}
-    </div>
+    
   </div>
 
  

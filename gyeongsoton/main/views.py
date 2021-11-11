@@ -5,6 +5,7 @@ from .models import communityText
 from .models import manner
 from .models import newterm
 from .models import communityComment
+from .models import certification
 from .models import product
 from django.utils import timezone
 from django.contrib import messages
@@ -88,8 +89,8 @@ def toEditCommunitypage(request,id):
 
 def communityEdit(request,id):
     edit_community=communityText.objects.get(pk=id)
-    edit_community.text=request.POST.get('text',False)
-    edit_community.title=request.POST.get('title',False)
+    edit_community.text=request.POST.get('communitytext',False)
+    edit_community.title=request.POST.get('communitytitle',False)
     edit_community.date=timezone.datetime.now()
     edit_community.writer=request.user
     edit_community.save()
@@ -122,7 +123,11 @@ def trend(request):
 def manners(request):
     manner_alltext = manner.objects.all()
     manner_alltext = manner.objects.order_by('-date')
-    return render(request, "manner.html", {"manner": manner_alltext})
+    try:
+        user_certification = certification.objects.get(user=request.user.id)
+    except certification.DoesNotExist:
+        user_certification=None
+    return render(request, "manner.html", {"manner": manner_alltext,"user_certification":user_certification})
 
 
 def mannerOrder(request):
@@ -167,7 +172,11 @@ def mannerSearch(request):
 
 
 def addManner(request):
-    return render(request, "addmanner.html")
+    try:
+        user_certification = certification.objects.get(user=request.user.id)
+    except certification.DoesNotExist:
+        user_certification=None
+    return render(request, "addmanner.html",{"user_certification":user_certification})
 
 
 def mannerCreate(request):
@@ -175,7 +184,14 @@ def mannerCreate(request):
         post = manner()
         post.user = request.user
         post.text = request.POST['title']
-        post.hashtag_me = request.POST['hashtagMe']
+        try:
+            user_certification = certification.objects.get(user=request.user.id)
+            post.hashtag_me = user_certification.job
+            request.user.coin+=20
+            post.secret=True
+        except certification.DoesNotExist:
+            post.hashtag_me = request.POST.get('hashtagMe',False)
+            post.secret=False
         post.hashtag_you = request.POST['hashtagYou']
         post.hashtag_situation = request.POST['body']
         post.like = 0
@@ -192,9 +208,21 @@ def mannerdelete(request, id):
     question.delete()
     return redirect('manner')
 
+def newproductdelete(request, id):
+    question = get_object_or_404(product, pk=id)
+    if request.user != question.user:
+        messages.error(request, '삭제권한이 없습니다')
+        return redirect('newproduct', id=question.id)
+    question.delete()
+    return redirect('newproduct')
+
 def toEditMannerpage(request,id):
     edit_manner=manner.objects.get(pk=id)
     return render(request,'editManner.html',{'manner':edit_manner})
+
+def toEditnewproduct(request, id):
+    editproduct=product.objects.get(pk=id)
+    return render(request, 'editproduct.html', {'editproduct' : editproduct})
 
 def mannerEdit(request,id):
     edit_manner=manner.objects.get(pk=id)
@@ -204,6 +232,17 @@ def mannerEdit(request,id):
     edit_manner.writer=request.user
     edit_manner.save()
     return redirect('mannersDetail',edit_manner.id)
+
+
+def productEdit(request,id):
+    edit_product=product.objects.get(pk=id)
+    edit_product.productName=request.POST.get('productName',False)
+    edit_product.productText=request.POST.get('productText',False)
+    edit_product.date=timezone.datetime.now()
+    edit_product.user=request.user
+    edit_product.save()
+    return redirect('newproductDetail',edit_product.id)
+
 
 #newterms
 def newterms(request):
@@ -368,3 +407,23 @@ def productCreate(request):
             return redirect('newproductDetail',post.id)
     else:
         return redirect('newproduct')
+    
+def toCertification(request):
+    return render(request,"certification.html")
+
+
+def addCertification(request):
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            try:
+                old_user_cf = certification.objects.get(user=request.user.id)
+                old_user_cf.delete()
+            except certification.DoesNotExist:
+                old_user_cf=None
+            cf=certification()
+            cf.user=request.user
+            cf.job=request.POST['job']
+            if 'image' in request.FILES:
+                cf.image=request.FILES['image']
+                cf.save()
+        return redirect('manner')

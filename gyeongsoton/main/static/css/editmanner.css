@@ -21,6 +21,7 @@ body {
   width: 900px;
   height: 30px;
   border: 1px solid black;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .box {
@@ -55,10 +56,15 @@ input:focus {
   outline: 1px solid skyblue;
   border: 1px solid skyblue;
   border-radius: 5px;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 textarea:focus {
   outline: 1px solid skyblue;
   border: 1px solid skyblue;
   border-radius: 5px;
+}
+
+.form-control {
+  font-family: "Noto Sans KR", sans-serif;
 }

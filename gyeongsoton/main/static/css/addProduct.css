@@ -48,3 +48,6 @@ textarea:focus {
   cursor: pointer;
   border-radius: 20px;
 }
+.form-control {
+  font-family: "Noto Sans KR", sans-serif;
+}

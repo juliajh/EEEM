@@ -59,16 +59,16 @@
         </a>
       </div>
       <ul class="navbar__buttons">
-        <li class="nav-item">
+        <li class="nav-item co">
           <a class="nav-link" href="{%url 'community' %}">커뮤니티</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item ma">
           <a class="nav-link" href="{%url 'manner' %}">매너를 지켜쥬</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item ne">
           <a class="nav-link" href="{%url 'newproduct' %}">신문물 소개</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item te">
           <a class="nav-link" href="{%url 'newterms' %}">신조어 능력고사</a>
         </li>
       </ul>
@@ -81,24 +81,30 @@
         <span>로그아웃</span>
       </a>
       {% if user.profile %}
-      <div class="userprofile">
-        <img
-          src="{{request.user.profile.url}}"
-          style="border-radius: 70%"
-          alt="user"
-          width="37px"
-          class="rounded-circle"
-        />
-      </div>
-      {% endif %}
-      <div class="username"><span>{{request.user.nickname}}</span></div>
-      <img src="{% static 'img/coin.png' %}" width="30px" style="  position: absolute;
-      right: 190px;
-      font-weight: bold;"/>
-      <span class="cointext">{{request.user.coin}}</span>
+      <div class="user">
+        <div class="userprofile">
+          <img
+            src="{{request.user.profile.url}}"
+            style="border-radius: 70%; margin-right: 10px"
+            alt="user"
+            width="37px"
+            class="rounded-circle"
+          />
+          <div class="username"><span>{{request.user.nickname}}</span></div>
+        </div>
+        {% endif %}
+        <div class="coin">
+          <img
+            src="{% static 'img/coin.png' %}"
+            width="30px"
+            style="margin-right: 10px"
+          />
+          <span class="cointext">{{request.user.coin}}</span>
+        </div>
       </div>
       {% endif %}
     </nav>
+
     <div id="loginmodal" class="modal">
       <p>로그인 후 EEEM의 다양한 기능을 사용해보세요😃<br /><br /></p>
       <button class="tologinbtn" onclick="location.href='{% url 'login' %}'">

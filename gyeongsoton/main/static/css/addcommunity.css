@@ -43,3 +43,30 @@ textarea:focus {
   cursor: pointer;
   border-radius: 20px;
 }
+
+.form-control {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.overlay-container p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+}
+
+.form-container span {
+  font-size: 12px;
+}
+
+.social-container a {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+.overlay-panel p {
+  font-size: 15px;
+}
