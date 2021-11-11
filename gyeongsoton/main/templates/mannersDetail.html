@@ -2,7 +2,7 @@
 {% endblock %} {% block content %}
 <link rel="stylesheet" href='{% static "css/mannersDetail.css" %}'>
 <body>
-  
+
   <div class="mannersDetail__box">
     <h3>제목 : {{mannersdetail.text}}</h3>
     <div class="mannersDetail__box--situation">
@@ -14,14 +14,18 @@
         <span>누구에게 : {{mannersdetail.hashtag_you}}</span>
       </div>
       <div class="mannersDetail__box--tag--like">
-        {% if mannersdetail.user != request.user %}
-          <button onclick="location.href = '{% url 'mannerLikeUp' mannersdetail.id %}'"><img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{mannersdetail.like}}</button>
-          <button onclick="location.href = '{% url 'mannerDisLikeUp' mannersdetail.id %}'"><img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{mannersdetail.dis_like}}</button>
+        {% if user.is_authenticated %}
+          {% if mannersdetail.user != request.user %}
+            <button onclick="location.href = '{% url 'mannerLikeUp' mannersdetail.id %}'"><img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{mannersdetail.like}}</button>
+            <button onclick="location.href = '{% url 'mannerDisLikeUp' mannersdetail.id %}'"><img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{mannersdetail.dis_like}}</button>
+            {% else %}
+            <button><img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{mannersdetail.like}}</button>
+            <button><img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{mannersdetail.dis_like}}</button>
+            {% endif %}
         {% else %}
-        <button><img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{mannersdetail.like}}</button>
-        <button><img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{mannersdetail.dis_like}}</button>
+        <a href = '#loginmodal'" rel="modal:open"><img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{mannersdetail.like}}</a>
+        <a href = '#loginmodal'" rel="modal:open"><img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{mannersdetail.dis_like}}</a>
         {% endif %}
-
       </div>
     </div>
     <div class="profile">

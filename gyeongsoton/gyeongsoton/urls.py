@@ -78,4 +78,5 @@ urlpatterns = [
          views.productLikeUp, name="productLikeUp"),
     path('manner/certification/', views.toCertification, name="toCertification"),
     path('manner/certification/addCertification', views.addCertification, name="addCertification"),
+    path('manner/certification/stopCertification', views.stopCertification, name="stopCertification"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

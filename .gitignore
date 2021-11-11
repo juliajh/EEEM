@@ -7,12 +7,9 @@
 *.pyc
 __pycache__/
 local_settings.py
-db.sqlite3
 db.sqlite3-journal
 gyeongsoton/main/__pycache__/admin.cpython-39.pyc
 gyeongsoton/main/__pycache__/__init__.cpython-39.pyc
 gyeongsoton/main/__pycache__/__init__.cpython-39.pyc
 gyeongsoton/main/__pycache__/admin.cpython-39.pyc
-*.sqlite3
-gyeongsoton/db.sqlite3
 myvenv/

@@ -81,28 +81,51 @@
         <span>로그아웃</span>
       </a>
       {% if user.profile %}
-      <div class="user">
-        <div class="userprofile">
-          <img
-            src="{{request.user.profile.url}}"
-            style="border-radius: 70%; margin-right: 10px"
-            alt="user"
-            width="37px"
-            class="rounded-circle"
-          />
-          <div class="username"><span>{{request.user.nickname}}</span></div>
+        <div class="user">
+          <div class="userprofile">
+            <img
+              src="{{request.user.profile.url}}"
+              style="border-radius: 70%; margin-right: 10px"
+              alt="user"
+              width="37px"
+              class="rounded-circle"
+            />
+            <div class="username"><span>{{request.user.nickname}}</span></div>
+          </div>
+          {% endif %}
+          <div class="coin">
+            <img
+              src="{% static 'img/coin.png' %}"
+              width="30px"
+              style="margin-right: 10px"
+            />
+            <span class="cointext" style="margin-right: 30px;">{{request.user.coin}}</span>
+          </div>
+          <div class="bell">
+            <span class="profile icon" id="bell">
+              <img src="/static/img/bell.png" style="width:30px; height:25px;"/>
+            </span>
+          </div>  
         </div>
-        {% endif %}
-        <div class="coin">
-          <img
-            src="{% static 'img/coin.png' %}"
-            width="30px"
-            style="margin-right: 10px"
-          />
-          <span class="cointext">{{request.user.coin}}</span>
-        </div>
-      </div>
       {% endif %}
+
+
+      <div
+          class="notifications"
+          id="box"
+          style="overflow-y: auto; max-height: 400px; z-index: 3"
+        >
+          <h2>Notifications</h2>
+          <div class="text">
+            {% if notifications %}
+              {%for notification in notifications %}
+                <div class="text">{{notification.text}}<br><br></div>
+              {% endfor %}
+            {% else %}
+              <br><p>&nbsp&nbsp알림이 없습니다.</p><br><br>
+            {% endif %}
+        </div>
+
     </nav>
 
     <div id="loginmodal" class="modal">
@@ -116,4 +139,22 @@
     </div>
     {% block content %} {% endblock %}
   </body>
+
+  <script>
+    $(document).ready(function () {
+      var down = false;
+      $('#bell').click(function (e) {
+        var color = $(this).text();
+        if (down) {
+          $('#box').css('height', '0px');
+          $('#box').css('opacity', '0');
+          down = false;
+        } else {
+          $('#box').css('height', 'auto');
+          $('#box').css('opacity', '1');
+          down = true;
+        }
+      });
+    });
+  </script>
 </html>

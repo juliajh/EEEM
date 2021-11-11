@@ -48,34 +48,65 @@
             <div>작성자 : {{m.user.nickname}}</div>
           </div>
         </a>
-      {% else %}
-        <a href="#coinModal" class="manner__box--secret" rel="modal:open">
-          <div class="profile">
-            <div class="manner__user">
-              {% if m.user.profile %}
-              <img src="{{m.user.profile.url}}" alt="user" width="60px" class="rounded-circle">
-              {% endif %}  
-              <div>{{m.user.sex}}, {{m.user.age}}대</div>
-            </div>
-            <div class="manner__main">
-              <div class="manner__text">
-                제목 : {{m.text}}
+      {% endif %}
+      {% if m.secret %}
+        {% if m.user != request.user %}
+          <a href="#coinModal" class="manner__box--secret" rel="modal:open">
+            <div class="profile">
+              <div class="manner__user">
+                {% if m.user.profile %}
+                <img src="{{m.user.profile.url}}" alt="user" width="60px" class="rounded-circle">
+                {% endif %}  
+                <div>{{m.user.sex}}, {{m.user.age}}대</div>
               </div>
-              <div class="manner__hashtag">
-                <div class="manner__hashtag--detail">누가:{{m.hashtag_me}}</div>
-                <div class="manner__hashtag--detail">누구에게:{{m.hashtag_you}}</div>
+              <div class="manner__main">
+                <div class="manner__text">
+                  제목 : {{m.text}}
+                </div>
+                <div class="manner__hashtag">
+                  <div class="manner__hashtag--detail">누가:{{m.hashtag_me}}</div>
+                  <div class="manner__hashtag--detail">누구에게:{{m.hashtag_you}}</div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="mannerInfo">
-            <div class="mannerthumbs">
-              <img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{m.like}}
-              <img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{m.dis_like}}
+            <div class="mannerInfo">
+              <div class="mannerthumbs">
+                <img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{m.like}}
+                <img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{m.dis_like}}
+              </div>
+              <div>{{m.date|date:'Y-m-d fa' }}</div>
+              <div>작성자 : {{m.user.nickname}}</div>
             </div>
-            <div>{{m.date|date:'Y-m-d fa' }}</div>
-            <div>작성자 : {{m.user.nickname}}</div>
-          </div>
-        </a>
+          </a>
+        {% else %} <!--인증 완료한 내가 쓴 글-->
+          <a class="manner__box" href="{%url 'mannersDetail' m.id %}" style="border-color:rgb(255, 255, 255);">
+            <div class="profile">
+              <div class="manner__user">
+                {% if m.user.profile %}
+                <img src="{{m.user.profile.url}}" alt="user" width="60px" class="rounded-circle">
+                {% endif %}  
+                <div>{{m.user.sex}}, {{m.user.age}}대</div>
+              </div>
+              <div class="manner__main">
+                <div class="manner__text">
+                  제목 : {{m.text}}
+                </div>
+                <div class="manner__hashtag">
+                  <div class="manner__hashtag--detail">누가:{{m.hashtag_me}}</div>
+                  <div class="manner__hashtag--detail">누구에게:{{m.hashtag_you}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="mannerInfo">
+              <div class="mannerthumbs">
+                <img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{m.like}}
+                <img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{m.dis_like}}
+              </div>
+              <div>{{m.date|date:'Y-m-d fa' }}</div>
+              <div>작성자 : {{m.user.nickname}}</div>
+            </div>
+          </a>
+        {% endif %}
       {% endif %}
     {% endfor %}
 
@@ -91,6 +122,7 @@
         <br><br>
         <button class="tocertificatebtn" style="margin-right:10px;" onclick="location.href='{%url 'addManner' %}'">"{{user_certification.job}}"로 글쓰기</button>
         <button class="tocertificatebtn" onclick="location.href='{%url 'toCertification' %}'">다른 직업으로 인증하기</button>
+        <button class="tocertificatebtn" onclick="location.href='{%url 'stopCertification' %}'">인증 취소하기</button>
       {% else %}  
         <span style="font-size:18px;">인증을 기다리고 있습니다.</span>  
         <br><br>

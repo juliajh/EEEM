@@ -61,7 +61,8 @@ class product(models.Model):
     productText = models.CharField(max_length=1000, default='')
     like = models.IntegerField()
     image = models.ImageField(upload_to='product/', null=False, blank=False)
-
+    getcoin=models.BooleanField(default=False,null=True)
+    
     def __str__(self):
         if len(self.productText)>50:
             return self.productText[:50]+"..."
@@ -73,3 +74,8 @@ class certification(models.Model):
     job=models.CharField(max_length=20,default='',blank=True)
     image = models.ImageField(null=True, blank=True)
     certified=models.BooleanField(default=False,null=True)
+
+class notification(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE, default='')
+    text=models.CharField(max_length=100,default='',blank=True)
