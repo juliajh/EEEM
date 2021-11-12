@@ -310,7 +310,8 @@ def newterms(request):
 
 
 def newtermQuiz(request, id):
-    newtermCount = newterm.objects.count()-1
+    newtermsum = newterm.objects.count()-1
+    newtermCount = int(id)-1
     if id == 0:
         term = get_object_or_404(newterm, pk=id)
     else:
@@ -326,14 +327,14 @@ def newtermQuiz(request, id):
             request,
             "newtermQuiz.html",
             {"term": term, "choice_1": term.answer,
-                "choice_2": term.non_answer, "newtermCount": newtermCount},
+                "choice_2": term.non_answer, "newtermCount": newtermCount,"newtermsum":newtermsum},
         )
     else:
         return render(
             request,
             "newtermQuiz.html",
             {"term": term, "choice_1": term.non_answer,
-                "choice_2": term.answer, "newtermCount": newtermCount},
+                "choice_2": term.answer,"newtermCount": newtermCount,"newtermsum":newtermsum},
         )
 
 

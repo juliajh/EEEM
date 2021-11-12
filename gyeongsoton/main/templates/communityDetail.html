@@ -86,8 +86,6 @@
                                     </a>
                                     {% if request.user == community.user and not community.selected %}
                                         <button class="selectbtn" onclick="location.href='{% url 'communitySelect' comment.id %}'">V 채택</button>
-                                    {% else %}
-                                        <div class="selectedButton">채택완료</div>
                                     {% endif %}
                                 {% else %}
                                     <img src="{%static 'img/like.png' %}" width="20px" height="20px"/>
