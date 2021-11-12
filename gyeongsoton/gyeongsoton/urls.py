@@ -56,6 +56,7 @@ urlpatterns = [
     path('manner/edit/<str:id>', views.mannerEdit, name="mannerEdit"),
     path('manner/delete/<int:id>/', views.mannerdelete, name="mannerdelete"),
     path('manner/ordered', views.mannerOrder, name="mannerOrder"),
+    path('manner/minuscoin/<str:id>/', views.minuscoin, name="minuscoin"),
     path('newterms/', views.newterms, name="newterms"),
     path('newtermQuiz/<str:id>/', views.newtermQuiz, name="newtermQuiz"),
     path('newtermQuiz/<str:id>/button1',

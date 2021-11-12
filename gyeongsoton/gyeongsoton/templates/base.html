@@ -119,10 +119,10 @@
           <div class="text">
             {% if notifications %}
               {%for notification in notifications %}
-                <div class="text">{{notification.text}}<br><br></div>
+                <div class="text" style="line-height: 20px; margin:10px 10px 0px 10px; text-align: left;">{{notification.text}}<br><br></div>
               {% endfor %}
             {% else %}
-              <br><p>&nbsp&nbsp알림이 없습니다.</p><br><br>
+              <br><p style="text-align: center;">&nbsp&nbsp알림이 없습니다.</p><br><br>
             {% endif %}
         </div>
 

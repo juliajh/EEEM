@@ -23,6 +23,7 @@ def home(request):
 #community
 def community(request):
     community_alltext = communityText.objects.all()
+    community_alltext = communityText.objects.order_by('-date')
     return render(request, "community.html", {"communities": community_alltext})
 
 
@@ -507,3 +508,22 @@ def stopCertification(request):
     else:
         return redirect('404error')
     
+
+
+def minuscoin(request, id):
+    manner_detail = get_object_or_404(manner, pk=id)
+    if request.user.is_authenticated:
+        if request.user.coin >= 3 :
+            request.user.coin -= 3
+            request.user.save()
+            comment_notification=notification()
+            comment_notification.user=request.user
+            comment_notification.text="인증된 글을 열람하여 3💰을 사용하였습니다."
+            comment_notification.save()
+            return render(request, "mannersDetail.html", {"mannersdetail": manner_detail})
+
+        else :
+            return redirect('manner')
+    else:
+        return redirect('404error')
+

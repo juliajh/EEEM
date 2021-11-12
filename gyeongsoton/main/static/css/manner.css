@@ -28,17 +28,28 @@ body {
   padding: 20px 10px;
   width: 700px;
   height: auto;
-  border: 3px solid red;
+  border: 3px solid rgb(206, 191, 236);
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  position: relative;
+}
+
+.medal {
+  position: absolute;
+  top: -5px;
+  left: -10px;
 }
 
 .profile {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.date {
+  margin-bottom: 5px;
 }
 
 .manner__hashtag {
@@ -181,7 +192,7 @@ body {
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 700px) {
+/* @media screen and (max-width: 700px) {
   .manner__box {
     width: 300px;
   }
@@ -193,7 +204,7 @@ body {
     position: static;
     margin-bottom: 30px;
   }
-}
+} */
 
 h4 {
   display: block;
@@ -235,4 +246,22 @@ h4 {
 
 button:active {
   transform: scale(0.95);
+}
+
+#coinModal {
+  text-align: center;
+}
+
+#coinModal div:nth-child(2) {
+  margin-bottom: 15px;
+}
+
+#nocoinModal div:first-child {
+  margin-bottom: 10px;
+}
+
+.actionbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

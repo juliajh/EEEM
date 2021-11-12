@@ -23,12 +23,12 @@
             <button><img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{mannersdetail.dis_like}}</button>
             {% endif %}
         {% else %}
-        <a href = '#loginmodal'" rel="modal:open"><img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{mannersdetail.like}}</a>
-        <a href = '#loginmodal'" rel="modal:open"><img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{mannersdetail.dis_like}}</a>
+          <a href = '#loginmodal'" rel="modal:open" style="background-color: rgb(206, 191, 236);padding:10px;margin:0px 5px;border-radius: 5px;"><img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{mannersdetail.like}}</a>
+          <a href = '#loginmodal'" rel="modal:open" style="background-color: rgb(206, 191, 236);padding:10px;margin:0px 5px;border-radius: 5px;"><img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{mannersdetail.dis_like}}</a>
         {% endif %}
       </div>
     </div>
-    <div class="profile">
+    <div class="profile" style="border-color:rgb(206, 191, 236);">
       <div>
         <img src="{{mannersdetail.user.profile.url}}" style="border-radius: 70%" alt="user" width="50px" class="rounded-circle">
       </div>

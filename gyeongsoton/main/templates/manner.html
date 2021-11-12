@@ -2,6 +2,7 @@
 {% endblock %} {% block content %}
 
 <link rel="stylesheet" href='{% static "css/manner.css" %}'>
+<link rel="stylesheet" href='{% static "css/reset.css" %}'>
 <body>
   <main class="main__screen">
     <div class="info"
@@ -44,14 +45,21 @@
               <img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{m.like}}
               <img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{m.dis_like}}
             </div>
-            <div>{{m.date|date:'Y-m-d fa' }}</div>
+            <div class="date">{{m.date|date:'Y-m-d fa' }}</div>
             <div>작성자 : {{m.user.nickname}}</div>
           </div>
         </a>
       {% endif %}
+
       {% if m.secret %}
         {% if m.user != request.user %}
+          {% if request.user.coin >= 3 %}
           <a href="#coinModal" class="manner__box--secret" rel="modal:open">
+          {% elif not user.is_authenticated %}
+          <a href="#loginmodal" class="manner__box--secret" rel="modal:open">
+          {% else %}
+          <a href="#nocoinModal" class="manner__box--secret" rel="modal:open">
+          {% endif %}
             <div class="profile">
               <div class="manner__user">
                 {% if m.user.profile %}
@@ -74,12 +82,15 @@
                 <img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{m.like}}
                 <img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{m.dis_like}}
               </div>
-              <div>{{m.date|date:'Y-m-d fa' }}</div>
+              <div class="date">{{m.date|date:'Y-m-d fa' }}</div>
               <div>작성자 : {{m.user.nickname}}</div>
+            </div>
+            <div class="medal">
+              <img src="{% static 'img/medal.png' %}" width="40px" height="40px">
             </div>
           </a>
         {% else %} <!--인증 완료한 내가 쓴 글-->
-          <a class="manner__box" href="{%url 'mannersDetail' m.id %}" style="border-color:rgb(255, 255, 255);">
+          <a class="manner__box--secret" href="{%url 'mannersDetail' m.id %}">
             <div class="profile">
               <div class="manner__user">
                 {% if m.user.profile %}
@@ -102,13 +113,35 @@
                 <img src="{%static 'img/like.png' %}" width="20px" height="20px"/> : {{m.like}}
                 <img src="{%static 'img/dislike.png' %}" width="20px" height="20px"/> : {{m.dis_like}}
               </div>
-              <div>{{m.date|date:'Y-m-d fa' }}</div>
+              <div class="date">{{m.date|date:'Y-m-d fa' }}</div>
               <div>작성자 : {{m.user.nickname}}</div>
+            </div>
+            <div class="medal">
+              <img src="{% static 'img/medal.png' %} " width="40px" height="40px">
             </div>
           </a>
         {% endif %}
       {% endif %}
+      {% if user.is_authenticated %}
+        <div id="coinModal" class="modal">
+          <div>인증 글을 보려면 코인 3개가 필요합니다.</div>
+          <div>코인을 사용 하시겠습니까?</div>
+          <div class="actionbutton">
+            <form action="{% url 'minuscoin' m.id %}">
+              <button class="tologinbtn" type="submit" style="margin-right:10px;">네</button>
+            </form>
+            <form action="{% url 'manner' %}">
+              <button class="tologinbtn" type="submit">아니오</button>
+            </form>
+          </div>
+        </div>
+      {% endif %}
     {% endfor %}
+    
+  <div id="nocoinModal" class="modal">
+    <div>인증 글을 보려면 코인 3개가 필요합니다.</div>
+    <div>코인이 부족합니다. (현재 코인 : {{request.user.coin}}개)</div>
+  </div>
 
   <div id="certificationModal" class="modal">
     {% if user_certification is None %}
@@ -131,9 +164,6 @@
     {% endif %}
   </div>
 
-  <div id="coinModal" class="modal">
-    코인쓰겠냐
-  </div>
 
   </main>
   <script src="https://kit.fontawesome.com/740a1d0d1d.js" crossorigin="anonymous"></script>
